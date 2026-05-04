@@ -1,0 +1,42 @@
+/* Bjerrehuus Fine Jewellery — Design Token Layer */
+:root {
+  /* Colors */
+  --bjfj-bg:          #FAF8F5;
+  --bjfj-bg-alt:      #F1ECE5;
+  --bjfj-text:        #1A1A1A;
+  --bjfj-text-muted:  #6E6862;
+  --bjfj-accent:      #6B1F2A;
+  --bjfj-accent-alt:  #1F3D2C;
+  --bjfj-border:      #E8E4DD;
+
+  /* Typography */
+  --bjfj-font-display: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  --bjfj-font-body:    'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Type scale */
+  --bjfj-fs-h1:    clamp(2.5rem, 5vw, 4.5rem);
+  --bjfj-fs-h2:    clamp(2rem, 4vw, 3rem);
+  --bjfj-fs-h3:    1.5rem;
+  --bjfj-fs-body:  1.0625rem;
+  --bjfj-fs-small: 0.875rem;
+  --bjfj-lh-body:  1.7;
+
+  /* Spacing — 8pt scale */
+  --bjfj-s-1:  0.5rem;
+  --bjfj-s-2:  1rem;
+  --bjfj-s-3:  1.5rem;
+  --bjfj-s-4:  2rem;
+  --bjfj-s-6:  3rem;
+  --bjfj-s-8:  4rem;
+  --bjfj-s-12: 6rem;
+  --bjfj-s-16: 8rem;
+
+  /* Container */
+  --bjfj-container-max: 1440px;
+  --bjfj-container-pad: clamp(1.5rem, 4vw, 4rem);
+
+  /* Motion */
+  --bjfj-ease:     cubic-bezier(0.22, 1, 0.36, 1);
+  --bjfj-dur-fast: 200ms;
+  --bjfj-dur-base: 400ms;
+}

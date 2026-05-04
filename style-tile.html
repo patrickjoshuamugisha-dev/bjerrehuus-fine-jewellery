@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bjerrehuus Fine Jewellery — Style Tile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  /* ── Tokens ───────────────────────────────────────────────────────── */
+  :root {
+    --bg:          #FAF8F5;
+    --bg-alt:      #F1ECE5;
+    --text:        #1A1A1A;
+    --text-muted:  #6E6862;
+    --accent:      #6B1F2A;
+    --accent-alt:  #1F3D2C;
+    --border:      #E8E4DD;
+
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body:    'Inter', system-ui, sans-serif;
+
+    --fs-h1:    clamp(2.5rem, 5vw, 4.5rem);
+    --fs-h2:    clamp(2rem, 4vw, 3rem);
+    --fs-h3:    1.5rem;
+    --fs-body:  1.0625rem;
+    --fs-small: 0.875rem;
+    --lh-body:  1.7;
+
+    --ease:     cubic-bezier(0.22, 1, 0.36, 1);
+    --dur-fast: 200ms;
+    --dur-base: 400ms;
+  }
+
+  /* ── Reset ────────────────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Layout ───────────────────────────────────────────────────────── */
+  .page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem 8rem;
+  }
+  .section {
+    border-top: 1px solid var(--border);
+    padding: 4rem 0;
+  }
+  .section:first-child { border-top: none; }
+  .label {
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+  }
+
+  /* ── Style tile header ────────────────────────────────────────────── */
+  .tile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 0 3rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0;
+  }
+  .tile-header h1 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 1.0625rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .tile-meta {
+    font-size: var(--fs-small);
+    color: var(--text-muted);
+    text-align: right;
+  }
+
+  /* ── §1 Logo ──────────────────────────────────────────────────────── */
+  .logo-row {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    flex-wrap: wrap;
+  }
+  .logo-size { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+  .logo-size span { font-size: var(--fs-small); color: var(--text-muted); }
+  .logo-size img { display: block; }
+
+  /* ── §2 Typography ────────────────────────────────────────────────── */
+  .type-samples { display: flex; flex-direction: column; gap: 2.5rem; }
+  .type-sample { display: flex; gap: 3rem; align-items: baseline; }
+  .type-label { font-size: var(--fs-small); color: var(--text-muted); width: 5rem; flex-shrink: 0; padding-top: 0.25rem; }
+
+  h1.display { font-family: var(--font-display); font-size: var(--fs-h1); font-weight: 400; line-height: 1.1; letter-spacing: -0.01em; }
+  h2.display { font-family: var(--font-display); font-size: var(--fs-h2); font-weight: 400; line-height: 1.15; }
+  h3.display { font-family: var(--font-display); font-size: var(--fs-h3); font-weight: 400; line-height: 1.3; }
+  p.body-sample { font-family: var(--font-body); font-size: var(--fs-body); line-height: var(--lh-body); color: var(--text); max-width: 52ch; }
+
+  /* ── §3 Color swatches ────────────────────────────────────────────── */
+  .swatches { display: flex; gap: 0; flex-wrap: wrap; }
+  .swatch {
+    display: flex;
+    flex-direction: column;
+    width: 140px;
+  }
+  .swatch-color {
+    height: 80px;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .swatch-info { padding: 0.625rem 0 0.625rem; }
+  .swatch-name { font-size: var(--fs-small); font-weight: 500; }
+  .swatch-hex { font-size: 0.75rem; color: var(--text-muted); font-family: monospace; }
+
+  /* ── §4 Product card ──────────────────────────────────────────────── */
+  .product-card {
+    width: 360px;
+    cursor: pointer;
+  }
+  .product-card-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background: var(--bg-alt);
+  }
+  .product-card-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity var(--dur-fast) var(--ease);
+  }
+  .product-card-image img.hover { opacity: 0; }
+  .product-card:hover .product-card-image img.primary { opacity: 0; }
+  .product-card:hover .product-card-image img.hover { opacity: 1; }
+  .product-card-info { padding: 1rem 0 0; }
+  .product-card-name { font-family: var(--font-body); font-size: var(--fs-small); letter-spacing: 0.04em; }
+  .product-card-price { font-family: var(--font-body); font-size: 1rem; font-weight: 500; margin-top: 0.25rem; }
+  .product-card-meta { font-size: var(--fs-small); color: var(--text-muted); margin-top: 0.125rem; }
+
+  /* ── §5 Inspiration editorial ─────────────────────────────────────── */
+  .editorial {
+    max-width: 640px;
+  }
+  .editorial-label {
+    font-size: var(--fs-small);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+  .editorial h2 {
+    font-family: var(--font-display);
+    font-size: var(--fs-h2);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+  .editorial p { color: var(--text-muted); max-width: 52ch; }
+  .editorial p + p { margin-top: 1rem; }
+
+  /* ── §6 Buttons ───────────────────────────────────────────────────── */
+  .button-grid { display: flex; flex-direction: column; gap: 2rem; }
+  .button-row { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+  .btn-state-label { font-size: var(--fs-small); color: var(--text-muted); width: 5rem; }
+
+  .btn {
+    font-family: var(--font-body);
+    font-size: var(--fs-small);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), opacity var(--dur-fast) var(--ease);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #FAF8F5;
+    padding: 0.875rem 2rem;
+  }
+  .btn-primary:hover { background: #4e1620; }
+  .btn-primary.disabled { background: var(--border); color: var(--text-muted); pointer-events: none; }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    padding: 0.8125rem 1.9375rem;
+    border: 1px solid var(--text);
+  }
+  .btn-secondary:hover { background: var(--text); color: var(--bg); }
+  .btn-secondary.disabled { border-color: var(--border); color: var(--text-muted); pointer-events: none; }
+
+  .btn-tertiary {
+    background: transparent;
+    color: var(--text);
+    padding: 0;
+    font-size: var(--fs-small);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+  }
+  .btn-tertiary::after { content: '→'; transition: transform var(--dur-fast) var(--ease); }
+  .btn-tertiary:hover::after { transform: translateX(4px); }
+  .btn-tertiary.disabled { color: var(--text-muted); pointer-events: none; }
+
+  /* ── §7 Inquire modal ─────────────────────────────────────────────── */
+  .modal-demo {
+    position: relative;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 40px rgba(26,26,26,0.12), 0 2px 8px rgba(26,26,26,0.06);
+    max-width: 480px;
+    padding: 3rem 2.5rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+  .modal-logo { text-align: center; margin-bottom: 1.5rem; }
+  .modal-logo img { height: 24px; }
+  .modal-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  .modal-divider { border: none; border-top: 1px solid var(--border); margin: 1.25rem 0; }
+  .modal-product {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+  .modal-product-img {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    background: var(--bg-alt);
+    flex-shrink: 0;
+  }
+  .modal-product-info { display: flex; flex-direction: column; gap: 0.2rem; }
+  .modal-product-name { font-size: var(--fs-small); font-weight: 500; }
+  .modal-product-material { font-size: var(--fs-small); color: var(--text-muted); }
+  .modal-product-price { font-size: var(--fs-small); color: var(--text-muted); }
+
+  .form-field { display: flex; flex-direction: column; gap: 0.375rem; margin-bottom: 1rem; }
+  .form-label { font-size: var(--fs-small); color: var(--text-muted); }
+  .form-input {
+    border: 1px solid var(--border);
+    background: transparent;
+    padding: 0.625rem 0.75rem;
+    font-family: var(--font-body);
+    font-size: var(--fs-small);
+    color: var(--text);
+    outline: none;
+    transition: border-color var(--dur-fast);
+  }
+  .form-input:focus { border-color: var(--text-muted); }
+  textarea.form-input { resize: vertical; min-height: 80px; }
+
+  .modal-submit { width: 100%; margin-top: 1.25rem; justify-content: center; }
+  .modal-note { text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem; }
+
+  /* ── §8 Footer preview ────────────────────────────────────────────── */
+  .footer-preview {
+    background: var(--bg-alt);
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+  .footer-col-title {
+    font-family: var(--font-body);
+    font-size: var(--fs-small);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .footer-col a { font-size: var(--fs-small); color: var(--text-muted); text-decoration: none; }
+  .footer-col a:hover { color: var(--text); }
+  .footer-col p { font-size: var(--fs-small); color: var(--text-muted); }
+  .footer-col p + p { margin-top: 0.5rem; }
+  .footer-newsletter-input {
+    border: none;
+    border-bottom: 1px solid var(--border);
+    background: transparent;
+    width: 100%;
+    padding: 0.5rem 0;
+    font-size: var(--fs-small);
+    color: var(--text);
+    outline: none;
+    margin-top: 1rem;
+  }
+  .footer-social { display: flex; gap: 1rem; margin-top: 1rem; }
+  .footer-social a { font-size: var(--fs-small); color: var(--text-muted); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="tile-header">
+    <h1>Bjerrehuus Fine Jewellery — Style Tile</h1>
+    <div class="tile-meta">
+      For review by Vibe Bjerrehuus<br>
+      Mugisha Marketing · May 2026
+    </div>
+  </div>
+
+  <!-- ① Logo -->
+  <div class="section">
+    <p class="label">01 — Logo</p>
+    <div class="logo-row">
+      <div class="logo-size">
+        <img src="https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/bd405351-abd1-42b7-9fcd-6826bf7e3e02/LOGO+-+mor.png?format=2500w" alt="Bjerrehuus Fine Jewellery" style="width:280px; height:auto;">
+        <span>Hero / 280px</span>
+      </div>
+      <div class="logo-size">
+        <img src="https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/bd405351-abd1-42b7-9fcd-6826bf7e3e02/LOGO+-+mor.png?format=2500w" alt="Bjerrehuus Fine Jewellery" style="width:140px; height:auto;">
+        <span>Header / 140px</span>
+      </div>
+      <div class="logo-size">
+        <img src="https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/bd405351-abd1-42b7-9fcd-6826bf7e3e02/LOGO+-+mor.png?format=2500w" alt="Bjerrehuus Fine Jewellery" style="width:80px; height:auto;">
+        <span>Footer / 80px</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ② Typography -->
+  <div class="section">
+    <p class="label">02 — Typography</p>
+    <div class="type-samples">
+      <div class="type-sample">
+        <span class="type-label">H1<br>Display</span>
+        <h1 class="display">Timeless pieces.<br>Cherished. Passed down.</h1>
+      </div>
+      <div class="type-sample">
+        <span class="type-label">H2<br>Display</span>
+        <h2 class="display">Discover the Pillow Collection</h2>
+      </div>
+      <div class="type-sample">
+        <span class="type-label">H3<br>Display</span>
+        <h3 class="display">Pillow Boomrang ørering</h3>
+      </div>
+      <div class="type-sample">
+        <span class="type-label">Body<br>17px / 1.7</span>
+        <p class="body-sample">Vibe Bjerrehuus has been immersed in the world of fashion and design production since 2003, working with her own brand and assisting others in bringing their visions to life from all corners of the globe. In 2010, she took a significant step by co-founding a small jewelry factory in Mumbai, India, with her Indian business partner — a place that has become her second home.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ③ Color swatches -->
+  <div class="section">
+    <p class="label">03 — Colour Palette</p>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FAF8F5;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Background</div>
+          <div class="swatch-hex">#FAF8F5</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F1ECE5;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Background Alt</div>
+          <div class="swatch-hex">#F1ECE5</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1A1A1A;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Text</div>
+          <div class="swatch-hex">#1A1A1A</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#6E6862;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Text Muted</div>
+          <div class="swatch-hex">#6E6862</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#6B1F2A;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Accent (Burgundy)</div>
+          <div class="swatch-hex">#6B1F2A</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1F3D2C;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Accent Alt (Forest)</div>
+          <div class="swatch-hex">#1F3D2C</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#E8E4DD;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Border</div>
+          <div class="swatch-hex">#E8E4DD</div>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:1.5rem; font-size:var(--fs-small); color:var(--text-muted);">
+      Note: The accent colour is proposed as <strong>Burgundy #6B1F2A</strong>. An alternative — <strong>Deep Forest #1F3D2C</strong> — is shown above. Please confirm your preference; both are locked in as tokens.
+    </p>
+  </div>
+
+  <!-- ④ Product card -->
+  <div class="section">
+    <p class="label">04 — Product Card (hover to see image swap)</p>
+    <div class="product-card">
+      <div class="product-card-image">
+        <img class="primary" src="https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/1722861371391-P7SZKYJH530PUN71C175/image-asset.jpeg" alt="Pillow Boomrang ørering">
+        <img class="hover" src="https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/1722861372968-YONOSYSR1BN99L7G98WN/image-asset.jpeg" alt="Pillow Boomrang ørering — detail">
+      </div>
+      <div class="product-card-info">
+        <div class="product-card-name">Pillow Boomrang ørering</div>
+        <div class="product-card-price">16.200 kr</div>
+        <div class="product-card-meta">18K hvidguld · VVS-VS</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑤ Inspiration editorial block -->
+  <div class="section">
+    <p class="label">05 — Inspiration / Editorial</p>
+    <div class="editorial">
+      <div class="editorial-label">Inspiration — The Pillow Series</div>
+      <h2>Linked pavé pillows, fully set with diamonds.</h2>
+      <p>Linket små pavé puder fuld besat af diamanter. Each pillow is hand-set in Mumbai at Vibe's own workshop, crafted in 18K white gold, yellow gold, or rose gold to your specification.</p>
+      <p>The series — necklace, bracelet, earrings, and studs — was born from Vibe's conviction that fine jewellery should be worn every day. Not saved. Not locked away. Worn until it belongs to you.</p>
+    </div>
+  </div>
+
+  <!-- ⑥ Buttons -->
+  <div class="section">
+    <p class="label">06 — Buttons</p>
+    <div class="button-grid">
+      <div style="margin-bottom:0.5rem;">
+        <p style="font-size:var(--fs-small); font-weight:500; margin-bottom:1rem;">Primary</p>
+        <div class="button-row">
+          <span class="btn-state-label">Default</span>
+          <button class="btn btn-primary">Add to Bag</button>
+          <span class="btn-state-label">Hover</span>
+          <button class="btn btn-primary" style="background:#4e1620;">Add to Bag</button>
+          <span class="btn-state-label">Disabled</span>
+          <button class="btn btn-primary disabled">Add to Bag</button>
+        </div>
+      </div>
+      <div style="margin-bottom:0.5rem;">
+        <p style="font-size:var(--fs-small); font-weight:500; margin-bottom:1rem;">Secondary (Outline)</p>
+        <div class="button-row">
+          <span class="btn-state-label">Default</span>
+          <button class="btn btn-secondary">Inquire</button>
+          <span class="btn-state-label">Hover</span>
+          <button class="btn btn-secondary" style="background:var(--text);color:var(--bg);">Inquire</button>
+          <span class="btn-state-label">Disabled</span>
+          <button class="btn btn-secondary disabled">Inquire</button>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:var(--fs-small); font-weight:500; margin-bottom:1rem;">Tertiary (Text link)</p>
+        <div class="button-row">
+          <span class="btn-state-label">Default</span>
+          <a href="#" class="btn btn-tertiary">Read more</a>
+          <span class="btn-state-label">Hover</span>
+          <a href="#" class="btn btn-tertiary" style="gap:0.625rem;">Read more</a>
+          <span class="btn-state-label">Disabled</span>
+          <a href="#" class="btn btn-tertiary disabled">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑦ Inquire modal mock -->
+  <div class="section">
+    <p class="label">07 — Inquire Letter Modal (static mock)</p>
+    <div class="modal-demo">
+      <div class="modal-logo">
+        <img src="https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/bd405351-abd1-42b7-9fcd-6826bf7e3e02/LOGO+-+mor.png?format=2500w" alt="Bjerrehuus Fine Jewellery" style="height:20px;">
+      </div>
+      <div class="modal-title">Inquire about this piece</div>
+      <hr class="modal-divider">
+      <div class="modal-product">
+        <img src="https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/1722861371391-P7SZKYJH530PUN71C175/image-asset.jpeg" alt="" class="modal-product-img">
+        <div class="modal-product-info">
+          <div class="modal-product-name">Pillow Boomrang ørering</div>
+          <div class="modal-product-material">18K hvidguld</div>
+          <div class="modal-product-price">16.200 kr</div>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Your name</label>
+        <input type="text" class="form-input" placeholder="Anna Nielsen">
+      </div>
+      <div class="form-field">
+        <label class="form-label">Your email</label>
+        <input type="email" class="form-input" placeholder="anna@example.com">
+      </div>
+      <div class="form-field">
+        <label class="form-label">Your message</label>
+        <textarea class="form-input" placeholder="I would love to know more about this piece — available sizes, lead time…"></textarea>
+      </div>
+      <button class="btn btn-primary modal-submit">Send inquiry</button>
+      <div class="modal-note">We'll respond within 24 hours.</div>
+    </div>
+  </div>
+
+  <!-- ⑧ Footer preview -->
+  <div class="section">
+    <p class="label">08 — Footer (3-column)</p>
+    <div class="footer-preview">
+      <div class="footer-col">
+        <div class="footer-col-title">Bjerrehuus Fine Jewellery</div>
+        <ul>
+          <li><a href="#">Our Purpose</a></li>
+          <li><a href="#">Production &amp; Responsibility</a></li>
+          <li><a href="#">Diamonds: Nature &amp; Lab</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Customer Care</div>
+        <ul>
+          <li><a href="#">Shipping &amp; Delivery</a></li>
+          <li><a href="#">Returns &amp; Exchange</a></li>
+          <li><a href="#">Jewellery Care &amp; Repair</a></li>
+          <li><a href="#">Size Guides</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <p>client@bjerrehuusfinejewellery.com</p>
+        <p>WhatsApp +45 22 77 36 84</p>
+        <input type="email" class="footer-newsletter-input" placeholder="Newsletter — your email">
+        <div class="footer-social">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
