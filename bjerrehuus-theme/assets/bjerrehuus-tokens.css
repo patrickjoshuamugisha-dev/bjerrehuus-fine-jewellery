@@ -40,3 +40,62 @@
   --bjfj-dur-fast: 200ms;
   --bjfj-dur-base: 400ms;
 }
+
+/* ── Base typography ── */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--bjfj-accent);
+  color: var(--bjfj-bg);
+}
+
+h1, .h1 {
+  font-family: var(--bjfj-font-display);
+  font-size: var(--bjfj-fs-h1);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+h2, .h2 {
+  font-family: var(--bjfj-font-display);
+  font-size: var(--bjfj-fs-h2);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+h3, .h3 {
+  font-family: var(--bjfj-font-display);
+  font-size: var(--bjfj-fs-h3);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+p {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-body);
+  line-height: var(--bjfj-lh-body);
+  color: var(--bjfj-text);
+}
+
+/* ── Scroll-reveal animation base ── */
+@media (prefers-reduced-motion: no-preference) {
+  .bjfj-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity var(--bjfj-dur-base) var(--bjfj-ease),
+      transform var(--bjfj-dur-base) var(--bjfj-ease);
+  }
+
+  .bjfj-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
+{{ 'bjerrehuus-header.css' | asset_url | stylesheet_tag }}
 
 {%- if settings.predictive_search_enabled -%}
   <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -269,6 +270,17 @@
             {% render block %}
         {%- endcase -%}
       {%- endfor -%}
+
+      <button
+        type="button"
+        class="header__icon header__icon--wishlist link focus-inset bjfj-tooltip"
+        aria-label="Wishlist"
+        data-tooltip="Wishlist coming soon"
+        tabindex="0"
+      >
+        <span class="svg-wrapper">{{ 'icon-heart.svg' | inline_asset_content }}</span>
+        <span class="visually-hidden">Wishlist</span>
+      </button>
 
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
           {% if cart == empty %}

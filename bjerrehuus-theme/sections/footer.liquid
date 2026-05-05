@@ -1,5 +1,6 @@
 {% comment %}theme-check-disable UndefinedObject{% endcomment %}
 {{ 'section-footer.css' | asset_url | stylesheet_tag }}
+{{ 'bjerrehuus-footer.css' | asset_url | stylesheet_tag }}
 {{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
 {{ 'component-list-menu.css' | asset_url | stylesheet_tag }}
 {{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
@@ -151,6 +152,116 @@
                         </div>
                       {%- else -%}
                         {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+                      {%- endif -%}
+                    </div>
+                  {%- when 'contact' -%}
+                    <div class="footer-block__contact">
+                      {%- if block.settings.email != blank -%}
+                        <p>
+                          <a href="mailto:{{ block.settings.email }}" class="link link--text">
+                            {{ block.settings.email }}
+                          </a>
+                        </p>
+                      {%- endif -%}
+                      {%- if block.settings.phone != blank -%}
+                        {%- assign wa_number = block.settings.phone | remove: '+' | remove: ' ' | remove: '-' -%}
+                        <p>
+                          <a
+                            href="https://wa.me/{{ wa_number }}"
+                            class="link link--text"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            WhatsApp {{ block.settings.phone }}
+                          </a>
+                        </p>
+                      {%- endif -%}
+                      {%- if block.settings.show_newsletter -%}
+                        {%- form 'customer', id: 'ContactBlock-{{ block.id }}', class: 'footer__newsletter newsletter-form' -%}
+                          <input type="hidden" name="contact[tags]" value="newsletter">
+                          <div class="newsletter-form__field-wrapper">
+                            <div class="field">
+                              <input
+                                id="NewsletterBlock--{{ block.id }}"
+                                type="email"
+                                name="contact[email]"
+                                class="field__input"
+                                value="{{ form.email }}"
+                                aria-required="true"
+                                autocorrect="off"
+                                autocapitalize="off"
+                                autocomplete="email"
+                                {% if form.errors %}
+                                  autofocus
+                                  aria-invalid="true"
+                                  aria-describedby="ContactBlock-{{ block.id }}-error"
+                                {% elsif form.posted_successfully? %}
+                                  aria-describedby="ContactBlock-{{ block.id }}-success"
+                                {% endif %}
+                                placeholder="{{ 'newsletter.label' | t }}"
+                                required
+                              >
+                              <label class="field__label" for="NewsletterBlock--{{ block.id }}">
+                                {{ 'newsletter.label' | t }}
+                              </label>
+                              <button
+                                type="submit"
+                                class="newsletter-form__button field__button"
+                                name="commit"
+                                id="Subscribe-{{ block.id }}"
+                                aria-label="{{ 'newsletter.button_label' | t }}"
+                              >
+                                <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
+                              </button>
+                            </div>
+                            {%- if form.errors -%}
+                              <small class="newsletter-form__message form__message" id="ContactBlock-{{ block.id }}-error">
+                                <span class="svg-wrapper">{{- 'icon-error.svg' | inline_asset_content -}}</span>
+                                {{- form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email -}}
+                              </small>
+                            {%- endif -%}
+                          </div>
+                          {%- if form.posted_successfully? -%}
+                            <h3
+                              class="newsletter-form__message newsletter-form__message--success form__message"
+                              id="ContactBlock-{{ block.id }}-success"
+                              tabindex="-1"
+                              autofocus
+                            >
+                              <span class="svg-wrapper">{{- 'icon-success.svg' | inline_asset_content -}}</span>
+                              {{- 'newsletter.success' | t }}
+                            </h3>
+                          {%- endif -%}
+                        {%- endform -%}
+                      {%- endif -%}
+                      {%- if block.settings.show_social -%}
+                        <div class="footer-block__social-row">
+                          {%- render 'social-icons', class: 'footer__list-social' -%}
+                          {%- if block.settings.linkedin_url != blank -%}
+                            <ul class="list-unstyled list-social" role="list">
+                              <li class="list-social__item">
+                                <a
+                                  href="{{ block.settings.linkedin_url }}"
+                                  class="link list-social__link"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  <span class="svg-wrapper">{{ 'icon-linkedin.svg' | inline_asset_content }}</span>
+                                  <span class="visually-hidden">LinkedIn</span>
+                                </a>
+                              </li>
+                            </ul>
+                          {%- endif -%}
+                        </div>
+                      {%- endif -%}
+                      {%- if block.settings.privacy_url != blank -%}
+                        <p class="footer-block__privacy-link">
+                          <small>
+                            <a href="{{ block.settings.privacy_url }}" class="link link--text">
+                              {{ 'policies.privacy_policy.title' | t }}
+                            </a>
+                          </small>
+                        </p>
                       {%- endif -%}
                     </div>
                 {%- endcase -%}
@@ -419,6 +530,52 @@
             }
           ],
           "default": "center"
+        }
+      ]
+    },
+    {
+      "type": "contact",
+      "name": "Contact",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Contact",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "email",
+          "label": "Email address",
+          "default": "client@bjerrehuusfinejewellery.com"
+        },
+        {
+          "type": "text",
+          "id": "phone",
+          "label": "Phone / WhatsApp",
+          "default": "+45 22 77 36 84"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_newsletter",
+          "default": true,
+          "label": "Show newsletter form"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_social",
+          "default": true,
+          "label": "Show social icons"
+        },
+        {
+          "type": "url",
+          "id": "linkedin_url",
+          "label": "LinkedIn URL"
+        },
+        {
+          "type": "url",
+          "id": "privacy_url",
+          "label": "Privacy policy URL"
         }
       ]
     }

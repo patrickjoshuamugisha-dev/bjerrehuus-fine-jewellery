@@ -1,0 +1,93 @@
+/* ── Bjerrehuus Header Styles ── */
+
+/* Wishlist placeholder button */
+.header__icon--wishlist {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: default;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(var(--color-foreground));
+}
+
+.header__icon--wishlist .svg-wrapper {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__icon--wishlist .svg-wrapper svg {
+  width: 2rem;
+  height: 2rem;
+  stroke: currentColor;
+  fill: none;
+}
+
+/* ── Tooltip utility ── */
+.bjfj-tooltip {
+  position: relative;
+}
+
+.bjfj-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgb(var(--color-foreground));
+  color: rgb(var(--color-background));
+  font-family: var(--bjfj-font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 4px 10px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--bjfj-dur-fast) var(--bjfj-ease);
+  z-index: 200;
+}
+
+.bjfj-tooltip:hover::after,
+.bjfj-tooltip:focus-visible::after {
+  opacity: 1;
+}
+
+/* ── Book Appointment — disabled nav link ── */
+.header__menu-item--disabled {
+  cursor: not-allowed !important;
+  opacity: 0.45;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.header__menu-item--disabled::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgb(var(--color-foreground));
+  color: rgb(var(--color-background));
+  font-family: var(--bjfj-font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 4px 10px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--bjfj-dur-fast) var(--bjfj-ease);
+  z-index: 200;
+}
+
+.header__menu-item--disabled:hover::after,
+.header__menu-item--disabled:focus-visible::after {
+  opacity: 1;
+}

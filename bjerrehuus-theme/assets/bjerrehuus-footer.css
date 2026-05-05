@@ -1,0 +1,91 @@
+/* ── Bjerrehuus Footer Styles ── */
+
+/* Column headings */
+.footer-block__heading {
+  font-family: var(--bjfj-font-body);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgb(var(--color-foreground));
+  margin-bottom: var(--bjfj-s-3);
+}
+
+/* Contact block */
+.footer-block__contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bjfj-s-2);
+}
+
+.footer-block__contact p {
+  margin: 0;
+  font-size: var(--bjfj-fs-small);
+  line-height: 1.6;
+}
+
+.footer-block__contact a {
+  color: rgb(var(--color-foreground));
+  text-decoration: none;
+  opacity: 0.75;
+  transition: opacity var(--bjfj-dur-fast) var(--bjfj-ease);
+}
+
+.footer-block__contact a:hover {
+  opacity: 1;
+}
+
+/* Newsletter form inside contact block */
+.footer-block__contact .footer__newsletter {
+  margin-top: var(--bjfj-s-1);
+}
+
+/* Social row — merge LinkedIn with Dawn social list */
+.footer-block__contact .list-social {
+  margin-top: var(--bjfj-s-1);
+}
+
+/* LinkedIn — injected as sibling list, display inline */
+.footer-block__social-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-top: var(--bjfj-s-1);
+}
+
+.footer-block__social-row .list-social {
+  margin-top: 0;
+}
+
+/* Privacy small link */
+.footer-block__privacy-link {
+  margin: 0;
+  opacity: 0.6;
+}
+
+.footer-block__privacy-link a {
+  color: rgb(var(--color-foreground));
+  text-decoration: none;
+  font-size: var(--bjfj-fs-small);
+}
+
+.footer-block__privacy-link a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* Link list items */
+.footer-block__details-content.list-unstyled li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-block__details-content.list-unstyled a {
+  font-size: var(--bjfj-fs-small);
+  opacity: 0.75;
+  transition: opacity var(--bjfj-dur-fast) var(--bjfj-ease);
+}
+
+.footer-block__details-content.list-unstyled a:hover {
+  opacity: 1;
+}
