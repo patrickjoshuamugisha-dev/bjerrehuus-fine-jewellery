@@ -1,0 +1,114 @@
+{%- comment -%}
+  Reusable inquire letter modal.
+  Rendered once per page — JS opens it and populates product context dynamically.
+  Phase-2 wishlist will reuse this shell with a different payload.
+{%- endcomment -%}
+
+<div
+  id="bjfj-inquire-overlay"
+  class="bjfj-modal-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="bjfj-modal-title"
+>
+  <div class="bjfj-modal">
+
+    <button class="bjfj-modal__close" aria-label="Close">&#x2715;</button>
+
+    {%- if settings.logo != blank -%}
+      <img
+        src="{{ settings.logo | image_url: height: 64 }}"
+        alt="{{ shop.name }}"
+        class="bjfj-modal__logo"
+        loading="lazy"
+      >
+    {%- else -%}
+      <p class="bjfj-modal__logo" style="text-align:center;font-family:var(--bjfj-font-display);font-size:1rem;letter-spacing:0.12em;text-transform:uppercase;margin:0 auto var(--bjfj-s-4);">{{ shop.name }}</p>
+    {%- endif -%}
+
+    <h2 class="bjfj-modal__title" id="bjfj-modal-title">Inquire about this piece</h2>
+    <hr class="bjfj-modal__divider">
+
+    <div class="bjfj-modal__form-body">
+
+      {%- comment %} Product context — populated by JS on open {%- endcomment %}
+      <div class="bjfj-modal__product">
+        <img
+          class="bjfj-modal__product-img"
+          src=""
+          alt=""
+          width="72"
+          height="72"
+          style="display:none;"
+        >
+        <div>
+          <p class="bjfj-modal__product-name"></p>
+          <p class="bjfj-modal__product-meta"></p>
+        </div>
+      </div>
+
+      <form
+        class="bjfj-inquire-form"
+        action="/contact"
+        method="post"
+        accept-charset="UTF-8"
+        novalidate
+      >
+        <input type="hidden" name="form_type" value="contact">
+        <input type="hidden" name="utf8" value="✓">
+        <input type="hidden" name="contact[subject]" value="">
+        <input type="hidden" name="contact[product_handle]" value="">
+        <input type="hidden" name="contact[product_url]" value="">
+
+        <div class="bjfj-modal__field">
+          <label class="bjfj-modal__label" for="bjfj-modal-name">Your name</label>
+          <input
+            id="bjfj-modal-name"
+            class="bjfj-modal__input"
+            type="text"
+            name="contact[name]"
+            autocomplete="name"
+            required
+          >
+        </div>
+
+        <div class="bjfj-modal__field">
+          <label class="bjfj-modal__label" for="bjfj-modal-email">Your email</label>
+          <input
+            id="bjfj-modal-email"
+            class="bjfj-modal__input"
+            type="email"
+            name="contact[email]"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <div class="bjfj-modal__field">
+          <label class="bjfj-modal__label" for="bjfj-modal-message">Your message</label>
+          <textarea
+            id="bjfj-modal-message"
+            class="bjfj-modal__textarea"
+            name="contact[body]"
+            placeholder="Any questions about size, availability, or customisation?"
+          ></textarea>
+        </div>
+
+        <div class="bjfj-modal__submit-row">
+          <button type="submit" class="bjfj-btn--primary">Send inquiry</button>
+        </div>
+
+        <p class="bjfj-modal__note">We respond within 24 hours.</p>
+
+      </form>
+
+    </div>{%- comment %} /.bjfj-modal__form-body {%- endcomment %}
+
+    <div class="bjfj-modal__success" aria-live="polite">
+      <div class="bjfj-modal__success-mark">✦</div>
+      <h3>Your inquiry is on its way</h3>
+      <p>We'll be in touch within 24 hours.</p>
+    </div>
+
+  </div>
+</div>

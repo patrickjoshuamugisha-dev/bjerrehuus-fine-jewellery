@@ -1,0 +1,242 @@
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'bjerrehuus-product.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'bjerrehuus-product.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign purchase_type  = product.metafields.custom.purchase_type.value | default: 'shoppable'
+  assign material       = product.metafields.custom.material.value
+  assign diamond_spec   = product.metafields.custom.diamond_spec.value
+  assign current_var    = product.selected_or_first_available_variant
+  assign product_form_id = 'bjfj-form-' | append: section.id
+-%}
+
+{%- comment %} Variants JSON for client-side option → variant ID resolution {%- endcomment %}
+<script id="bjfj-variants-json" type="application/json">
+  [
+    {%- for v in product.variants -%}
+      {
+        "id": {{ v.id }},
+        "available": {{ v.available }},
+        "price_formatted": {{ v.price | money | json }},
+        "options": [{% for o in v.options %}{{ o | json }}{% unless forloop.last %},{% endunless %}{% endfor %}]
+      }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ]
+</script>
+
+<div class="bjfj-product">
+
+  {%- comment %} ── GALLERY ── {%- endcomment %}
+  <div class="bjfj-gallery">
+
+    <div class="bjfj-gallery__main">
+      {%- if product.media.size > 0 -%}
+        {%- for media in product.media -%}
+          <div class="bjfj-media-item{% if forloop.first %} is-active{% endif %}" data-index="{{ forloop.index0 }}">
+            {%- if media.media_type == 'video' -%}
+              <video
+                src="{{ media.sources.last.url }}"
+                autoplay
+                muted
+                loop
+                playsinline
+                aria-label="{{ media.alt | default: product.title | escape }}"
+              ></video>
+            {%- else -%}
+              <img
+                src="{{ media | image_url: width: 1200 }}"
+                alt="{{ media.alt | default: product.title | escape }}"
+                loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                width="{{ media.width }}"
+                height="{{ media.height }}"
+              >
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        <div class="bjfj-media-item is-active">
+          {{ 'product-1' | placeholder_svg_tag: 'placeholder' }}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if product.media.size > 1 -%}
+      <div class="bjfj-gallery__thumbs" role="list">
+        {%- for media in product.media -%}
+          <button
+            class="bjfj-gallery__thumb{% if forloop.first %} is-active{% endif %}"
+            data-index="{{ forloop.index0 }}"
+            aria-label="{{ media.alt | default: product.title | escape }}"
+            role="listitem"
+          >
+            {%- if media.media_type == 'video' -%}
+              <img src="{{ media.preview_image | image_url: width: 128 }}" alt="" loading="lazy">
+            {%- else -%}
+              <img src="{{ media | image_url: width: 128 }}" alt="" loading="lazy">
+            {%- endif -%}
+          </button>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+
+  {%- comment %} ── INFO PANEL ── {%- endcomment %}
+  <div class="bjfj-product-info">
+
+    {%- if material != blank -%}
+      <p class="bjfj-product-info__meta">{{ material }}</p>
+    {%- endif -%}
+
+    <h1 class="bjfj-product-info__title">{{ product.title }}</h1>
+
+    {%- if diamond_spec != blank -%}
+      <p class="bjfj-product-info__spec">{{ diamond_spec }}</p>
+    {%- endif -%}
+
+    <div class="bjfj-product-info__price">
+      <span class="bjfj-price-display">{{ current_var.price | money }}</span>
+      {%- if current_var.compare_at_price > current_var.price -%}
+        &ensp;<s style="color:var(--bjfj-text-muted);font-size:0.9em;">{{ current_var.compare_at_price | money }}</s>
+      {%- endif -%}
+    </div>
+
+    {%- comment %} ── Variant option selectors ── {%- endcomment %}
+    {%- unless product.has_only_default_variant -%}
+      <div class="bjfj-options" id="bjfj-options-{{ section.id }}">
+        {%- for option in product.options_with_values -%}
+          <div class="bjfj-option" data-option-name="{{ option.name | escape }}">
+            <span class="bjfj-option__label">{{ option.name }}</span>
+            <div class="bjfj-option__btns" role="group" aria-label="{{ option.name }}">
+              {%- for value in option.values -%}
+                <button
+                  type="button"
+                  class="bjfj-option__btn{% if option.selected_value == value %} is-selected{% endif %}"
+                  data-option-name="{{ option.name | escape }}"
+                  data-value="{{ value | escape }}"
+                  aria-pressed="{% if option.selected_value == value %}true{% else %}false{% endif %}"
+                >
+                  {{ value }}
+                </button>
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endunless -%}
+
+    {%- comment %} ── CTA ── {%- endcomment %}
+    <div class="bjfj-cta">
+
+      {%- if purchase_type == 'inquire' -%}
+
+        <button
+          type="button"
+          class="bjfj-btn--inquire"
+          data-inquire-trigger
+          data-product-name="{{ product.title | escape }}"
+          data-product-material="{{ material | escape }}"
+          data-product-price="{{ current_var.price | money }}"
+          data-product-img="{{ product.featured_image | image_url: width: 300 }}"
+          data-product-handle="{{ product.handle }}"
+          data-product-url="{{ shop.url }}{{ product.url }}"
+        >
+          Inquire about this piece
+        </button>
+
+      {%- else -%}
+
+        {%- form 'product', product, id: product_form_id, novalidate: 'novalidate', class: 'bjfj-product-form' -%}
+          <input
+            type="hidden"
+            name="id"
+            class="bjfj-variant-id"
+            value="{{ current_var.id }}"
+          >
+          <div class="bjfj-qty-row">
+            <div class="bjfj-qty">
+              <button type="button" class="bjfj-qty__btn" data-minus aria-label="{{ 'accessibility.decrease_quantity' | t }}">&#8722;</button>
+              <input
+                type="number"
+                name="quantity"
+                value="1"
+                min="1"
+                class="bjfj-qty__input"
+                aria-label="{{ 'products.product.quantity.label' | t }}"
+              >
+              <button type="button" class="bjfj-qty__btn" data-plus aria-label="{{ 'accessibility.increase_quantity' | t }}">&#43;</button>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            name="add"
+            class="bjfj-btn--primary"
+            {%- unless current_var.available -%}disabled{%- endunless -%}
+          >
+            {%- if current_var.available -%}Add to bag{%- else -%}Sold out{%- endif -%}
+          </button>
+
+        {%- endform -%}
+
+      {%- endif -%}
+
+    </div>
+
+    {%- comment %} ── Accordion: description + details ── {%- endcomment %}
+    <div class="bjfj-accordion">
+
+      {%- if product.description != blank -%}
+        <div class="bjfj-accordion__item">
+          <button class="bjfj-accordion__trigger" aria-expanded="false" aria-controls="acc-desc-{{ section.id }}">
+            Description
+            <span class="bjfj-accordion__icon" aria-hidden="true"></span>
+          </button>
+          <div class="bjfj-accordion__body" id="acc-desc-{{ section.id }}">
+            <div class="bjfj-accordion__body-inner">{{ product.description }}</div>
+          </div>
+        </div>
+      {%- endif -%}
+
+      <div class="bjfj-accordion__item">
+        <button class="bjfj-accordion__trigger" aria-expanded="false" aria-controls="acc-care-{{ section.id }}">
+          Materials &amp; Care
+          <span class="bjfj-accordion__icon" aria-hidden="true"></span>
+        </button>
+        <div class="bjfj-accordion__body" id="acc-care-{{ section.id }}">
+          <div class="bjfj-accordion__body-inner">
+            <p>All pieces are crafted in 14K or 18K gold with diamonds and fine gemstones. Store separately in the provided jewellery pouch. Avoid contact with water, perfume, and harsh chemicals.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bjfj-accordion__item">
+        <button class="bjfj-accordion__trigger" aria-expanded="false" aria-controls="acc-ship-{{ section.id }}">
+          Shipping &amp; Returns
+          <span class="bjfj-accordion__icon" aria-hidden="true"></span>
+        </button>
+        <div class="bjfj-accordion__body" id="acc-ship-{{ section.id }}">
+          <div class="bjfj-accordion__body-inner">
+            <p>We ship to Denmark and the EU. For questions about delivery, please contact <a href="mailto:client@bjerrehuusfinejewellery.com">client@bjerrehuusfinejewellery.com</a>.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+{%- comment %} Inquire modal — rendered once, JS populates dynamically {%- endcomment %}
+{%- if purchase_type == 'inquire' -%}
+  {%- render 'inquire-letter-modal' -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Product main",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,110 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{%- if section.settings.heading != blank -%}
+  <div class="bjfj-related">
+    <h2 class="bjfj-related__heading">{{ section.settings.heading }}</h2>
+
+    {%- assign insp_col = product.metafields.custom.inspiration_collection.value -%}
+    {%- assign related_collection = nil -%}
+
+    {%- if insp_col != blank -%}
+      {%- assign related_collection = collections[insp_col] -%}
+    {%- endif -%}
+
+    {%- if related_collection != nil and related_collection.products_count > 1 -%}
+      {%- liquid
+        assign related_products = related_collection.products | where: 'id', '!=', product.id
+        assign max = section.settings.products_to_show
+      -%}
+      <div class="grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--2-col-tablet-down">
+        {%- for rel in related_products limit: max -%}
+          <div class="grid__item">
+            {%- render 'card-product',
+              card_product: rel,
+              media_aspect_ratio: 'square',
+              show_secondary_image: true,
+              show_vendor: false,
+              lazy_load: true
+            -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      {%- comment %} Fallback: Shopify product recommendations API {%- endcomment %}
+      <div
+        class="product-recommendations"
+        data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}"
+      >
+        {%- if recommendations.performed? and recommendations.products_count > 0 -%}
+          <div class="grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--2-col-tablet-down">
+            {%- for rec in recommendations.products -%}
+              <div class="grid__item">
+                {%- render 'card-product',
+                  card_product: rec,
+                  media_aspect_ratio: 'square',
+                  show_secondary_image: true,
+                  show_vendor: false,
+                  lazy_load: true
+                -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+{%- endif -%}
+
+<script>
+  var productRecommendationsSection = document.querySelector('[data-url]');
+  if (productRecommendationsSection) {
+    fetch(productRecommendationsSection.dataset.url)
+      .then(function(response) { return response.text(); })
+      .then(function(html) {
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(html, 'text/html');
+        var inner = doc.querySelector('.product-recommendations');
+        if (inner) productRecommendationsSection.innerHTML = inner.innerHTML;
+      });
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Related products",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "You may also like",
+      "label": "Heading"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "default": 4,
+      "label": "Products to show"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 4,
+      "label": "Columns on desktop"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Related products"
+    }
+  ]
+}
+{% endschema %}
