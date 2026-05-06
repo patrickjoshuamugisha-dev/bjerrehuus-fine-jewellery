@@ -1,0 +1,172 @@
+{{ 'bjerrehuus-collection.css' | asset_url | stylesheet_tag }}
+
+{%- paginate collection.products by section.settings.products_per_page -%}
+
+<div class="bjfj-shop-layout">
+
+  {%- comment %} ── SIDEBAR NAV ── {%- endcomment %}
+  <aside class="bjfj-shop-sidebar" aria-label="{{ 'general.accessibility.nav_shop' | t | default: 'Shop navigation' }}">
+    <nav class="bjfj-sidebar-nav">
+
+      <div class="bjfj-sidebar-group">
+        <span class="bjfj-sidebar-group__title">Inspiration</span>
+        <ul class="bjfj-sidebar-group__links">
+          <li>
+            <a href="/pages/pillow"
+               class="bjfj-sidebar-link{% if request.path contains '/pages/pillow' %} is-active{% endif %}">
+              Pillow
+            </a>
+          </li>
+          <li>
+            <a href="/pages/inspiration-2"
+               class="bjfj-sidebar-link{% if request.path contains '/pages/inspiration-2' %} is-active{% endif %}">
+              &mdash;
+            </a>
+          </li>
+          <li>
+            <a href="/pages/inspiration-3"
+               class="bjfj-sidebar-link{% if request.path contains '/pages/inspiration-3' %} is-active{% endif %}">
+              &mdash;
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bjfj-sidebar-group">
+        <a href="/collections/bridal"
+           class="bjfj-sidebar-group__title{% if collection.handle == 'bridal' %} is-active{% endif %}">
+          Bridal
+        </a>
+      </div>
+
+      <div class="bjfj-sidebar-group">
+        <span class="bjfj-sidebar-group__title">Classic</span>
+        <ul class="bjfj-sidebar-group__links">
+          <li>
+            <a href="/collections/classic"
+               class="bjfj-sidebar-link{% if collection.handle == 'classic' %} is-active{% endif %}">
+              Alle
+            </a>
+          </li>
+          <li>
+            <a href="/collections/classic-tennis"
+               class="bjfj-sidebar-link{% if collection.handle == 'classic-tennis' %} is-active{% endif %}">
+              Tennis bracelets
+            </a>
+          </li>
+          <li>
+            <a href="/collections/classic-necklaces"
+               class="bjfj-sidebar-link{% if collection.handle == 'classic-necklaces' %} is-active{% endif %}">
+              Necklaces
+            </a>
+          </li>
+          <li>
+            <a href="/collections/classic-hoops"
+               class="bjfj-sidebar-link{% if collection.handle == 'classic-hoops' %} is-active{% endif %}">
+              Hoops
+            </a>
+          </li>
+          <li>
+            <a href="/collections/classic-alliancering"
+               class="bjfj-sidebar-link{% if collection.handle == 'classic-alliancering' %} is-active{% endif %}">
+              Alliancering
+            </a>
+          </li>
+          <li>
+            <a href="/collections/classic-studs"
+               class="bjfj-sidebar-link{% if collection.handle == 'classic-studs' %} is-active{% endif %}">
+              Studs
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </nav>
+  </aside>
+
+  {%- comment %} ── PRODUCT GRID ── {%- endcomment %}
+  <div class="bjfj-product-grid-container">
+
+    {%- if collection.products.size > 0 -%}
+      <ul class="bjfj-product-grid" role="list">
+        {%- for product in collection.products -%}
+          <li class="bjfj-product-card-wrap">
+            {%- render 'card-product',
+              card_product: product,
+              media_aspect_ratio: 'portrait',
+              show_secondary_image: true,
+              show_vendor: false,
+              show_rating: false,
+              show_quick_add: false,
+              section_id: section.id
+            -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      {%- if paginate.pages > 1 -%}
+        <div class="bjfj-pagination">
+          {%- render 'pagination', paginate: paginate -%}
+        </div>
+      {%- endif -%}
+
+    {%- else -%}
+      <div class="bjfj-empty-collection">
+        <p>{{ 'sections.collection_template.empty' | t }}</p>
+        <p>
+          <a href="/collections/all">{{ 'general.continue_shopping' | t | default: 'Gå til shop' }}</a>
+        </p>
+      </div>
+    {%- endif -%}
+
+  </div>
+
+</div>
+
+{%- endpaginate -%}
+
+{% schema %}
+{
+  "name": "Shop layout",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "default": 24,
+      "label": "Products per page"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop layout"
+    }
+  ]
+}
+{% endschema %}
