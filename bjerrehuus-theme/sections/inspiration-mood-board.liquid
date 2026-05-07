@@ -1,0 +1,147 @@
+{{ 'bjerrehuus-inspiration.css' | asset_url | stylesheet_tag }}
+
+<section class="bjfj-insp-section bjfj-mood-board">
+  <div class="bjfj-mood-board__inner">
+
+    {%- if section.settings.section_label != blank -%}
+      <p class="bjfj-mood-board__label">{{ section.settings.section_label }}</p>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="bjfj-mood-board__grid">
+        {%- for block in section.blocks -%}
+
+          {%- if block.type == 'image' -%}
+            <div class="bjfj-mood-board__cell bjfj-reveal" {{ block.shopify_attributes }}>
+              {%- if block.settings.image != blank -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 1200
+                  | image_tag:
+                    loading: 'lazy',
+                    alt: block.settings.caption
+                }}
+              {%- elsif block.settings.image_url != blank -%}
+                <img src="{{ block.settings.image_url }}" loading="lazy" alt="{{ block.settings.caption | escape }}">
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag }}
+              {%- endif -%}
+            </div>
+
+          {%- elsif block.type == 'bleeder_image' -%}
+            <div class="bjfj-mood-board__cell bjfj-mood-board__bleeder bjfj-reveal" {{ block.shopify_attributes }}>
+              {%- if block.settings.image != blank -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 2400
+                  | image_tag:
+                    loading: 'lazy',
+                    alt: block.settings.caption
+                }}
+              {%- elsif block.settings.image_url != blank -%}
+                <img src="{{ block.settings.image_url }}" loading="lazy" alt="{{ block.settings.caption | escape }}">
+              {%- else -%}
+                {{ 'lifestyle' | placeholder_svg_tag }}
+              {%- endif -%}
+            </div>
+
+          {%- elsif block.type == 'pullquote' -%}
+            <div class="bjfj-mood-board__pullquote bjfj-reveal" {{ block.shopify_attributes }}>
+              {%- if block.settings.text != blank -%}
+                <p>{{ block.settings.text }}</p>
+              {%- endif -%}
+            </div>
+
+          {%- endif -%}
+
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Inspiration — Mood Board",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section label",
+      "placeholder": "The Collection",
+      "info": "Appears above the grid in small olive caps"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_url",
+          "label": "Image URL (fallback)"
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Alt text / caption"
+        }
+      ]
+    },
+    {
+      "type": "bleeder_image",
+      "name": "Bleeder image",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "This image extends beyond the right edge of the viewport"
+        },
+        {
+          "type": "text",
+          "id": "image_url",
+          "label": "Image URL (fallback)"
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Alt text"
+        }
+      ]
+    },
+    {
+      "type": "pullquote",
+      "name": "Pull quote",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Quote text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Inspiration — Mood Board",
+      "blocks": [
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "pullquote" },
+        { "type": "bleeder_image" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,60 @@
+{{ 'bjerrehuus-inspiration.css' | asset_url | stylesheet_tag }}
+
+{%- unless section.settings.video_embed_html == blank and section.settings.video_url == blank -%}
+
+<section class="bjfj-universe-section bjfj-universe-video">
+  <div class="bjfj-universe-video__inner bjfj-reveal">
+
+    <div class="bjfj-universe-video__embed">
+      {%- if section.settings.video_embed_html != blank -%}
+        {{ section.settings.video_embed_html }}
+      {%- elsif section.settings.video_url != blank -%}
+        <video
+          src="{{ section.settings.video_url }}"
+          controls
+          playsinline
+          preload="metadata"
+          style="width:100%;height:100%;object-fit:cover;"
+        ></video>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.caption != blank -%}
+      <p class="bjfj-universe-video__caption">{{ section.settings.caption }}</p>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{%- endunless -%}
+
+{% schema %}
+{
+  "name": "Universe Story — Video",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "html",
+      "id": "video_embed_html",
+      "label": "Embed code",
+      "info": "Paste a YouTube or Vimeo embed iframe here (preferred)"
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Direct video URL (.mp4)",
+      "info": "Used if no embed code is provided"
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "label": "Caption"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Universe Story — Video"
+    }
+  ]
+}
+{% endschema %}

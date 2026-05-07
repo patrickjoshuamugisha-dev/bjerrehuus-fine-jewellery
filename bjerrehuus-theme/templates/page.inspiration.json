@@ -1,0 +1,76 @@
+{
+  "sections": {
+    "hero": {
+      "type": "inspiration-hero-collage",
+      "settings": {
+        "hero_label": "THE PILLOW",
+        "hero_headline": "Linked pavé pillows, fully set with diamonds.",
+        "hero_body": "<p>Linket små pavé puder fuld besat af diamanter. The series includes necklace, bracelet, earrings, and studs — available in white gold, gold, and rose gold.</p>",
+        "hero_image_url": "https://cdn.shopify.com/s/files/1/1032/3004/6542/files/5691.webp"
+      }
+    },
+    "cutout": {
+      "type": "inspiration-product-cutout",
+      "settings": {
+        "product": "pillow-boomrang-earring",
+        "label": "THE EARRING",
+        "subtext": "<p>A single Pillow Boomrang earring, hand-set with 0.80 TW VVS-VS diamonds in 18K white gold. Worn left, worn right, worn both.</p>",
+        "button_label": "Inquire about this piece",
+        "fallback_image_url": "https://cdn.shopify.com/s/files/1/1032/3004/6542/files/IMG_8654.webp"
+      }
+    },
+    "mood-board": {
+      "type": "inspiration-mood-board",
+      "settings": {
+        "section_label": "The Pillow Collection"
+      },
+      "blocks": {
+        "block-1": {
+          "type": "image",
+          "settings": {
+            "image_url": "https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/e60a3f74-d135-4103-bbe6-03096181b73c/love.jpg"
+          }
+        },
+        "block-2": {
+          "type": "image",
+          "settings": {
+            "image_url": "https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/033919a5-fa5e-411e-a9ca-b65bb7d26d87/signet.jpg"
+          }
+        },
+        "block-3": {
+          "type": "pullquote",
+          "settings": {
+            "text": "Timeless pieces. Cherished. Passed down."
+          }
+        },
+        "block-4": {
+          "type": "bleeder_image",
+          "settings": {
+            "image_url": "https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/74bd8508-433d-4417-9624-c4a988a42d65/vibe+med+mere.jpg"
+          }
+        }
+      },
+      "block_order": ["block-1", "block-2", "block-3", "block-4"]
+    },
+    "product-grid": {
+      "type": "inspiration-product-grid",
+      "settings": {
+        "collection": "pillow",
+        "heading": "The Collection",
+        "products_to_show": 6
+      }
+    },
+    "wedding-cta": {
+      "type": "wedding-inquire-cta",
+      "settings": {
+        "label": "Bridal",
+        "heading": "Planning a wedding?",
+        "body": "<p>The Pillow collection is crafted for moments that last a lifetime. Reach out and we'll find the perfect piece for your day.</p>",
+        "button_label": "Inquire about a bridal piece",
+        "inquiry_subject": "Bridal Inquiry",
+        "force_show": true
+      }
+    }
+  },
+  "order": ["hero", "cutout", "mood-board", "product-grid", "wedding-cta"]
+}

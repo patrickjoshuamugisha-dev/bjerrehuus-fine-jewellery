@@ -1,30 +1,70 @@
 {
   "sections": {
-    "main": {
-      "type": "rich-text",
+    "hero": {
+      "type": "hero-video",
+      "settings": {
+        "full_bleed": true,
+        "video_url": "",
+        "fallback_image_url": "https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/1722861371391-P7SZKYJH530PUN71C175/image-asset.jpeg",
+        "eyebrow": "Bjerrehuus Fine Jewellery",
+        "headline": "Timeless pieces, cherished and passed down.",
+        "cta_label": "Discover the collection",
+        "cta_url": "/collections/all"
+      }
+    },
+    "pair": {
+      "type": "feature-images-pair",
+      "settings": {
+        "image_1_url": "https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/1722861371391-P7SZKYJH530PUN71C175/image-asset.jpeg",
+        "image_2_url": "https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/1722861372968-YONOSYSR1BN99L7G98WN/image-asset.jpeg",
+        "eyebrow": "The Pillow Collection",
+        "heading": "Linked pavé pillows, fully set with diamonds.",
+        "body": "<p>Each pillow is hand-set in 18K gold at Vibe's own workshop in Mumbai — crafted to be worn every day, not saved for special occasions.</p>",
+        "cta_label": "Shop Pillow",
+        "cta_url": "/collections/pillow",
+        "bg_color": "alt"
+      }
+    },
+    "divider": {
+      "type": "text-divider",
+      "settings": {
+        "eyebrow": "Fine Jewellery, Copenhagen",
+        "headline": "Crafted in 18K gold. Set by hand in Mumbai.",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "tiles": {
+      "type": "discover-tiles",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "tile_1": {
+          "type": "tile",
           "settings": {
-            "heading": "Bjerrehuus Fine Jewellery",
-            "heading_size": "h1"
+            "image_url": "https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/1722861371391-P7SZKYJH530PUN71C175/image-asset.jpeg",
+            "label": "Shop",
+            "link": "/collections/all"
           }
         },
-        "text": {
-          "type": "text",
+        "tile_2": {
+          "type": "tile",
           "settings": {
-            "text": "<p>Homepage coming soon.</p>"
+            "image_url": "https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/1722861372968-YONOSYSR1BN99L7G98WN/image-asset.jpeg",
+            "label": "Universe",
+            "link": "/pages/universe"
+          }
+        },
+        "tile_3": {
+          "type": "tile",
+          "settings": {
+            "image_url": "https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/1722861371391-P7SZKYJH530PUN71C175/image-asset.jpeg",
+            "label": "Book Appointment",
+            "link": "/pages/book-appointment"
           }
         }
       },
-      "block_order": ["heading", "text"],
-      "settings": {
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
+      "block_order": ["tile_1", "tile_2", "tile_3"],
+      "settings": {}
     }
   },
-  "order": ["main"]
+  "order": ["hero", "pair", "divider", "tiles"]
 }

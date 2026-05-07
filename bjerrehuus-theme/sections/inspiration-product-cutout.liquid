@@ -1,0 +1,134 @@
+{{ 'bjerrehuus-inspiration.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign cutout_product = all_products[section.settings.product]
+  assign cutout_var     = cutout_product.selected_or_first_available_variant
+  assign material_meta  = cutout_product.metafields.custom.material.value
+-%}
+
+<section class="bjfj-insp-section bjfj-insp-cutout">
+  <div class="bjfj-insp-inner">
+    <div class="bjfj-insp-cutout__grid">
+
+      <div class="bjfj-insp-cutout__image-wrap bjfj-reveal">
+        {%- if cutout_product != empty and cutout_product.featured_image != blank -%}
+          {{
+            cutout_product.featured_image
+            | image_url: width: 900
+            | image_tag:
+              class: 'bjfj-insp-cutout__image',
+              loading: 'lazy',
+              alt: cutout_product.title
+          }}
+        {%- elsif section.settings.fallback_image != blank -%}
+          {{
+            section.settings.fallback_image
+            | image_url: width: 900
+            | image_tag:
+              class: 'bjfj-insp-cutout__image',
+              loading: 'lazy',
+              alt: section.settings.label
+          }}
+        {%- elsif section.settings.fallback_image_url != blank -%}
+          <img src="{{ section.settings.fallback_image_url }}" class="bjfj-insp-cutout__image" loading="lazy" alt="{{ section.settings.label | escape }}">
+        {%- else -%}
+          {{ 'product-4' | placeholder_svg_tag: 'bjfj-insp-cutout__image' }}
+        {%- endif -%}
+      </div>
+
+      <div class="bjfj-insp-cutout__content bjfj-reveal">
+
+        {%- if section.settings.label != blank -%}
+          <div class="bjfj-insp-cutout__tag">
+            <span class="bjfj-olive-tag">{{ section.settings.label }}</span>
+          </div>
+        {%- endif -%}
+
+        {%- if cutout_product != empty -%}
+          <h2 class="bjfj-insp-cutout__name">{{ cutout_product.title }}</h2>
+          {%- if material_meta != blank -%}
+            <p class="bjfj-insp-cutout__meta">{{ material_meta }}</p>
+          {%- endif -%}
+          <p class="bjfj-insp-cutout__price">{{ cutout_var.price | money }}</p>
+        {%- elsif section.settings.product_name != blank -%}
+          <h2 class="bjfj-insp-cutout__name">{{ section.settings.product_name }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.subtext != blank -%}
+          <div class="bjfj-insp-cutout__body">{{ section.settings.subtext }}</div>
+        {%- endif -%}
+
+        {%- if cutout_product != empty -%}
+          <button
+            type="button"
+            class="bjfj-btn--inquire-outline"
+            data-inquire-trigger
+            data-product-name="{{ cutout_product.title | escape }}"
+            data-product-material="{{ material_meta | escape }}"
+            data-product-price="{{ cutout_var.price | money }}"
+            data-product-img="{{ cutout_product.featured_image | image_url: width: 300 }}"
+            data-product-handle="{{ cutout_product.handle }}"
+            data-product-url="{{ shop.url }}{{ cutout_product.url }}"
+          >
+            {{ section.settings.button_label | default: 'Inquire about this piece' }}
+          </button>
+        {%- endif -%}
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- render 'inquire-letter-modal' -%}
+
+{% schema %}
+{
+  "name": "Inspiration: Cutout",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "image_picker",
+      "id": "fallback_image",
+      "label": "Fallback image",
+      "info": "Used if no product is selected"
+    },
+    {
+      "type": "text",
+      "id": "fallback_image_url",
+      "label": "Fallback image URL"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Olive tag label",
+      "placeholder": "THE EARRING"
+    },
+    {
+      "type": "text",
+      "id": "product_name",
+      "label": "Product name (if no product selected)"
+    },
+    {
+      "type": "richtext",
+      "id": "subtext",
+      "label": "Editorial body text"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Inquire about this piece"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Inspiration: Cutout"
+    }
+  ]
+}
+{% endschema %}

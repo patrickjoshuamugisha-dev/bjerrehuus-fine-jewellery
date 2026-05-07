@@ -1,0 +1,115 @@
+{{ 'bjerrehuus-homepage.css' | asset_url | stylesheet_tag }}
+
+{%- assign full_bleed = section.settings.full_bleed -%}
+
+<section class="bjfj-hero {% if full_bleed %}bjfj-hero--full{% else %}bjfj-hero--inset{% endif %}">
+
+  {%- if section.settings.video_url != blank -%}
+    <video
+      class="bjfj-hero__video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="none"
+      {%- if section.settings.fallback_image != blank -%}
+        poster="{{ section.settings.fallback_image | image_url: width: 2400 }}"
+      {%- elsif section.settings.fallback_image_url != blank -%}
+        poster="{{ section.settings.fallback_image_url | escape }}"
+      {%- endif -%}
+    >
+      <source src="{{ section.settings.video_url | escape }}" type="video/mp4">
+    </video>
+  {%- elsif section.settings.fallback_image != blank -%}
+    {{
+      section.settings.fallback_image
+      | image_url: width: 2400
+      | image_tag:
+        class: 'bjfj-hero__fallback',
+        loading: 'eager',
+        fetchpriority: 'high',
+        alt: section.settings.headline | escape
+    }}
+  {%- elsif section.settings.fallback_image_url != blank -%}
+    <img
+      src="{{ section.settings.fallback_image_url | escape }}"
+      class="bjfj-hero__fallback"
+      loading="eager"
+      fetchpriority="high"
+      alt="{{ section.settings.headline | escape }}"
+    >
+  {%- else -%}
+    {{ 'lifestyle' | placeholder_svg_tag: 'bjfj-hero__fallback' }}
+  {%- endif -%}
+
+  <div class="bjfj-hero__scrim"></div>
+
+  <div class="bjfj-hero__content bjfj-reveal">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="bjfj-hero__eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    {%- if section.settings.headline != blank -%}
+      <h1 class="bjfj-hero__headline">{{ section.settings.headline }}</h1>
+    {%- endif -%}
+    {%- if section.settings.cta_label != blank and section.settings.cta_url != blank -%}
+      <a href="{{ section.settings.cta_url }}" class="bjfj-hero__cta">{{ section.settings.cta_label }}</a>
+    {%- endif -%}
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Homepage: Hero Video",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_bleed",
+      "label": "Full-bleed (100vh)",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "Video URL (.mp4)",
+      "info": "Host file via Shopify Files or external CDN"
+    },
+    {
+      "type": "image_picker",
+      "id": "fallback_image",
+      "label": "Fallback / poster image"
+    },
+    {
+      "type": "text",
+      "id": "fallback_image_url",
+      "label": "Fallback image URL"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA label"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Homepage: Hero Video"
+    }
+  ]
+}
+{% endschema %}

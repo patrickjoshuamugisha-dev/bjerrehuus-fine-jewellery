@@ -2,6 +2,7 @@
 {{ 'component-totals.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+{{ 'bjerrehuus-homepage.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -24,18 +25,47 @@
 >
   <div class="page-width">
     <div class="cart__footer isolate section-{{ section.id }}-padding">
-      {%- if settings.show_cart_note -%}
-        <cart-note class="cart__note field">
-          <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
-          <textarea
-            class="text-area field__input"
-            name="note"
-            form="cart"
-            id="Cart-note"
-            placeholder="{{ 'sections.cart.note' | t }}"
-          >{{ cart.note }}</textarea>
-        </cart-note>
-      {%- endif -%}
+      <div class="bjfj-cart-delivery">
+        <span class="bjfj-cart-delivery__label">Leveringsmetode</span>
+        <div class="bjfj-cart-delivery__options">
+          <label class="bjfj-cart-delivery__option">
+            <input
+              type="radio"
+              name="attributes[Delivery method]"
+              value="Ship"
+              form="cart"
+              {% if cart.attributes["Delivery method"] != 'Pickup' %}checked{% endif %}
+            >
+            <span class="bjfj-cart-delivery__option-text">
+              Levering
+              <span class="bjfj-cart-delivery__option-detail">Fri fragt til hele Danmark og EU</span>
+            </span>
+          </label>
+          <label class="bjfj-cart-delivery__option">
+            <input
+              type="radio"
+              name="attributes[Delivery method]"
+              value="Pickup"
+              form="cart"
+              {% if cart.attributes["Delivery method"] == 'Pickup' %}checked{% endif %}
+            >
+            <span class="bjfj-cart-delivery__option-text">
+              Afhent i butikken
+              <span class="bjfj-cart-delivery__option-detail">Bredgade 32, 1260 København K</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="bjfj-cart-note">
+        <label for="Cart-note">Bemærkninger til ordren</label>
+        <textarea
+          name="note"
+          form="cart"
+          id="Cart-note"
+          placeholder="Evt. særlige ønsker, leveringsinstruktioner o.l."
+        >{{ cart.note }}</textarea>
+      </div>
 
       <div class="cart__blocks">
         {% for block in section.blocks %}

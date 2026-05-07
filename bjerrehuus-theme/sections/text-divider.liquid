@@ -1,0 +1,57 @@
+{{ 'bjerrehuus-homepage.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="bjfj-divider"
+  style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  {%- if section.settings.eyebrow != blank -%}
+    <p class="bjfj-divider__eyebrow">{{ section.settings.eyebrow }}</p>
+  {%- endif -%}
+  {%- if section.settings.headline != blank -%}
+    <h2 class="bjfj-divider__headline bjfj-reveal">{{ section.settings.headline }}</h2>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Homepage: Text Divider",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 40,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 96
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 40,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 96
+    }
+  ],
+  "presets": [
+    {
+      "name": "Homepage: Text Divider"
+    }
+  ]
+}
+{% endschema %}

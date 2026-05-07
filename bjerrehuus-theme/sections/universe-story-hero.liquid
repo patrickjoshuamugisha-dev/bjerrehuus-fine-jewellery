@@ -1,0 +1,79 @@
+{{ 'bjerrehuus-inspiration.css' | asset_url | stylesheet_tag }}
+
+<section class="bjfj-universe-section bjfj-universe-hero">
+  <div class="bjfj-universe-inner">
+    <div class="bjfj-universe-hero__grid">
+
+      <div class="bjfj-universe-hero__image-wrap bjfj-reveal">
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 1600
+            | image_tag:
+              class: 'bjfj-universe-hero__image',
+              loading: 'eager',
+              fetchpriority: 'high',
+              alt: section.settings.headline
+          }}
+        {%- elsif section.settings.image_url != blank -%}
+          <img src="{{ section.settings.image_url }}" class="bjfj-universe-hero__image" loading="eager" fetchpriority="high" alt="{{ section.settings.headline | escape }}">
+        {%- else -%}
+          {{ 'lifestyle' | placeholder_svg_tag: 'bjfj-universe-hero__image' }}
+        {%- endif -%}
+      </div>
+
+      <div class="bjfj-universe-hero__text bjfj-reveal">
+        {%- if section.settings.date_label != blank -%}
+          <span class="bjfj-universe-hero__date">{{ section.settings.date_label }}</span>
+        {%- endif -%}
+        {%- if section.settings.headline != blank -%}
+          <h1 class="bjfj-universe-hero__headline">{{ section.settings.headline }}</h1>
+        {%- endif -%}
+        {%- if section.settings.body != blank -%}
+          <div class="bjfj-universe-hero__body">{{ section.settings.body }}</div>
+        {%- endif -%}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Universe Story — Hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero image"
+    },
+    {
+      "type": "text",
+      "id": "image_url",
+      "label": "Hero image URL (fallback)"
+    },
+    {
+      "type": "text",
+      "id": "date_label",
+      "label": "Date label",
+      "placeholder": "April 2025"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Story headline"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Story opening body"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Universe Story — Hero"
+    }
+  ]
+}
+{% endschema %}

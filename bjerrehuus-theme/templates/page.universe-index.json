@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "universe-index": {
+      "type": "universe-index-main",
+      "settings": {
+        "eyebrow": "Universe",
+        "heading": "Universe",
+        "intro": "<p>Stories about stones, gold, craft, and the people behind the pieces. Written by Vibe.</p>"
+      },
+      "blocks": {
+        "story-placeholder": {
+          "type": "story_link",
+          "settings": {
+            "story_title": "A story from Vibe",
+            "story_date": "May 2025",
+            "story_handle": "universe-story-1",
+            "story_url": "/pages/universe-story-1",
+            "story_image_url": "https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/033919a5-fa5e-411e-a9ca-b65bb7d26d87/signet.jpg"
+          }
+        }
+      },
+      "block_order": ["story-placeholder"]
+    }
+  },
+  "order": ["universe-index"]
+}

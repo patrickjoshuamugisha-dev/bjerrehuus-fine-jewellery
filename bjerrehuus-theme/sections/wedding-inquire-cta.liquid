@@ -1,0 +1,103 @@
+{{ 'bjerrehuus-inspiration.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign cta_collection = collections[section.settings.collection]
+  assign has_bridal = false
+  if cta_collection != empty
+    for p in cta_collection.products
+      if p.metafields.custom.wedding_inquire_eligible.value == true
+        assign has_bridal = true
+        break
+      endif
+    endfor
+  endif
+-%}
+
+{%- if has_bridal or section.settings.force_show -%}
+<section class="bjfj-wedding-cta bjfj-reveal">
+
+  {%- if section.settings.label != blank -%}
+    <p class="bjfj-wedding-cta__label">{{ section.settings.label }}</p>
+  {%- endif -%}
+
+  {%- if section.settings.heading != blank -%}
+    <h2 class="bjfj-wedding-cta__heading">{{ section.settings.heading }}</h2>
+  {%- endif -%}
+
+  {%- if section.settings.body != blank -%}
+    <div class="bjfj-wedding-cta__body">{{ section.settings.body }}</div>
+  {%- endif -%}
+
+  <button
+    type="button"
+    class="bjfj-btn--inquire-light"
+    data-inquire-trigger
+    data-product-name="{{ section.settings.inquiry_subject | default: 'Bridal Inquiry' | escape }}"
+    data-product-material=""
+    data-product-price=""
+    data-product-img=""
+    data-product-handle="bridal"
+    data-product-url="{{ shop.url }}"
+  >
+    {{ section.settings.button_label | default: 'Inquire about a bridal piece' }}
+  </button>
+
+</section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Wedding Inquire CTA",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection to scan for eligible products",
+      "info": "Section only renders if any product has the 'wedding_inquire_eligible' metafield set to true"
+    },
+    {
+      "type": "checkbox",
+      "id": "force_show",
+      "label": "Force show (ignore metafield check)",
+      "default": false,
+      "info": "Enable this to always show the section, e.g. during setup"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Eyebrow label",
+      "default": "Bridal"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Planning a wedding?"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body text"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Inquire about a bridal piece"
+    },
+    {
+      "type": "text",
+      "id": "inquiry_subject",
+      "label": "Inquiry subject line",
+      "default": "Bridal Inquiry",
+      "info": "Pre-fills the subject in the inquire modal"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Wedding Inquire CTA"
+    }
+  ]
+}
+{% endschema %}

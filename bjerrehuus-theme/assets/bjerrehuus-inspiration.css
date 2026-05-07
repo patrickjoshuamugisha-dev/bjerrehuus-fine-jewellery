@@ -1,0 +1,905 @@
+/* Bjerrehuus Fine Jewellery — Inspiration, Universe & About page styles */
+
+/* ── Shared section wrapper ── */
+.bjfj-insp-section,
+.bjfj-universe-section,
+.bjfj-about-section,
+.bjfj-universe-index-section {
+  width: 100%;
+  background-color: var(--bjfj-bg);
+}
+
+.bjfj-insp-inner,
+.bjfj-universe-inner,
+.bjfj-about-inner,
+.bjfj-universe-index-inner {
+  max-width: var(--bjfj-container-max);
+  margin: 0 auto;
+  padding-left: var(--bjfj-container-pad);
+  padding-right: var(--bjfj-container-pad);
+}
+
+/* ── Olive rule divider (inspiration + universe pages only) ── */
+.bjfj-olive-rule {
+  border: none;
+  border-top: 1px solid var(--bjfj-accent-alt);
+  margin: 0;
+}
+
+/* ── Olive tag pill ── */
+.bjfj-olive-tag {
+  display: inline-block;
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-small);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--bjfj-accent-alt);
+  border: 1px solid var(--bjfj-accent-alt);
+  padding: 0.25rem 0.75rem;
+  border-radius: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   INSPIRATION HERO COLLAGE
+═══════════════════════════════════════════════════════════ */
+
+.bjfj-insp-hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background-color: var(--bjfj-bg-alt);
+}
+
+.bjfj-insp-hero__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.bjfj-insp-hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0) 55%);
+  pointer-events: none;
+}
+
+.bjfj-insp-hero__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: var(--bjfj-s-8) var(--bjfj-container-pad);
+  color: var(--bjfj-bg);
+}
+
+.bjfj-insp-hero__label {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-small);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: var(--bjfj-s-2);
+  color: rgba(250,248,245,0.8);
+}
+
+.bjfj-insp-hero__headline {
+  font-family: var(--bjfj-font-display);
+  font-size: var(--bjfj-fs-h1);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--bjfj-bg);
+  max-width: 700px;
+  margin-bottom: var(--bjfj-s-3);
+}
+
+.bjfj-insp-hero__body {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-body);
+  line-height: var(--bjfj-lh-body);
+  color: rgba(250,248,245,0.88);
+  max-width: 480px;
+}
+
+/* Overlay elements (positioned absolutely over the hero) */
+.bjfj-insp-hero__overlays {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bjfj-insp-hero__overlay {
+  position: absolute;
+  font-family: var(--bjfj-font-display);
+  font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+  font-weight: 400;
+  color: var(--bjfj-bg);
+  letter-spacing: 0.04em;
+  max-width: 220px;
+  line-height: 1.3;
+}
+
+.bjfj-insp-hero__overlay--top-left    { top: var(--bjfj-s-8); left: var(--bjfj-container-pad); }
+.bjfj-insp-hero__overlay--top-right   { top: var(--bjfj-s-8); right: var(--bjfj-container-pad); text-align: right; }
+.bjfj-insp-hero__overlay--mid-right   { top: 50%; right: var(--bjfj-container-pad); transform: translateY(-50%); text-align: right; }
+
+/* ═══════════════════════════════════════════════════════════
+   INSPIRATION PRODUCT CUTOUT
+═══════════════════════════════════════════════════════════ */
+
+.bjfj-insp-cutout {
+  padding: var(--bjfj-s-12) 0;
+}
+
+.bjfj-insp-cutout__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--bjfj-s-8);
+  align-items: center;
+}
+
+.bjfj-insp-cutout__image-wrap {
+  background-color: var(--bjfj-bg-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--bjfj-s-8);
+}
+
+.bjfj-insp-cutout__image {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+  mix-blend-mode: multiply;
+}
+
+.bjfj-insp-cutout__content {
+  padding: var(--bjfj-s-4) 0;
+}
+
+.bjfj-insp-cutout__tag {
+  margin-bottom: var(--bjfj-s-3);
+}
+
+.bjfj-insp-cutout__name {
+  font-family: var(--bjfj-font-display);
+  font-size: var(--bjfj-fs-h2);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: var(--bjfj-s-2);
+  color: var(--bjfj-text);
+}
+
+.bjfj-insp-cutout__meta {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-small);
+  color: var(--bjfj-text-muted);
+  letter-spacing: 0.04em;
+  margin-bottom: var(--bjfj-s-2);
+}
+
+.bjfj-insp-cutout__price {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-body);
+  color: var(--bjfj-text);
+  margin-bottom: var(--bjfj-s-4);
+}
+
+.bjfj-insp-cutout__body {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-body);
+  line-height: var(--bjfj-lh-body);
+  color: var(--bjfj-text-muted);
+  margin-bottom: var(--bjfj-s-6);
+}
+
+@media (max-width: 768px) {
+  .bjfj-insp-cutout__grid {
+    grid-template-columns: 1fr;
+    gap: var(--bjfj-s-6);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   INSPIRATION MOOD BOARD
+═══════════════════════════════════════════════════════════ */
+
+.bjfj-mood-board {
+  padding: var(--bjfj-s-12) 0;
+  overflow-x: visible;
+}
+
+.bjfj-mood-board__inner {
+  max-width: var(--bjfj-container-max);
+  margin: 0 auto;
+  padding-left: var(--bjfj-container-pad);
+  /* no right padding — allow right bleed */
+}
+
+.bjfj-mood-board__label {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-small);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--bjfj-accent-alt);
+  margin-bottom: var(--bjfj-s-6);
+}
+
+.bjfj-mood-board__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: auto;
+  gap: var(--bjfj-s-3);
+  align-items: start;
+}
+
+.bjfj-mood-board__cell {
+  overflow: hidden;
+}
+
+.bjfj-mood-board__cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Grid cell sizing presets */
+.bjfj-mood-board__cell:nth-child(1) { grid-column: span 5; }
+.bjfj-mood-board__cell:nth-child(2) { grid-column: span 4; }
+.bjfj-mood-board__cell:nth-child(3) { grid-column: span 3; }
+.bjfj-mood-board__cell:nth-child(4) { grid-column: span 7; }
+.bjfj-mood-board__cell:nth-child(5) { grid-column: span 5; }
+.bjfj-mood-board__cell:nth-child(6) { grid-column: span 12; }
+
+/* The bleeder — extends beyond right edge of viewport */
+.bjfj-mood-board__bleeder {
+  /* overrides cell sizing — bleeder always full-span + overhang */
+  grid-column: 1 / -1 !important;
+  width: calc(100% + 6rem);
+  max-width: none;
+  margin-right: calc(-1 * var(--bjfj-container-pad));
+}
+
+.bjfj-mood-board__bleeder img {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: cover;
+}
+
+/* Pullquote cell */
+.bjfj-mood-board__pullquote {
+  display: flex;
+  align-items: center;
+  padding: var(--bjfj-s-4);
+  background-color: var(--bjfj-bg-alt);
+  grid-column: span 4;
+}
+
+.bjfj-mood-board__pullquote p {
+  font-family: var(--bjfj-font-display);
+  font-size: var(--bjfj-fs-h3);
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--bjfj-text);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .bjfj-mood-board__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .bjfj-mood-board__cell:nth-child(n) { grid-column: span 1; }
+  .bjfj-mood-board__cell:nth-child(1) { grid-column: span 2; }
+  .bjfj-mood-board__bleeder {
+    grid-column: 1 / -1 !important;
+    width: calc(100% + 3rem);
+    margin-right: -1.5rem;
+  }
+  .bjfj-mood-board__pullquote { grid-column: span 2; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   INSPIRATION PRODUCT GRID
+═══════════════════════════════════════════════════════════ */
+
+.bjfj-insp-grid {
+  padding: var(--bjfj-s-12) 0;
+  background-color: var(--bjfj-bg-alt);
+}
+
+.bjfj-insp-grid__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--bjfj-s-6);
+  padding-bottom: var(--bjfj-s-3);
+  border-bottom: 1px solid var(--bjfj-border);
+}
+
+.bjfj-insp-grid__heading {
+  font-family: var(--bjfj-font-display);
+  font-size: var(--bjfj-fs-h2);
+  font-weight: 400;
+  color: var(--bjfj-text);
+}
+
+.bjfj-insp-grid__count {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-small);
+  color: var(--bjfj-text-muted);
+}
+
+.bjfj-insp-product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--bjfj-s-6) var(--bjfj-s-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.bjfj-insp-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.bjfj-insp-card__image-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background-color: var(--bjfj-bg);
+  margin-bottom: var(--bjfj-s-3);
+}
+
+.bjfj-insp-card__image,
+.bjfj-insp-card__image-alt {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bjfj-insp-card__image-alt {
+  opacity: 0;
+  transition: opacity var(--bjfj-dur-fast) var(--bjfj-ease);
+}
+
+.bjfj-insp-card:hover .bjfj-insp-card__image-alt { opacity: 1; }
+
+.bjfj-insp-card__name {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-small);
+  color: var(--bjfj-text);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.bjfj-insp-card__meta {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-small);
+  color: var(--bjfj-text-muted);
+  margin-bottom: var(--bjfj-s-1);
+}
+
+.bjfj-insp-card__price {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-body);
+  color: var(--bjfj-text);
+  margin-bottom: var(--bjfj-s-2);
+}
+
+.bjfj-insp-card__cta {
+  margin-top: auto;
+}
+
+@media (max-width: 900px) {
+  .bjfj-insp-product-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 540px) {
+  .bjfj-insp-product-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   WEDDING INQUIRE CTA
+═══════════════════════════════════════════════════════════ */
+
+.bjfj-wedding-cta {
+  background-color: var(--bjfj-accent);
+  padding: var(--bjfj-s-12) var(--bjfj-container-pad);
+  text-align: center;
+}
+
+.bjfj-wedding-cta__label {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-small);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(250,248,245,0.7);
+  margin-bottom: var(--bjfj-s-3);
+}
+
+.bjfj-wedding-cta__heading {
+  font-family: var(--bjfj-font-display);
+  font-size: var(--bjfj-fs-h2);
+  font-weight: 400;
+  color: var(--bjfj-bg);
+  margin-bottom: var(--bjfj-s-3);
+}
+
+.bjfj-wedding-cta__body {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-body);
+  line-height: var(--bjfj-lh-body);
+  color: rgba(250,248,245,0.85);
+  max-width: 520px;
+  margin: 0 auto var(--bjfj-s-6);
+}
+
+.bjfj-btn--inquire-light {
+  display: inline-block;
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-small);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bjfj-bg);
+  border: 1px solid rgba(250,248,245,0.6);
+  padding: 0.875rem 2.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+  transition:
+    border-color var(--bjfj-dur-fast) var(--bjfj-ease),
+    background-color var(--bjfj-dur-fast) var(--bjfj-ease);
+}
+
+.bjfj-btn--inquire-light:hover {
+  border-color: var(--bjfj-bg);
+  background-color: rgba(250,248,245,0.1);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   UNIVERSE STORY HERO
+═══════════════════════════════════════════════════════════ */
+
+.bjfj-universe-hero {
+  padding: var(--bjfj-s-12) 0;
+}
+
+.bjfj-universe-hero__grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: var(--bjfj-s-8);
+  align-items: center;
+}
+
+.bjfj-universe-hero__image-wrap {
+  overflow: hidden;
+}
+
+.bjfj-universe-hero__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 700px;
+  object-fit: cover;
+}
+
+.bjfj-universe-hero__text {
+  padding: var(--bjfj-s-4) 0;
+}
+
+.bjfj-universe-hero__date {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-small);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bjfj-accent-alt);
+  margin-bottom: var(--bjfj-s-3);
+  padding-top: var(--bjfj-s-3);
+  border-top: 1px solid var(--bjfj-accent-alt);
+  display: inline-block;
+}
+
+.bjfj-universe-hero__headline {
+  font-family: var(--bjfj-font-display);
+  font-size: var(--bjfj-fs-h2);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--bjfj-text);
+  margin-bottom: var(--bjfj-s-4);
+}
+
+.bjfj-universe-hero__body {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-body);
+  line-height: var(--bjfj-lh-body);
+  color: var(--bjfj-text-muted);
+}
+
+@media (max-width: 768px) {
+  .bjfj-universe-hero__grid {
+    grid-template-columns: 1fr;
+    gap: var(--bjfj-s-4);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   UNIVERSE STORY VIDEO
+═══════════════════════════════════════════════════════════ */
+
+.bjfj-universe-video {
+  padding: var(--bjfj-s-12) 0;
+  background-color: var(--bjfj-bg-alt);
+}
+
+.bjfj-universe-video__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--bjfj-container-pad);
+}
+
+.bjfj-universe-video__embed {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: var(--bjfj-text);
+}
+
+.bjfj-universe-video__embed iframe,
+.bjfj-universe-video__embed video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.bjfj-universe-video__caption {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-small);
+  color: var(--bjfj-text-muted);
+  margin-top: var(--bjfj-s-2);
+  text-align: center;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   UNIVERSE STORY FAVORITES
+═══════════════════════════════════════════════════════════ */
+
+.bjfj-universe-favorites {
+  padding: var(--bjfj-s-12) 0;
+}
+
+.bjfj-universe-favorites__header {
+  margin-bottom: var(--bjfj-s-6);
+  padding-bottom: var(--bjfj-s-3);
+  border-bottom: 1px solid var(--bjfj-border);
+}
+
+.bjfj-universe-favorites__label {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-small);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--bjfj-accent-alt);
+  margin-bottom: var(--bjfj-s-1);
+}
+
+.bjfj-universe-favorites__heading {
+  font-family: var(--bjfj-font-display);
+  font-size: var(--bjfj-fs-h2);
+  font-weight: 400;
+  color: var(--bjfj-text);
+}
+
+.bjfj-universe-favorites__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--bjfj-s-6) var(--bjfj-s-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .bjfj-universe-favorites__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .bjfj-universe-favorites__grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   UNIVERSE STORY NEXT WISH
+═══════════════════════════════════════════════════════════ */
+
+.bjfj-universe-next-wish {
+  padding: var(--bjfj-s-12) 0;
+  background-color: var(--bjfj-bg-alt);
+}
+
+.bjfj-universe-next-wish__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--bjfj-s-8);
+  align-items: center;
+}
+
+.bjfj-universe-next-wish__image-wrap {
+  overflow: hidden;
+  background-color: var(--bjfj-bg);
+  padding: var(--bjfj-s-6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bjfj-universe-next-wish__image {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  display: block;
+  mix-blend-mode: multiply;
+}
+
+.bjfj-universe-next-wish__content {
+  padding: var(--bjfj-s-4) 0;
+}
+
+.bjfj-universe-next-wish__label {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-small);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--bjfj-accent-alt);
+  margin-bottom: var(--bjfj-s-4);
+  padding-top: var(--bjfj-s-3);
+  border-top: 1px solid var(--bjfj-accent-alt);
+}
+
+.bjfj-universe-next-wish__heading {
+  font-family: var(--bjfj-font-display);
+  font-size: var(--bjfj-fs-h2);
+  font-weight: 400;
+  color: var(--bjfj-text);
+  margin-bottom: var(--bjfj-s-3);
+}
+
+.bjfj-universe-next-wish__meta {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-small);
+  color: var(--bjfj-text-muted);
+  margin-bottom: var(--bjfj-s-2);
+}
+
+.bjfj-universe-next-wish__price {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-body);
+  color: var(--bjfj-text);
+  margin-bottom: var(--bjfj-s-4);
+}
+
+.bjfj-universe-next-wish__note {
+  font-family: var(--bjfj-font-display);
+  font-size: var(--bjfj-fs-h3);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--bjfj-text-muted);
+  margin-bottom: var(--bjfj-s-6);
+}
+
+@media (max-width: 768px) {
+  .bjfj-universe-next-wish__grid {
+    grid-template-columns: 1fr;
+    gap: var(--bjfj-s-4);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ABOUT / MEET VIBE
+═══════════════════════════════════════════════════════════ */
+
+.bjfj-about {
+  padding: var(--bjfj-s-12) 0;
+}
+
+.bjfj-about__grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--bjfj-s-12);
+  align-items: start;
+}
+
+.bjfj-about__portrait-wrap {
+  position: sticky;
+  top: var(--bjfj-s-8);
+}
+
+.bjfj-about__portrait {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.bjfj-about__portrait-caption {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-small);
+  color: var(--bjfj-text-muted);
+  margin-top: var(--bjfj-s-2);
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+.bjfj-about__text {
+  padding-top: var(--bjfj-s-4);
+}
+
+.bjfj-about__eyebrow {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-small);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--bjfj-text-muted);
+  margin-bottom: var(--bjfj-s-3);
+}
+
+.bjfj-about__name {
+  font-family: var(--bjfj-font-display);
+  font-size: var(--bjfj-fs-h1);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--bjfj-text);
+  margin-bottom: var(--bjfj-s-6);
+}
+
+.bjfj-about__bio {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-body);
+  line-height: var(--bjfj-lh-body);
+  color: var(--bjfj-text-muted);
+}
+
+.bjfj-about__bio p { margin-bottom: var(--bjfj-s-4); }
+.bjfj-about__bio p:last-child { margin-bottom: 0; }
+
+@media (max-width: 900px) {
+  .bjfj-about__grid {
+    grid-template-columns: 1fr;
+    gap: var(--bjfj-s-6);
+  }
+  .bjfj-about__portrait-wrap { position: static; }
+  .bjfj-about__portrait { max-width: 400px; margin: 0 auto; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   UNIVERSE INDEX
+═══════════════════════════════════════════════════════════ */
+
+.bjfj-universe-index {
+  padding: var(--bjfj-s-12) 0;
+}
+
+.bjfj-universe-index__header {
+  margin-bottom: var(--bjfj-s-8);
+}
+
+.bjfj-universe-index__eyebrow {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-small);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--bjfj-accent-alt);
+  margin-bottom: var(--bjfj-s-3);
+}
+
+.bjfj-universe-index__heading {
+  font-family: var(--bjfj-font-display);
+  font-size: var(--bjfj-fs-h1);
+  font-weight: 400;
+  color: var(--bjfj-text);
+  margin-bottom: var(--bjfj-s-4);
+}
+
+.bjfj-universe-index__intro {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-body);
+  line-height: var(--bjfj-lh-body);
+  color: var(--bjfj-text-muted);
+  max-width: 600px;
+}
+
+.bjfj-universe-index__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--bjfj-border);
+}
+
+.bjfj-universe-index__item {
+  border-bottom: 1px solid var(--bjfj-border);
+}
+
+.bjfj-universe-index__link {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: var(--bjfj-s-4);
+  align-items: center;
+  padding: var(--bjfj-s-4) 0;
+  text-decoration: none;
+  color: var(--bjfj-text);
+  transition: opacity var(--bjfj-dur-fast) var(--bjfj-ease);
+}
+
+.bjfj-universe-index__link:hover { opacity: 0.65; }
+
+.bjfj-universe-index__thumb {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  display: block;
+  background-color: var(--bjfj-bg-alt);
+}
+
+.bjfj-universe-index__story-title {
+  font-family: var(--bjfj-font-display);
+  font-size: var(--bjfj-fs-h3);
+  font-weight: 400;
+  color: var(--bjfj-text);
+}
+
+.bjfj-universe-index__story-date {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-small);
+  color: var(--bjfj-text-muted);
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .bjfj-universe-index__link {
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: auto auto;
+  }
+  .bjfj-universe-index__thumb { width: 80px; height: 60px; }
+  .bjfj-universe-index__story-date {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SHARED INQUIRE BUTTON (outline, dark)
+═══════════════════════════════════════════════════════════ */
+
+.bjfj-btn--inquire-outline {
+  display: inline-block;
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-small);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bjfj-text);
+  border: 1px solid var(--bjfj-text);
+  padding: 0.75rem 2rem;
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+  transition:
+    border-color var(--bjfj-dur-fast) var(--bjfj-ease),
+    background-color var(--bjfj-dur-fast) var(--bjfj-ease),
+    color var(--bjfj-dur-fast) var(--bjfj-ease);
+}
+
+.bjfj-btn--inquire-outline:hover {
+  background-color: var(--bjfj-text);
+  color: var(--bjfj-bg);
+}

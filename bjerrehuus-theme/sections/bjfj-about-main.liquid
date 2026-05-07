@@ -1,0 +1,88 @@
+{{ 'bjerrehuus-inspiration.css' | asset_url | stylesheet_tag }}
+
+<section class="bjfj-about-section bjfj-about">
+  <div class="bjfj-about-inner">
+    <div class="bjfj-about__grid">
+
+      <div class="bjfj-about__portrait-wrap bjfj-reveal">
+        {%- if section.settings.portrait != blank -%}
+          {{
+            section.settings.portrait
+            | image_url: width: 960
+            | image_tag:
+              class: 'bjfj-about__portrait',
+              loading: 'eager',
+              alt: section.settings.name
+          }}
+        {%- elsif section.settings.portrait_url != blank -%}
+          <img src="{{ section.settings.portrait_url }}" class="bjfj-about__portrait" loading="eager" alt="{{ section.settings.name | escape }}">
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'bjfj-about__portrait' }}
+        {%- endif -%}
+        {%- if section.settings.portrait_caption != blank -%}
+          <p class="bjfj-about__portrait-caption">{{ section.settings.portrait_caption }}</p>
+        {%- endif -%}
+      </div>
+
+      <div class="bjfj-about__text bjfj-reveal">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="bjfj-about__eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        {%- if section.settings.name != blank -%}
+          <h1 class="bjfj-about__name">{{ section.settings.name }}</h1>
+        {%- endif -%}
+        {%- if section.settings.bio != blank -%}
+          <div class="bjfj-about__bio">{{ section.settings.bio }}</div>
+        {%- endif -%}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About — Meet Vibe",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "portrait",
+      "label": "Portrait photo"
+    },
+    {
+      "type": "text",
+      "id": "portrait_url",
+      "label": "Portrait URL (fallback)"
+    },
+    {
+      "type": "text",
+      "id": "portrait_caption",
+      "label": "Portrait caption",
+      "placeholder": "Vibe at The Jewelry Room, Copenhagen"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Meet the founder"
+    },
+    {
+      "type": "text",
+      "id": "name",
+      "label": "Name",
+      "default": "Vibe Bjerrehuus"
+    },
+    {
+      "type": "richtext",
+      "id": "bio",
+      "label": "Biography"
+    }
+  ],
+  "presets": [
+    {
+      "name": "About — Meet Vibe"
+    }
+  ]
+}
+{% endschema %}

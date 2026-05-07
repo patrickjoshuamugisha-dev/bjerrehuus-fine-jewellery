@@ -1,0 +1,99 @@
+{{ 'bjerrehuus-inspiration.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign wish_product = all_products[section.settings.product]
+-%}
+
+{%- if wish_product != empty -%}
+
+{%- liquid
+  assign wish_var      = wish_product.selected_or_first_available_variant
+  assign wish_material = wish_product.metafields.custom.material.value
+-%}
+
+<section class="bjfj-universe-section bjfj-universe-next-wish">
+  <div class="bjfj-universe-inner">
+    <div class="bjfj-universe-next-wish__grid">
+
+      <div class="bjfj-universe-next-wish__image-wrap bjfj-reveal">
+        {%- if wish_product.featured_image != blank -%}
+          {{
+            wish_product.featured_image
+            | image_url: width: 800
+            | image_tag:
+              class: 'bjfj-universe-next-wish__image',
+              loading: 'lazy',
+              alt: wish_product.title
+          }}
+        {%- else -%}
+          {{ 'product-4' | placeholder_svg_tag: 'bjfj-universe-next-wish__image' }}
+        {%- endif -%}
+      </div>
+
+      <div class="bjfj-universe-next-wish__content bjfj-reveal">
+
+        <p class="bjfj-universe-next-wish__label">{{ section.settings.label | default: 'My Next Wish' }}</p>
+        <h2 class="bjfj-universe-next-wish__heading">{{ wish_product.title }}</h2>
+
+        {%- if wish_material != blank -%}
+          <p class="bjfj-universe-next-wish__meta">{{ wish_material }}</p>
+        {%- endif -%}
+
+        <p class="bjfj-universe-next-wish__price">{{ wish_var.price | money }}</p>
+
+        {%- if section.settings.note != blank -%}
+          <div class="bjfj-universe-next-wish__note">{{ section.settings.note }}</div>
+        {%- endif -%}
+
+        <button
+          type="button"
+          class="bjfj-btn--inquire-outline"
+          data-inquire-trigger
+          data-product-name="{{ wish_product.title | escape }}"
+          data-product-material="{{ wish_material | escape }}"
+          data-product-price="{{ wish_var.price | money }}"
+          data-product-img="{{ wish_product.featured_image | image_url: width: 300 }}"
+          data-product-handle="{{ wish_product.handle }}"
+          data-product-url="{{ shop.url }}{{ wish_product.url }}"
+        >
+          Inquire about this piece
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Universe: Next Wish",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section label",
+      "default": "My Next Wish"
+    },
+    {
+      "type": "richtext",
+      "id": "note",
+      "label": "Vibe's personal note",
+      "info": "Shown in italic display type next to the product"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Universe: Next Wish"
+    }
+  ]
+}
+{% endschema %}

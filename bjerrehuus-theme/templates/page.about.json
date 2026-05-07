@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "about-main": {
+      "type": "bjfj-about-main",
+      "settings": {
+        "eyebrow": "Meet the founder",
+        "name": "Vibe Bjerrehuus",
+        "portrait_caption": "Vibe at The Jewelry Room, Bredgade, Copenhagen",
+        "portrait_url": "https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/74bd8508-433d-4417-9624-c4a988a42d65/vibe+med+mere.jpg",
+        "bio": "<p>Vibe Bjerrehuus has been immersed in the world of fashion and design production since 2003, working with her own brand and assisting others in bringing their visions to life from all corners of the globe.</p><p>In 2010, she took a significant step by co-founding a small jewelry factory in Mumbai, India, with her Indian business partner — a place that has become her second home.</p><p>Throughout her career, Vibe has collaborated with various high-end jewelry brands, honing her skills and deepening her understanding of the industry. Now, she is focusing solely on what has always been her greatest passion: jewelry. This shift aligns perfectly with her current mindset, as she embraces the opportunity to create meaningful pieces for those who wear them and to be involved in every step of the process.</p><p>Working with nature's most precious materials — gold, diamonds, and other fine gemstones — holds a special significance for Vibe. These materials, which have been surrounded by mystique and admiration for centuries, are at the heart of her creations.</p><p>Vibe is committed to producing jewelry with thoughtful consideration for the materials used, the planet, and everyone involved in the value chain. This dedication to craftsmanship and sustainability reflects the depth and passion that resonate with where she is in her life today.</p><p>Her work is not just about creating beautiful jewelry, but about forging connections and stories that will endure for generations.</p>"
+      }
+    }
+  },
+  "order": ["about-main"]
+}
