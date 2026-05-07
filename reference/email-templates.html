@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<!--
+  BJERREHUUS FINE JEWELLERY — Branded Transactional Email Templates
+  ─────────────────────────────────────────────────────────────────
+  HOW TO USE:
+  1. Go to Shopify Admin → Settings → Notifications
+  2. Click the template name (Order Confirmation / Shipping Confirmation / Order Cancelled)
+  3. Click "Edit code"
+  4. Replace the entire contents of the Email Body (HTML) field with the
+     corresponding template below
+  5. Save. Send a test to yourself.
+
+  LOGO NOTE:
+  Replace LOGO_URL_HERE in each template with the actual CDN URL:
+  → Shopify Admin → Content → Files → upload bjerrehuus-logo.png → copy URL
+-->
+
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- TEMPLATE 1 — ORDER CONFIRMATION                                    -->
+<!-- Paste into: Settings → Notifications → Order Confirmation          -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+<!--  ORDER_CONFIRMATION_START  -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Order {{ order.name }} — {{ shop.name }}</title>
+  <style>
+    body { margin:0; padding:0; background:#FAF8F5; font-family:'Inter',Arial,sans-serif; color:#1A1A1A; }
+    .wrap { max-width:600px; margin:0 auto; background:#FAF8F5; padding:48px 24px; }
+    .logo { display:block; margin:0 auto 40px; max-height:56px; }
+    .divider { border:none; border-top:1px solid #E8E4DD; margin:32px 0; }
+    h1 { font-family:'Cormorant Garamond',Georgia,serif; font-size:28px; font-weight:400; letter-spacing:0.04em; margin:0 0 8px; color:#1A1A1A; }
+    h2 { font-family:'Cormorant Garamond',Georgia,serif; font-size:18px; font-weight:400; letter-spacing:0.06em; text-transform:uppercase; margin:0 0 16px; color:#6B1F2A; }
+    p  { font-size:15px; line-height:1.65; margin:0 0 16px; }
+    .order-table { width:100%; border-collapse:collapse; margin:0 0 24px; }
+    .order-table td { padding:12px 0; border-bottom:1px solid #E8E4DD; font-size:14px; vertical-align:top; }
+    .order-table td:last-child { text-align:right; white-space:nowrap; }
+    .totals-table { width:100%; border-collapse:collapse; }
+    .totals-table td { padding:6px 0; font-size:14px; }
+    .totals-table td:last-child { text-align:right; }
+    .totals-table .total-row td { font-size:16px; font-weight:500; padding-top:16px; border-top:1px solid #1A1A1A; }
+    .btn { display:inline-block; margin-top:8px; padding:14px 32px; background:#6B1F2A; color:#FAF8F5; text-decoration:none; font-family:'Inter',Arial,sans-serif; font-size:13px; letter-spacing:0.12em; text-transform:uppercase; }
+    .footer { margin-top:48px; text-align:center; font-size:12px; color:#888; line-height:1.8; }
+    .footer a { color:#6B1F2A; text-decoration:none; }
+    .line-title { font-weight:500; }
+    .line-meta  { color:#888; font-size:13px; margin-top:2px; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <img class="logo" src="LOGO_URL_HERE" alt="{{ shop.name }}">
+
+  <h1>Thank you, {{ order.shipping_address.first_name | default: order.email }}.</h1>
+  <p>Your order <strong>{{ order.name }}</strong> has been received and is being prepared with care. You will receive a shipping confirmation once your piece is on its way.</p>
+
+  <hr class="divider">
+  <h2>Your Order</h2>
+
+  <table class="order-table">
+    {% for line in subtotal_line_items %}
+    <tr>
+      <td>
+        <span class="line-title">{{ line.title }}</span>
+        {% if line.variant_title != 'Default Title' %}
+        <div class="line-meta">{{ line.variant_title }} &nbsp;·&nbsp; Qty {{ line.quantity }}</div>
+        {% else %}
+        <div class="line-meta">Qty {{ line.quantity }}</div>
+        {% endif %}
+      </td>
+      <td>{{ line.final_line_price | money }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <table class="totals-table">
+    <tr><td>Subtotal</td><td>{{ order.subtotal_price | money }}</td></tr>
+    {% if order.shipping_price > 0 %}
+    <tr><td>Shipping</td><td>{{ order.shipping_price | money }}</td></tr>
+    {% else %}
+    <tr><td>Shipping</td><td>Free</td></tr>
+    {% endif %}
+    {% if order.tax_price > 0 %}
+    <tr><td>VAT (25%)</td><td>{{ order.tax_price | money }}</td></tr>
+    {% endif %}
+    <tr class="total-row"><td>Total</td><td>{{ order.total_price | money }}</td></tr>
+  </table>
+
+  {% if order.shipping_address %}
+  <hr class="divider">
+  <h2>Shipping To</h2>
+  <p>
+    {{ order.shipping_address.name }}<br>
+    {{ order.shipping_address.address1 }}<br>
+    {% if order.shipping_address.address2 != blank %}{{ order.shipping_address.address2 }}<br>{% endif %}
+    {{ order.shipping_address.zip }} {{ order.shipping_address.city }}<br>
+    {{ order.shipping_address.country }}
+  </p>
+  {% endif %}
+
+  <hr class="divider">
+  <p style="text-align:center;">
+    <a class="btn" href="{{ order.order_status_url }}">View Your Order</a>
+  </p>
+
+  <div class="footer">
+    <p>Questions? Write to us at <a href="mailto:client@bjerrehuusfinejewellery.com">client@bjerrehuusfinejewellery.com</a></p>
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}<br>Bredgade 32, 1260 København K</p>
+  </div>
+
+</div>
+</body>
+</html>
+<!--  ORDER_CONFIRMATION_END  -->
+
+
+
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- TEMPLATE 2 — SHIPPING CONFIRMATION                                 -->
+<!-- Paste into: Settings → Notifications → Shipping Confirmation       -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+<!--  SHIPPING_CONFIRMATION_START  -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Your order {{ order.name }} is on its way</title>
+  <style>
+    body { margin:0; padding:0; background:#FAF8F5; font-family:'Inter',Arial,sans-serif; color:#1A1A1A; }
+    .wrap { max-width:600px; margin:0 auto; background:#FAF8F5; padding:48px 24px; }
+    .logo { display:block; margin:0 auto 40px; max-height:56px; }
+    .divider { border:none; border-top:1px solid #E8E4DD; margin:32px 0; }
+    h1 { font-family:'Cormorant Garamond',Georgia,serif; font-size:28px; font-weight:400; letter-spacing:0.04em; margin:0 0 8px; color:#1A1A1A; }
+    h2 { font-family:'Cormorant Garamond',Georgia,serif; font-size:18px; font-weight:400; letter-spacing:0.06em; text-transform:uppercase; margin:0 0 16px; color:#6B1F2A; }
+    p  { font-size:15px; line-height:1.65; margin:0 0 16px; }
+    .tracking-box { border:1px solid #E8E4DD; padding:20px 24px; margin:24px 0; }
+    .tracking-box p { margin:0; font-size:14px; }
+    .tracking-box strong { display:block; font-size:16px; margin-bottom:4px; }
+    .order-table { width:100%; border-collapse:collapse; margin:0 0 24px; }
+    .order-table td { padding:12px 0; border-bottom:1px solid #E8E4DD; font-size:14px; vertical-align:top; }
+    .order-table td:last-child { text-align:right; white-space:nowrap; }
+    .btn { display:inline-block; margin-top:8px; padding:14px 32px; background:#6B1F2A; color:#FAF8F5; text-decoration:none; font-family:'Inter',Arial,sans-serif; font-size:13px; letter-spacing:0.12em; text-transform:uppercase; }
+    .footer { margin-top:48px; text-align:center; font-size:12px; color:#888; line-height:1.8; }
+    .footer a { color:#6B1F2A; text-decoration:none; }
+    .line-title { font-weight:500; }
+    .line-meta  { color:#888; font-size:13px; margin-top:2px; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <img class="logo" src="LOGO_URL_HERE" alt="{{ shop.name }}">
+
+  <h1>Your piece is on its way.</h1>
+  <p>Good news — order <strong>{{ order.name }}</strong> has been dispatched and is heading to you.</p>
+
+  {% if fulfillment.tracking_number %}
+  <div class="tracking-box">
+    <strong>{{ fulfillment.tracking_company | default: 'Your carrier' }}</strong>
+    <p>Tracking number: {{ fulfillment.tracking_number }}</p>
+    {% if fulfillment.tracking_url %}
+    <p style="margin-top:12px;"><a href="{{ fulfillment.tracking_url }}" style="color:#6B1F2A;">Track your shipment &rarr;</a></p>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <hr class="divider">
+  <h2>Items Shipped</h2>
+
+  <table class="order-table">
+    {% for line in fulfillment.fulfillment_line_items %}
+    <tr>
+      <td>
+        <span class="line-title">{{ line.line_item.title }}</span>
+        {% if line.line_item.variant_title != 'Default Title' %}
+        <div class="line-meta">{{ line.line_item.variant_title }} &nbsp;·&nbsp; Qty {{ line.quantity }}</div>
+        {% else %}
+        <div class="line-meta">Qty {{ line.quantity }}</div>
+        {% endif %}
+      </td>
+      <td>{{ line.line_item.final_line_price | money }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <p style="text-align:center;">
+    <a class="btn" href="{{ order.order_status_url }}">View Order Status</a>
+  </p>
+
+  <div class="footer">
+    <p>Questions? Write to us at <a href="mailto:client@bjerrehuusfinejewellery.com">client@bjerrehuusfinejewellery.com</a></p>
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}<br>Bredgade 32, 1260 København K</p>
+  </div>
+
+</div>
+</body>
+</html>
+<!--  SHIPPING_CONFIRMATION_END  -->
+
+
+
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- TEMPLATE 3 — ORDER CANCELLED                                       -->
+<!-- Paste into: Settings → Notifications → Order Cancelled             -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+
+<!--  ORDER_CANCELLED_START  -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Order {{ order.name }} — Cancelled</title>
+  <style>
+    body { margin:0; padding:0; background:#FAF8F5; font-family:'Inter',Arial,sans-serif; color:#1A1A1A; }
+    .wrap { max-width:600px; margin:0 auto; background:#FAF8F5; padding:48px 24px; }
+    .logo { display:block; margin:0 auto 40px; max-height:56px; }
+    .divider { border:none; border-top:1px solid #E8E4DD; margin:32px 0; }
+    h1 { font-family:'Cormorant Garamond',Georgia,serif; font-size:28px; font-weight:400; letter-spacing:0.04em; margin:0 0 8px; color:#1A1A1A; }
+    h2 { font-family:'Cormorant Garamond',Georgia,serif; font-size:18px; font-weight:400; letter-spacing:0.06em; text-transform:uppercase; margin:0 0 16px; color:#6B1F2A; }
+    p  { font-size:15px; line-height:1.65; margin:0 0 16px; }
+    .order-table { width:100%; border-collapse:collapse; margin:0 0 24px; }
+    .order-table td { padding:12px 0; border-bottom:1px solid #E8E4DD; font-size:14px; vertical-align:top; }
+    .order-table td:last-child { text-align:right; white-space:nowrap; }
+    .btn { display:inline-block; margin-top:8px; padding:14px 32px; background:#6B1F2A; color:#FAF8F5; text-decoration:none; font-family:'Inter',Arial,sans-serif; font-size:13px; letter-spacing:0.12em; text-transform:uppercase; }
+    .footer { margin-top:48px; text-align:center; font-size:12px; color:#888; line-height:1.8; }
+    .footer a { color:#6B1F2A; text-decoration:none; }
+    .line-title { font-weight:500; }
+    .line-meta  { color:#888; font-size:13px; margin-top:2px; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <img class="logo" src="LOGO_URL_HERE" alt="{{ shop.name }}">
+
+  <h1>Your order has been cancelled.</h1>
+  <p>Order <strong>{{ order.name }}</strong> has been cancelled.</p>
+
+  {% if order.cancel_reason_label != blank %}
+  <p>Reason: {{ order.cancel_reason_label }}</p>
+  {% endif %}
+
+  {% if order.financial_status == 'refunded' or order.financial_status == 'partially_refunded' %}
+  <p>A refund of <strong>{{ order.total_refunded_set.presentment_money.amount | money }}</strong> has been issued to your original payment method. Please allow 3–5 business days for it to appear.</p>
+  {% endif %}
+
+  <hr class="divider">
+  <h2>Cancelled Items</h2>
+
+  <table class="order-table">
+    {% for line in subtotal_line_items %}
+    <tr>
+      <td>
+        <span class="line-title">{{ line.title }}</span>
+        {% if line.variant_title != 'Default Title' %}
+        <div class="line-meta">{{ line.variant_title }} &nbsp;·&nbsp; Qty {{ line.quantity }}</div>
+        {% else %}
+        <div class="line-meta">Qty {{ line.quantity }}</div>
+        {% endif %}
+      </td>
+      <td>{{ line.final_line_price | money }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <hr class="divider">
+  <p>If you have questions or would like to place a new order, we are here to help.</p>
+  <p style="text-align:center;">
+    <a class="btn" href="mailto:client@bjerrehuusfinejewellery.com">Contact Us</a>
+  </p>
+
+  <div class="footer">
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}<br>Bredgade 32, 1260 København K</p>
+    <p><a href="mailto:client@bjerrehuusfinejewellery.com">client@bjerrehuusfinejewellery.com</a></p>
+  </div>
+
+</div>
+</body>
+</html>
+<!--  ORDER_CANCELLED_END  -->

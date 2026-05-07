@@ -115,10 +115,28 @@
     var overlay = document.getElementById('bjfj-inquire-overlay');
     if (!overlay) return;
 
-    var form      = overlay.querySelector('.bjfj-inquire-form');
-    var formBody  = overlay.querySelector('.bjfj-modal__form-body');
-    var successEl = overlay.querySelector('.bjfj-modal__success');
-    var closeBtn  = overlay.querySelector('.bjfj-modal__close');
+    var form        = overlay.querySelector('.bjfj-inquire-form');
+    var formBody    = overlay.querySelector('.bjfj-modal__form-body');
+    var successEl   = overlay.querySelector('.bjfj-modal__success');
+    var closeBtn    = overlay.querySelector('.bjfj-modal__close');
+    var lastTrigger = null;
+
+    var FOCUSABLE_SEL = 'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+    function trapFocus(e) {
+      if (e.key !== 'Tab') return;
+      var els = Array.from(overlay.querySelectorAll(FOCUSABLE_SEL)).filter(function (el) {
+        return !el.hidden && el.offsetParent !== null;
+      });
+      if (!els.length) return;
+      var first = els[0];
+      var last  = els[els.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+      } else {
+        if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+      }
+    }
 
     function openModal(data) {
       var nameEl     = overlay.querySelector('.bjfj-modal__product-name');
@@ -145,14 +163,18 @@
       if (formBody)  formBody.style.display = '';
       if (form)      form.reset();
 
+      lastTrigger = document.activeElement;
       overlay.classList.add('is-open');
       document.body.style.overflow = 'hidden';
+      overlay.addEventListener('keydown', trapFocus);
       if (closeBtn) closeBtn.focus();
     }
 
     function closeModal() {
       overlay.classList.remove('is-open');
       document.body.style.overflow = '';
+      overlay.removeEventListener('keydown', trapFocus);
+      if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
     }
 
     document.querySelectorAll('[data-inquire-trigger]').forEach(function (btn) {
