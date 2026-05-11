@@ -7,7 +7,7 @@
 **Domain:** bjerrehuusfinejewellery.com
 **Existing site:** https://www.bjerrehuusfinejewellery.com (Squarespace, to be replaced)
 **Instagram:** [@bjerrehuusfinejewellery](https://www.instagram.com/bjerrehuusfinejewellery/)
-**Contact:** client@bjerrehuusfinejewellery.com · +45 22 77 36 84
+**Contact:** vibe@stylesnob.com · +45 22 77 36 84
 **Showroom:** Bredgade 32, 1260 København K (shared with The Jewelry Room / Aqva)
 
 ---
@@ -51,7 +51,7 @@ The brand's core sales motion today is private appointments + word-of-mouth thro
 
 6. **Supply chain:** One contact in India (name TBC — call says "Sachin", packshot brief addressed to "Madhur"). Worth confirming with Vibe casually — doesn't block build.
 
-7. **Inquire flow:** Pop-up letter modal triggered by Inquire button on product cards and product pages. Pre-fills product context (name, image, link). User adds short message + email. Submits to Shopify form → email to client@bjerrehuusfinejewellery.com. Visual: branded "letter" aesthetic, logo, envelope/card feel — designed once as a reusable component that the wishlist phase-2 build will inherit.
+7. **Inquire flow:** Pop-up letter modal triggered by Inquire button on product cards and product pages. Pre-fills product context (name, image, link). User adds short message + email. Submits to Shopify form → email to vibe@stylesnob.com. Visual: branded "letter" aesthetic, logo, envelope/card feel — designed once as a reusable component that the wishlist phase-2 build will inherit.
 
 8. **Wishlist:** Phase 2. **Heart icon UX placeholder in the header at launch** (no function — clicking does nothing or shows a "coming soon" tooltip). Functional wishlist with Paperless-Post-style email send to recipient = post-launch build. Vibe agrees in transcript at 30:48 that this is not first-priority.
 
@@ -131,7 +131,7 @@ The brand's core sales motion today is private appointments + word-of-mouth thro
 - Size Guides
 
 **Column 3 — Contact**
-- client@bjerrehuusfinejewellery.com
+- vibe@stylesnob.com
 - WhatsApp +45 22 77 36 84
 - Newsletter signup form
 - Privacy policy link (small)
@@ -417,7 +417,7 @@ Vibe's IG description of the series: *"Linket små pavé puder fuld besat af dia
     - Tax / OSS configuration for EU VAT
 - [ ] Install **e-conomic sync app** (research best-rated at install: candidates "Sync e-conomic" by Storeconnect, or "e-conomic Connector"). Configure: orders → invoices in e-conomic, customer sync, product sync.
 - [ ] Branded transactional email templates (order confirmation, shipping confirmation) — apply Bjerrehuus typography + logo + footer
-- [ ] Install **Shopify Forms** for the Inquire form submissions, route to client@bjerrehuusfinejewellery.com
+- [ ] Install **Shopify Forms** for the Inquire form submissions, route to vibe@stylesnob.com
 
 ### Day 7 — QA, polish, handoff
 
@@ -512,7 +512,7 @@ A modal that opens with an envelope/letter aesthetic:
 - Uses Shopify Forms (or a custom form posting to `/contact#contact_form` with hidden product context)
 - Hidden fields auto-populated: product handle, product name, product URL, page URL, language
 - On submit: success state inside modal ("Your inquiry is on its way") + close after 3s
-- Server-side: routes to client@bjerrehuusfinejewellery.com with product context in subject line: `[BFJ Inquiry] Pillow Boomrang ørering`
+- Server-side: routes to vibe@stylesnob.com with product context in subject line: `[BFJ Inquiry] Pillow Boomrang ørering`
 
 ### Reuse for Wishlist (Phase 2)
 

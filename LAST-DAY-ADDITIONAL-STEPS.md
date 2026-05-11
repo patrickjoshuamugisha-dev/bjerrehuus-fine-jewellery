@@ -72,7 +72,7 @@ These tasks require manual action in Shopify Admin or the App Store. They cannot
 
 **What to do:**
 - Create a new form
-- Set recipient email to client@bjerrehuusfinejewellery.com
+- Set recipient email to vibe@stylesnob.com
 - Note the form ID, then add it to the inquire modal in `bjfj-product-main.liquid` (replace the `mailto:` fallback)
 
 **Why:** The inquire modal currently submits via `mailto:`. Shopify Forms gives you a proper server-side submission with confirmation emails and spam protection. Forms app configuration is not accessible via the Admin API.

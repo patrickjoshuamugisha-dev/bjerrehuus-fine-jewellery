@@ -92,7 +92,7 @@ See `LAST-DAY-ADDITIONAL-STEPS.md` — Markets, Translate & Adapt. (Klaviyo remo
 ## Locked architecture decisions (do not re-open unless Patrick asks)
 - Theme base: Dawn fork. No premium theme.
 - All products = Shopify Products. `custom.purchase_type` = `shoppable` or `inquire` drives the CTA.
-- Inquire = pop-up letter modal. Pre-fills product context, submits to client@bjerrehuusfinejewellery.com.
+- Inquire = pop-up letter modal. Pre-fills product context, submits to vibe@stylesnob.com.
 - Wishlist = phase 2. Heart icon placeholder only at launch.
 - Universe content = Shopify Pages with custom templates.
 - Languages: EN now, DK before public launch (Markets + Translate & Adapt).
