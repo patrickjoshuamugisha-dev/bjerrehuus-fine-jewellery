@@ -159,13 +159,13 @@
         if (data.img) { imgEl.src = data.img; imgEl.alt = data.name || ''; imgEl.style.display = 'block'; }
         else { imgEl.style.display = 'none'; }
       }
+      if (form)      form.reset();
       if (hHandle) hHandle.value = data.handle || '';
       if (hUrl)    hUrl.value    = data.url    || window.location.href;
       if (hSubject) hSubject.value = '[BFJ Inquiry] ' + (data.name || 'piece');
 
       if (successEl) successEl.classList.remove('is-visible');
       if (formBody)  formBody.style.display = '';
-      if (form)      form.reset();
 
       lastTrigger = document.activeElement;
       overlay.classList.add('is-open');
