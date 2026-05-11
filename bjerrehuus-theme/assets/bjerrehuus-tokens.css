@@ -6,7 +6,7 @@
   --bjfj-text:        #1A1A1A;
   --bjfj-text-muted:  #6E6862;
   --bjfj-accent:      #6B1F2A;
-  --bjfj-accent-alt:  #1F3D2C;
+  --bjfj-accent-alt:  #6F7256;
   --bjfj-border:      #E8E4DD;
 
   /* Typography */
@@ -98,4 +98,36 @@ p {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* ── Cookie consent banner override (escapes body grid) ── */
+#shopify-pc__banner {
+  position: fixed !important;
+  left: 50% !important;
+  bottom: var(--bjfj-s-3) !important;
+  transform: translateX(-50%) !important;
+  width: min(720px, calc(100vw - 2 * var(--bjfj-container-pad))) !important;
+  max-height: 70vh;
+  overflow: auto;
+  z-index: 9999 !important;
+  background: var(--bjfj-bg);
+  border: 1px solid var(--bjfj-border);
+  padding: var(--bjfj-s-3) var(--bjfj-s-4);
+  box-shadow: 0 8px 32px rgba(26, 26, 26, 0.12);
+  font-family: var(--bjfj-font-body);
+  color: var(--bjfj-text);
+}
+#shopify-pc__banner * {
+  font-family: inherit !important;
+  color: inherit;
+}
+#shopify-pc__banner button {
+  background: var(--bjfj-text);
+  color: var(--bjfj-bg);
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-size: var(--bjfj-fs-small);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
 }

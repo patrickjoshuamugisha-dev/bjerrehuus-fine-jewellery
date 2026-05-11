@@ -89,3 +89,38 @@
 .footer-block__details-content.list-unstyled a:hover {
   opacity: 1;
 }
+
+/* ── Newsletter input alignment (matches contact column baseline) ── */
+.footer-block__contact .footer__newsletter {
+  margin-top: var(--bjfj-s-2);
+  width: 100%;
+  max-width: 100%;
+}
+.footer-block__contact .newsletter-form {
+  align-items: stretch;
+  max-width: 100%;
+}
+.footer-block__contact .newsletter-form__field-wrapper {
+  width: 100%;
+}
+.footer-block__contact .field {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  min-height: 0;
+}
+.footer-block__contact .field__input {
+  padding: 0.65rem 4rem 0.65rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--bjfj-border);
+  background: transparent;
+  font-size: var(--bjfj-fs-small);
+  border-radius: 0;
+}
+.footer-block__contact .field__label {
+  display: none;
+}
+.footer-block__contact .newsletter-form__button {
+  right: 0;
+  width: 3rem;
+}

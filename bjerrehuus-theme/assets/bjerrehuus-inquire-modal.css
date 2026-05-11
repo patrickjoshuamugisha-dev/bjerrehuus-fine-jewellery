@@ -1,0 +1,218 @@
+/* ══════════════════════════════════════════════
+   INQUIRE MODAL
+   Loaded by snippets/inquire-letter-modal.liquid
+   so it works on product pages AND inspiration pages.
+══════════════════════════════════════════════ */
+
+/* ── Inquire modal overlay ── */
+.bjfj-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 26, 26, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--bjfj-s-4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--bjfj-dur-base) var(--bjfj-ease);
+}
+
+.bjfj-modal-overlay.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ── Inquire modal ── */
+.bjfj-modal {
+  background-color: var(--bjfj-bg);
+  background-image:
+    radial-gradient(ellipse at 15% 85%, rgba(241, 236, 229, 0.6) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 15%, rgba(232, 228, 221, 0.4) 0%, transparent 55%);
+  border-top: 3px solid var(--bjfj-accent);
+  width: 100%;
+  max-width: 500px;
+  max-height: 92vh;
+  overflow-y: auto;
+  padding: var(--bjfj-s-8) var(--bjfj-s-6);
+  position: relative;
+  box-shadow: 0 20px 60px rgba(26, 26, 26, 0.18);
+  transform: scale(0.96) translateY(8px);
+  transition: transform var(--bjfj-dur-base) var(--bjfj-ease);
+}
+
+.bjfj-modal-overlay.is-open .bjfj-modal {
+  transform: scale(1) translateY(0);
+}
+
+.bjfj-modal__close {
+  position: absolute;
+  top: var(--bjfj-s-3);
+  right: var(--bjfj-s-3);
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bjfj-text-muted);
+  font-size: 1.25rem;
+  line-height: 1;
+  padding: 0;
+  transition: color var(--bjfj-dur-fast);
+}
+
+.bjfj-modal__close:hover {
+  color: var(--bjfj-text);
+}
+
+.bjfj-modal__logo {
+  display: block;
+  margin: 0 auto var(--bjfj-s-4);
+  max-height: 32px;
+  width: auto;
+}
+
+.bjfj-modal__title {
+  font-family: var(--bjfj-font-display);
+  font-size: 1.625rem;
+  font-weight: 400;
+  text-align: center;
+  color: var(--bjfj-text);
+  margin: 0 0 var(--bjfj-s-4);
+  line-height: 1.15;
+}
+
+.bjfj-modal__divider {
+  border: none;
+  border-top: 1px solid var(--bjfj-border);
+  margin: 0 0 var(--bjfj-s-4);
+}
+
+.bjfj-modal__product {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--bjfj-s-3);
+  padding-bottom: var(--bjfj-s-4);
+  margin-bottom: var(--bjfj-s-4);
+  border-bottom: 1px solid var(--bjfj-border);
+}
+
+.bjfj-modal__product-img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--bjfj-bg-alt);
+  display: block;
+}
+
+.bjfj-modal__product-name {
+  font-family: var(--bjfj-font-display);
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: var(--bjfj-text);
+  margin: 0 0 4px;
+  line-height: 1.25;
+}
+
+.bjfj-modal__product-meta {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-small);
+  color: var(--bjfj-text-muted);
+  margin: 0;
+}
+
+.bjfj-modal__field {
+  margin-bottom: var(--bjfj-s-3);
+}
+
+.bjfj-modal__label {
+  display: block;
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-small);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--bjfj-text-muted);
+  margin-bottom: var(--bjfj-s-1);
+}
+
+.bjfj-modal__input,
+.bjfj-modal__textarea {
+  width: 100%;
+  border: 1px solid var(--bjfj-border);
+  background: transparent;
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-body);
+  color: var(--bjfj-text);
+  padding: var(--bjfj-s-2);
+  box-sizing: border-box;
+  outline: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+  transition: border-color var(--bjfj-dur-fast) var(--bjfj-ease);
+}
+
+.bjfj-modal__input:focus,
+.bjfj-modal__textarea:focus {
+  border-color: var(--bjfj-text);
+}
+
+.bjfj-modal__textarea {
+  resize: vertical;
+  min-height: 96px;
+  line-height: var(--bjfj-lh-body);
+}
+
+.bjfj-modal__submit-row {
+  margin-top: var(--bjfj-s-4);
+}
+
+.bjfj-modal__note {
+  font-family: var(--bjfj-font-body);
+  font-size: var(--bjfj-fs-small);
+  color: var(--bjfj-text-muted);
+  text-align: center;
+  margin-top: var(--bjfj-s-2);
+}
+
+/* ── Modal success state ── */
+.bjfj-modal__success {
+  text-align: center;
+  padding: var(--bjfj-s-6) 0;
+  display: none;
+}
+
+.bjfj-modal__success.is-visible {
+  display: block;
+}
+
+.bjfj-modal__success-mark {
+  font-size: 2rem;
+  margin-bottom: var(--bjfj-s-3);
+  line-height: 1;
+}
+
+.bjfj-modal__success h3 {
+  font-family: var(--bjfj-font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--bjfj-text);
+  margin: 0 0 var(--bjfj-s-2);
+}
+
+.bjfj-modal__success p {
+  font-size: var(--bjfj-fs-small);
+  color: var(--bjfj-text-muted);
+  margin: 0;
+}
+
+/* Hide form body when success is shown */
+.bjfj-modal__form-body.is-hidden {
+  display: none;
+}

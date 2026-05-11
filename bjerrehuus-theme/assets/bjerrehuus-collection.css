@@ -7,8 +7,11 @@
 .bjfj-campaign-tiles {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0;
+  gap: var(--bjfj-s-2);
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto var(--bjfj-s-8);
+  padding: 0 var(--bjfj-container-pad);
   overflow: hidden;
 }
 
@@ -131,7 +134,7 @@
 
 .bjfj-shop-sidebar {
   position: sticky;
-  top: 100px;
+  top: 120px;
 }
 
 .bjfj-sidebar-nav {
@@ -372,6 +375,21 @@ a.bjfj-sidebar-group__title.is-active {
 .bjfj-card-wishlist:focus-visible {
   outline: 2px solid var(--bjfj-accent);
   outline-offset: 2px;
+}
+
+/* ── Product card cycling images (G2) ── */
+.card-cycle-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--bjfj-dur-fast) var(--bjfj-ease);
+}
+
+.card-cycle-img.is-active {
+  opacity: 1;
 }
 
 /* ── Product card hover cross-fade (200ms override for collection pages) ── */

@@ -1,0 +1,78 @@
+{
+  "sections": {
+    "hero": {
+      "type": "inspiration-hero-collage",
+      "settings": {
+        "hero_label": "THE CLASSIC",
+        "hero_headline": "Timeless shapes. Set in gold, worn every day.",
+        "hero_body": "<p>The Classic collection is built for the everyday: clean lines, considered proportions, and materials that only get better with time. Each piece is hand-finished in 18K gold at Vibe's workshop in Mumbai.</p>",
+        "hero_image_url": "https://cdn.shopify.com/s/files/1/1032/3004/6542/files/IMG_8653.webp?v=1778094232"
+      }
+    },
+    "cutout": {
+      "type": "inspiration-product-cutout",
+      "settings": {
+        "product": "classic-solitaire-hoops",
+        "label": "THE HOOPS",
+        "subtext": "<p>Classic Solitaire Hoops: a single brilliant-cut diamond, set in 18K gold. The kind of earring you put on in the morning and forget you're wearing.</p><p>Soft proportions, clean shapes, and 18K gold that ages well. Made to be worn together, day after day.</p>",
+        "button_label": "Inquire about this piece",
+        "fallback_image_url": "https://cdn.shopify.com/s/files/1/1032/3004/6542/files/IMG_8653.webp?v=1778094232"
+      }
+    },
+    "mood-board": {
+      "type": "inspiration-mood-board",
+      "settings": {
+        "section_label": "The Classic Collection"
+      },
+      "blocks": {
+        "block-1": {
+          "type": "image",
+          "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/1032/3004/6542/files/IMG_8653.webp?v=1778094232",
+            "caption": "Quiet shapes that outlast trends."
+          }
+        },
+        "block-2": {
+          "type": "image",
+          "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/1032/3004/6542/files/IMG_8654.webp?v=1778094209",
+            "caption": "Hand-finished in 18K gold in Mumbai."
+          }
+        },
+        "block-3": {
+          "type": "pullquote",
+          "settings": {
+            "text": "Every day. For ever."
+          }
+        },
+        "block-4": {
+          "type": "bleeder_image",
+          "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/1032/3004/6542/files/IMG_8655.webp?v=1778094209",
+            "caption": "Vibe's atelier."
+          }
+        }
+      },
+      "block_order": ["block-1", "block-2", "block-3", "block-4"]
+    },
+    "cutout-2": {
+      "type": "inspiration-product-cutout",
+      "settings": {
+        "product": "classic-tennis-bracelet",
+        "label": "THE TENNIS",
+        "subtext": "<p>A Classic tennis bracelet, brilliant-cut diamonds set continuously in 18K gold. Soft on the wrist, made to stay on.</p><p>Each stone is hand-selected for clarity and fit. Worn alone or layered with the rest of the Classic series.</p>",
+        "button_label": "Inquire about this piece",
+        "fallback_image_url": "https://cdn.shopify.com/s/files/1/1032/3004/6542/files/IMG_8654.webp?v=1778094209"
+      }
+    },
+    "product-grid": {
+      "type": "inspiration-product-grid",
+      "settings": {
+        "collection": "classic",
+        "heading": "The Classic Collection",
+        "products_to_show": 6
+      }
+    }
+  },
+  "order": ["hero", "cutout", "mood-board", "cutout-2", "product-grid"]
+}

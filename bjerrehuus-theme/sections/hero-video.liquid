@@ -12,6 +12,7 @@
       loop
       playsinline
       preload="none"
+      aria-hidden="true"
       {%- if section.settings.fallback_image != blank -%}
         poster="{{ section.settings.fallback_image | image_url: width: 2400 }}"
       {%- elsif section.settings.fallback_image_url != blank -%}
@@ -37,6 +38,8 @@
       loading="eager"
       fetchpriority="high"
       alt="{{ section.settings.headline | escape }}"
+      width="2400"
+      height="1350"
     >
   {%- else -%}
     {{ 'lifestyle' | placeholder_svg_tag: 'bjfj-hero__fallback' }}

@@ -81,13 +81,15 @@ These tasks require manual action in Shopify Admin or the App Store. They cannot
 
 ## 7. Transactional Emails — Brand Styling
 
+**Status: BLOCKED — waiting for client (Vibe) to verify the Shopify account so notifications can be edited.**
+
 **Where:** Shopify Admin → Settings → Notifications
 
-**What to do:**
-- Open "Order Confirmation" → click Edit → paste the branded HTML below
-- Repeat for "Shipping Confirmation" and "Order Cancelled"
+**What to do (once unblocked):**
+- Open "Order Confirmation" → click Edit → paste the branded HTML from `assets/email-order-confirmation.html`
+- Repeat for "Shipping Confirmation" using the same brand tokens
 
-**Brand tokens to apply manually:**
+**Brand tokens:**
 ```
 Background:   #FAF8F5
 Text:         #1A1A1A
@@ -98,17 +100,4 @@ Font body:    Inter, system-ui, sans-serif
 Logo URL:     https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/bd405351-abd1-42b7-9fcd-6826bf7e3e02/LOGO+-+mor.png?format=2500w
 ```
 
-**Why:** Shopify removed the Notifications REST API in v2024-10. Cannot be done programmatically — must be edited in the Admin UI.
-
----
-
-## 3. Klaviyo — Email Campaigns
-
-**Where:** Shopify App Store → search "Klaviyo"
-
-**What to do:**
-- Install the app
-- Connect it to the Shopify store
-- Set up welcome flow and any campaign templates
-
-**Why:** The newsletter sign-up form in the footer already works and collects emails via Shopify native forms. Klaviyo is only needed when you're ready to actually send campaigns or automated emails. Not urgent for launch.
+**Why:** Shopify removed the Notifications REST API in v2024-10. Cannot be done programmatically — must be edited in the Admin UI. No Klaviyo needed — Shopify Email handles campaigns natively when ready.

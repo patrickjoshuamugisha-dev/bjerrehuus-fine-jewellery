@@ -30,7 +30,7 @@
               alt: section.settings.label
           }}
         {%- elsif section.settings.fallback_image_url != blank -%}
-          <img src="{{ section.settings.fallback_image_url }}" class="bjfj-insp-cutout__image" loading="lazy" alt="{{ section.settings.label | escape }}">
+          <img src="{{ section.settings.fallback_image_url }}" class="bjfj-insp-cutout__image" loading="lazy" alt="{{ section.settings.label | escape }}" width="900" height="900">
         {%- else -%}
           {{ 'product-4' | placeholder_svg_tag: 'bjfj-insp-cutout__image' }}
         {%- endif -%}
@@ -78,8 +78,6 @@
     </div>
   </div>
 </section>
-
-{%- render 'inquire-letter-modal' -%}
 
 {% schema %}
 {

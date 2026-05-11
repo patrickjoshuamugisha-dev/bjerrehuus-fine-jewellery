@@ -72,8 +72,12 @@
       btns.forEach(function (btn) {
         btn.addEventListener('click', function () {
           selected[name] = btn.getAttribute('data-value');
-          btns.forEach(function (b) { b.classList.remove('is-selected'); });
+          btns.forEach(function (b) {
+            b.classList.remove('is-selected');
+            b.setAttribute('aria-pressed', 'false');
+          });
           btn.classList.add('is-selected');
+          btn.setAttribute('aria-pressed', 'true');
           updateVariant();
         });
       });
@@ -152,7 +156,7 @@
         metaEl.textContent = parts.join(' — ');
       }
       if (imgEl) {
-        if (data.img) { imgEl.src = data.img; imgEl.style.display = 'block'; }
+        if (data.img) { imgEl.src = data.img; imgEl.alt = data.name || ''; imgEl.style.display = 'block'; }
         else { imgEl.style.display = 'none'; }
       }
       if (hHandle) hHandle.value = data.handle || '';
@@ -165,6 +169,7 @@
 
       lastTrigger = document.activeElement;
       overlay.classList.add('is-open');
+      overlay.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
       overlay.addEventListener('keydown', trapFocus);
       if (closeBtn) closeBtn.focus();
@@ -172,6 +177,7 @@
 
     function closeModal() {
       overlay.classList.remove('is-open');
+      overlay.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
       overlay.removeEventListener('keydown', trapFocus);
       if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
@@ -223,11 +229,44 @@
     }
   }
 
+  function initCardCycle() {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+    var wrappers = document.querySelectorAll('.card-wrapper');
+    wrappers.forEach(function (wrapper) {
+      var imgs = wrapper.querySelectorAll('.card-cycle-img');
+      if (imgs.length < 2) return;
+      var primary = wrapper.querySelector('.card__media .media > img:first-of-type');
+      var timer = null;
+      var index = 0;
+      function activate(i) {
+        imgs.forEach(function (el, k) {
+          el.classList.toggle('is-active', k === i);
+        });
+      }
+      wrapper.addEventListener('mouseenter', function () {
+        index = 0;
+        activate(0);
+        if (primary) primary.style.opacity = '0';
+        timer = setInterval(function () {
+          index = (index + 1) % imgs.length;
+          activate(index);
+        }, 2200);
+      });
+      wrapper.addEventListener('mouseleave', function () {
+        if (timer) { clearInterval(timer); timer = null; }
+        imgs.forEach(function (el) { el.classList.remove('is-active'); });
+        if (primary) primary.style.opacity = '';
+      });
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initGallery();
     initAccordion();
     initQty();
     initVariants();
     initModal();
+    initCardCycle();
   });
 })();

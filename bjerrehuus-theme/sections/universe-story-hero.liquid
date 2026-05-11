@@ -16,7 +16,7 @@
               alt: section.settings.headline
           }}
         {%- elsif section.settings.image_url != blank -%}
-          <img src="{{ section.settings.image_url }}" class="bjfj-universe-hero__image" loading="eager" fetchpriority="high" alt="{{ section.settings.headline | escape }}">
+          <img src="{{ section.settings.image_url }}" class="bjfj-universe-hero__image" loading="eager" fetchpriority="high" alt="{{ section.settings.headline | escape }}" width="1600" height="1067">
         {%- else -%}
           {{ 'lifestyle' | placeholder_svg_tag: 'bjfj-universe-hero__image' }}
         {%- endif -%}

@@ -1,0 +1,78 @@
+{
+  "sections": {
+    "hero": {
+      "type": "inspiration-hero-collage",
+      "settings": {
+        "hero_label": "THE BRIDAL",
+        "hero_headline": "For the day that changes everything.",
+        "hero_body": "<p>Bridal jewellery should be as personal as the person wearing it. Each piece is made to order, set in 18K gold, and crafted to be passed down.</p>",
+        "hero_image_url": "https://cdn.shopify.com/s/files/1/1032/3004/6542/files/love.webp?v=1778094232"
+      }
+    },
+    "cutout": {
+      "type": "inspiration-product-cutout",
+      "settings": {
+        "product": "bridal-solitaire-ring",
+        "label": "THE SOLITAIRE",
+        "subtext": "<p>A brilliant-cut solitaire in 18K gold, the ring you'll wear every day for the rest of your life. We'll find the right stone together.</p><p>Each setting is made to order. We work with you on the cut, the carat, and the gold, so the ring feels like yours from the first wearing.</p>",
+        "button_label": "Inquire about this piece",
+        "fallback_image_url": "https://cdn.shopify.com/s/files/1/1032/3004/6542/files/love.webp?v=1778094232"
+      }
+    },
+    "mood-board": {
+      "type": "inspiration-mood-board",
+      "settings": {
+        "section_label": "The Bridal Collection"
+      },
+      "blocks": {
+        "block-1": {
+          "type": "image",
+          "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/1032/3004/6542/files/love.webp?v=1778094232",
+            "caption": "Each ring is made to order in 18K gold."
+          }
+        },
+        "block-2": {
+          "type": "image",
+          "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/1032/3004/6542/files/IMG_8655.webp?v=1778094209",
+            "caption": "Stones hand-selected for clarity and fit."
+          }
+        },
+        "block-3": {
+          "type": "pullquote",
+          "settings": {
+            "text": "Made for moments that last a lifetime."
+          }
+        },
+        "block-4": {
+          "type": "bleeder_image",
+          "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/1032/3004/6542/files/IMG_8654.webp?v=1778094209",
+            "caption": "From sketch to setting, by appointment."
+          }
+        }
+      },
+      "block_order": ["block-1", "block-2", "block-3", "block-4"]
+    },
+    "cutout-2": {
+      "type": "inspiration-product-cutout",
+      "settings": {
+        "product": "bridal-wedding-band",
+        "label": "THE WEDDING BAND",
+        "subtext": "<p>The companion to the solitaire. A simple, hand-finished band in 18K gold, made to wear next to the engagement ring for a lifetime.</p><p>Available smooth or pavé-set, in white gold, gold, or rose gold. Sized to your finger and made to order.</p>",
+        "button_label": "Inquire about this piece",
+        "fallback_image_url": "https://cdn.shopify.com/s/files/1/1032/3004/6542/files/IMG_8655.webp?v=1778094209"
+      }
+    },
+    "product-grid": {
+      "type": "inspiration-product-grid",
+      "settings": {
+        "collection": "bridal",
+        "heading": "The Bridal Collection",
+        "products_to_show": 6
+      }
+    }
+  },
+  "order": ["hero", "cutout", "mood-board", "cutout-2", "product-grid"]
+}

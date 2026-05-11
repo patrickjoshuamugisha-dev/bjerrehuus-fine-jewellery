@@ -235,6 +235,7 @@
       </div>
       {% render 'header-search', input_id: 'Search-In-Modal' %}
 
+      {% if false %}
       {%- if shop.customer_accounts_enabled -%}
         <a
           href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
@@ -263,6 +264,7 @@
           </span>
         </a>
       {%- endif -%}
+      {% endif %}
 
       {%- for block in section.blocks -%}
         {%- case block.type -%}
@@ -275,7 +277,7 @@
         type="button"
         class="header__icon header__icon--wishlist link focus-inset bjfj-tooltip"
         aria-label="Wishlist"
-        data-tooltip="Wishlist coming soon"
+        data-tooltip="Coming soon"
         tabindex="0"
       >
         <span class="svg-wrapper">{{ 'icon-heart.svg' | inline_asset_content }}</span>

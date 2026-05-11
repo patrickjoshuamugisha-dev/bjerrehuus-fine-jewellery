@@ -13,7 +13,7 @@
         alt: section.settings.hero_label
     }}
   {%- elsif section.settings.hero_image_url != blank -%}
-    <img src="{{ section.settings.hero_image_url }}" class="bjfj-insp-hero__image" loading="eager" fetchpriority="high" alt="{{ section.settings.hero_label | escape }}">
+    <img src="{{ section.settings.hero_image_url }}" class="bjfj-insp-hero__image" loading="eager" fetchpriority="high" alt="{{ section.settings.hero_label | escape }}" width="2400" height="1600">
   {%- else -%}
     {{ 'lifestyle' | placeholder_svg_tag: 'bjfj-insp-hero__image' }}
   {%- endif -%}

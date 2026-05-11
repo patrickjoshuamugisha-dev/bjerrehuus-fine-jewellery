@@ -23,6 +23,13 @@
               width="{{ block.settings.image.width }}"
               height="{{ block.settings.image.height }}"
             >
+          {%- elsif block.settings.image_url != blank -%}
+            <img
+              src="{{ block.settings.image_url }}"
+              sizes="(max-width: 749px) 72vw, 33vw"
+              alt="{{ block.settings.label | escape }}"
+              loading="lazy"
+            >
           {%- else -%}
             {{ 'collection-apparel-1' | placeholder_svg_tag: 'bjfj-campaign-tile__placeholder' }}
           {%- endif -%}
@@ -50,6 +57,12 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_url",
+          "label": "Image URL (fallback)",
+          "info": "Used when no image is selected above. Paste a Shopify CDN URL."
         },
         {
           "type": "text",

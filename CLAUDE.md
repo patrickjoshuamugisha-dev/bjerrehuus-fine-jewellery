@@ -74,7 +74,7 @@ cd bjerrehuus-theme && shopify theme push --store bjerrehuus-fine-jewelry.myshop
 - Payment methods: Shopify Payments, MobilePay
 - Shipping zones: DK + EU
 - e-conomic sync app
-- Branded transactional emails
+- Branded transactional emails (templates built; upload blocked pending client account verification)
 - Shopify Forms for Inquire submissions
 
 ### Day 7 — QA + handoff
@@ -85,7 +85,7 @@ cd bjerrehuus-theme && shopify theme push --store bjerrehuus-fine-jewelry.myshop
 - Admin handoff
 
 ### Last Day Additional Steps (manual, Patrick does these)
-See `LAST-DAY-ADDITIONAL-STEPS.md` — Markets, Translate & Adapt, Klaviyo.
+See `LAST-DAY-ADDITIONAL-STEPS.md` — Markets, Translate & Adapt. (Klaviyo removed — not needed.)
 
 ---
 

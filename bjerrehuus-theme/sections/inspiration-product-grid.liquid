@@ -1,7 +1,11 @@
 {{ 'bjerrehuus-inspiration.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'bjerrehuus-product.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
-  assign grid_collection = collections[section.settings.collection]
+  assign grid_collection = section.settings.collection
+  if grid_collection == blank or grid_collection == empty
+    assign grid_collection = collections[section.settings.collection]
+  endif
   assign products_to_show = section.settings.products_to_show | default: 6
 -%}
 
@@ -79,18 +83,30 @@
       </ul>
 
     {%- else -%}
-      <p style="color:var(--bjfj-text-muted);font-family:var(--bjfj-font-body);padding:var(--bjfj-s-6) 0;">
-        No products found. Select a collection in the section settings.
-      </p>
+      <div class="bjfj-insp-grid__soon">
+        <p class="bjfj-insp-grid__soon-eyebrow">By appointment</p>
+        <p class="bjfj-insp-grid__soon-line">New pieces are arriving this season.</p>
+        <button
+          type="button"
+          class="bjfj-btn--inquire-outline"
+          data-inquire-trigger
+          data-product-name="{{ grid_collection.title | default: section.settings.heading | escape }}"
+          data-product-material=""
+          data-product-price=""
+          data-product-img=""
+          data-product-handle=""
+          data-product-url="{{ shop.url }}{{ request.path }}"
+        >
+          Inquire about a piece
+        </button>
+      </div>
     {%- endif -%}
 
   </div>
 </section>
 
-{%- comment %} Modal rendered once — JS opens it per trigger {%- endcomment %}
-{%- unless page.template contains 'bjfj-modal-rendered' -%}
-  {%- render 'inquire-letter-modal' -%}
-{%- endunless -%}
+{%- comment %} Modal rendered once per page — JS opens it per trigger {%- endcomment %}
+{%- render 'inquire-letter-modal' -%}
 
 {% schema %}
 {

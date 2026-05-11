@@ -35,7 +35,7 @@
                       alt: story_title
                   }}
                 {%- elsif block.settings.story_image_url != blank -%}
-                  <img src="{{ block.settings.story_image_url }}" class="bjfj-universe-index__thumb" loading="lazy" alt="{{ story_title | escape }}">
+                  <img src="{{ block.settings.story_image_url }}" class="bjfj-universe-index__thumb" loading="lazy" alt="{{ story_title | escape }}" width="300" height="200">
                 {%- else -%}
                   <div class="bjfj-universe-index__thumb" style="background:var(--bjfj-bg-alt);"></div>
                 {%- endif -%}

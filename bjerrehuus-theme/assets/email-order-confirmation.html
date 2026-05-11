@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmation — Bjerrehuus Fine Jewellery</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #F1ECE5;
+      font-family: 'Inter', Arial, sans-serif;
+      color: #1A1A1A;
+      -webkit-font-smoothing: antialiased;
+    }
+    .email-wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #FAF8F5;
+    }
+    .email-header {
+      background-color: #FAF8F5;
+      padding: 40px 40px 24px;
+      text-align: center;
+      border-bottom: 1px solid #E8E4DD;
+    }
+    .email-header img {
+      height: 32px;
+      width: auto;
+    }
+    .email-header .logo-text {
+      font-family: 'Garamond', 'Georgia', serif;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #1A1A1A;
+    }
+    .email-body {
+      padding: 40px 40px 32px;
+    }
+    .email-body h1 {
+      font-family: 'Garamond', 'Georgia', serif;
+      font-size: 26px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: #1A1A1A;
+      margin-bottom: 16px;
+    }
+    .email-body p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #1A1A1A;
+      margin-bottom: 16px;
+    }
+    .email-body p.muted {
+      color: #6E6862;
+      font-size: 14px;
+    }
+    .order-meta {
+      background-color: #F1ECE5;
+      border-radius: 2px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .order-meta table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .order-meta td {
+      font-size: 14px;
+      padding: 4px 0;
+      color: #1A1A1A;
+    }
+    .order-meta td:last-child {
+      text-align: right;
+      color: #6E6862;
+    }
+    .order-items {
+      margin: 24px 0;
+    }
+    .order-item {
+      display: table;
+      width: 100%;
+      padding: 16px 0;
+      border-bottom: 1px solid #E8E4DD;
+    }
+    .order-item:last-child {
+      border-bottom: none;
+    }
+    .item-image {
+      display: table-cell;
+      width: 72px;
+      vertical-align: top;
+    }
+    .item-image img {
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+      border: 1px solid #E8E4DD;
+    }
+    .item-details {
+      display: table-cell;
+      vertical-align: top;
+      padding-left: 16px;
+    }
+    .item-details .name {
+      font-size: 15px;
+      color: #1A1A1A;
+      margin-bottom: 4px;
+    }
+    .item-details .meta {
+      font-size: 13px;
+      color: #6E6862;
+      margin-bottom: 4px;
+    }
+    .item-price {
+      display: table-cell;
+      vertical-align: top;
+      text-align: right;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+    .order-totals {
+      padding: 16px 0;
+      border-top: 1px solid #E8E4DD;
+    }
+    .order-totals table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .order-totals td {
+      font-size: 14px;
+      padding: 5px 0;
+      color: #1A1A1A;
+    }
+    .order-totals td:last-child {
+      text-align: right;
+    }
+    .order-totals .total-row td {
+      font-size: 16px;
+      font-weight: 600;
+      padding-top: 12px;
+    }
+    .divider {
+      height: 1px;
+      background-color: #E8E4DD;
+      margin: 32px 0;
+    }
+    .shipping-address {
+      margin: 24px 0;
+    }
+    .shipping-address h3 {
+      font-family: 'Garamond', 'Georgia', serif;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #1A1A1A;
+      margin-bottom: 8px;
+    }
+    .shipping-address p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #6E6862;
+      margin-bottom: 0;
+    }
+    .cta-button {
+      display: inline-block;
+      background-color: #1A1A1A;
+      color: #FAF8F5 !important;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      margin: 8px 0 24px;
+    }
+    .email-footer {
+      background-color: #F1ECE5;
+      padding: 32px 40px;
+      border-top: 1px solid #E8E4DD;
+    }
+    .email-footer p {
+      font-size: 13px;
+      color: #6E6862;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .email-footer a {
+      color: #1A1A1A;
+      text-decoration: underline;
+    }
+    .footer-logo {
+      font-family: 'Garamond', 'Georgia', serif;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #6E6862;
+      margin-top: 24px;
+      margin-bottom: 0 !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+
+    <!-- Header -->
+    <div class="email-header">
+      <!-- If logo image available: <img src="{{ shop.logo | img_url: 'x64' }}" alt="{{ shop.name }}"> -->
+      <span class="logo-text">Bjerrehuus Fine Jewellery</span>
+    </div>
+
+    <!-- Body -->
+    <div class="email-body">
+      <h1>Thank you for your order.</h1>
+      <p>
+        Hi {{ billing_address.first_name }},<br>
+        We've received your order and are preparing it carefully. You'll receive a shipping confirmation once it's on its way.
+      </p>
+
+      <!-- Order reference -->
+      <div class="order-meta">
+        <table>
+          <tr>
+            <td>Order number</td>
+            <td>{{ order_name }}</td>
+          </tr>
+          <tr>
+            <td>Order date</td>
+            <td>{{ created_at | date: "%B %d, %Y" }}</td>
+          </tr>
+          <tr>
+            <td>Payment</td>
+            <td>{{ financial_status | capitalize }}</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Line items -->
+      <div class="order-items">
+        {% for line in line_items %}
+        <div class="order-item">
+          <div class="item-image">
+            {% if line.image %}
+            <img src="{{ line | img_url: '128x128', crop: 'center' }}" alt="{{ line.title }}">
+            {% endif %}
+          </div>
+          <div class="item-details">
+            <div class="name">{{ line.product.title }}</div>
+            {% if line.variant.title != 'Default Title' %}
+            <div class="meta">{{ line.variant.title }}</div>
+            {% endif %}
+            <div class="meta">Qty: {{ line.quantity }}</div>
+          </div>
+          <div class="item-price">{{ line.final_line_price | money_with_currency }}</div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- Totals -->
+      <div class="order-totals">
+        <table>
+          <tr>
+            <td>Subtotal</td>
+            <td>{{ subtotal_price | money_with_currency }}</td>
+          </tr>
+          {% if shipping_price %}
+          <tr>
+            <td>Shipping</td>
+            <td>{% if shipping_price == 0 %}Free{% else %}{{ shipping_price | money_with_currency }}{% endif %}</td>
+          </tr>
+          {% endif %}
+          {% if tax_price > 0 %}
+          <tr>
+            <td>Tax (25% DK Moms)</td>
+            <td>{{ tax_price | money_with_currency }}</td>
+          </tr>
+          {% endif %}
+          <tr class="total-row">
+            <td>Total</td>
+            <td>{{ total_price | money_with_currency }}</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Shipping address -->
+      {% if shipping_address %}
+      <div class="shipping-address">
+        <h3>Shipping to</h3>
+        <p>
+          {{ shipping_address.first_name }} {{ shipping_address.last_name }}<br>
+          {{ shipping_address.address1 }}<br>
+          {% if shipping_address.address2 != blank %}{{ shipping_address.address2 }}<br>{% endif %}
+          {{ shipping_address.zip }} {{ shipping_address.city }}<br>
+          {{ shipping_address.country }}
+        </p>
+      </div>
+      {% endif %}
+
+      <a href="{{ order_status_url }}" class="cta-button">View your order</a>
+
+      <p class="muted">
+        Questions? Reply to this email or write to us at <a href="mailto:client@bjerrehuusfinejewellery.com">client@bjerrehuusfinejewellery.com</a> or WhatsApp <a href="https://wa.me/4522773684">+45 22 77 36 84</a>.
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="email-footer">
+      <p>Bjerrehuus Fine Jewellery · Bredgade 32, 1260 København K</p>
+      <p><a href="mailto:client@bjerrehuusfinejewellery.com">client@bjerrehuusfinejewellery.com</a> · <a href="https://wa.me/4522773684">+45 22 77 36 84</a></p>
+      <p><a href="{{ shop.url }}">bjerrehuusfinejewellery.com</a></p>
+      <p class="footer-logo">Bjerrehuus Fine Jewellery</p>
+    </div>
+
+  </div>
+</body>
+</html>

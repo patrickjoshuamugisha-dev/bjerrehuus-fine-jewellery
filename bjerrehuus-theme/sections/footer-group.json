@@ -9,14 +9,14 @@
           "type": "link_list",
           "settings": {
             "heading": "Bjerrehuus Fine Jewellery",
-            "menu": "footer-brand"
+            "menu": "footer-menu-brand"
           }
         },
         "footer-care": {
           "type": "link_list",
           "settings": {
             "heading": "Customer Care",
-            "menu": "footer-care"
+            "menu": "footer-menu-care"
           }
         },
         "footer-contact": {
@@ -27,7 +27,7 @@
             "phone": "+45 22 77 36 84",
             "show_newsletter": true,
             "show_social": true,
-            "linkedin_url": "",
+            "linkedin_url": "https://www.linkedin.com/in/vibe-p-bjerrehuus-7504419/",
             "privacy_url": "/policies/privacy-policy"
           }
         }

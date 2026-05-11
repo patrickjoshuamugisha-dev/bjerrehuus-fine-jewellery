@@ -198,7 +198,7 @@
                                 {% elsif form.posted_successfully? %}
                                   aria-describedby="ContactBlock-{{ block.id }}-success"
                                 {% endif %}
-                                placeholder="{{ 'newsletter.label' | t }}"
+                                placeholder="Sign up to the newsletter"
                                 required
                               >
                               <label class="field__label" for="NewsletterBlock--{{ block.id }}">
@@ -253,15 +253,6 @@
                             </ul>
                           {%- endif -%}
                         </div>
-                      {%- endif -%}
-                      {%- if block.settings.privacy_url != blank -%}
-                        <p class="footer-block__privacy-link">
-                          <small>
-                            <a href="{{ block.settings.privacy_url }}" class="link link--text">
-                              {{ 'policies.privacy_policy.title' | t }}
-                            </a>
-                          </small>
-                        </p>
                       {%- endif -%}
                     </div>
                 {%- endcase -%}

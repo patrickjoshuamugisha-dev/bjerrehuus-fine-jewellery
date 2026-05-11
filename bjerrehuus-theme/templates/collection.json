@@ -1,13 +1,5 @@
 {
   "sections": {
-    "banner": {
-      "type": "main-collection-banner",
-      "settings": {
-        "show_collection_description": false,
-        "show_collection_image": false,
-        "color_scheme": "scheme-1"
-      }
-    },
     "campaign-tiles": {
       "type": "shop-campaign-tiles",
       "blocks": {
@@ -15,23 +7,28 @@
           "type": "tile",
           "settings": {
             "label": "THE PILLOW",
-            "link": "/pages/pillow"
+            "link": "/pages/pillow",
+            "image_url": "https://cdn.shopify.com/s/files/1/1032/3004/6542/files/love.webp?v=1778094232"
           }
         },
-        "tile-2": {
+        "tile-bridal": {
           "type": "tile",
           "settings": {
-            "label": "THE SECOND"
+            "label": "THE BRIDAL",
+            "link": "/pages/the-bridal",
+            "image_url": "https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/74bd8508-433d-4417-9624-c4a988a42d65/vibe+med+mere.jpg?format=1500w"
           }
         },
-        "tile-3": {
+        "tile-classic": {
           "type": "tile",
           "settings": {
-            "label": "THE THIRD"
+            "label": "THE CLASSIC",
+            "link": "/pages/the-classic",
+            "image_url": "https://cdn.shopify.com/s/files/1/1032/3004/6542/files/5691.webp?v=1778094230"
           }
         }
       },
-      "block_order": ["tile-pillow", "tile-2", "tile-3"]
+      "block_order": ["tile-pillow", "tile-bridal", "tile-classic"]
     },
     "shop-layout": {
       "type": "shop-layout",
@@ -43,7 +40,6 @@
     }
   },
   "order": [
-    "banner",
     "campaign-tiles",
     "shop-layout"
   ]
