@@ -41,16 +41,21 @@
           "type": "tile",
           "settings": {
             "image_url": "https://cdn.shopify.com/s/files/1/1032/3004/6542/files/5691.webp?v=1778094230",
-            "label": "Discover Pillow",
-            "link": "/pages/pillow"
+            "label": "Discover Classic",
+            "link": "/pages/the-classic",
+            "focal_x": 75,
+            "focal_y": 50
           }
         },
         "tile_2": {
           "type": "tile",
           "settings": {
             "image_url": "https://cdn.shopify.com/s/files/1/1032/3004/6542/files/love.webp?v=1778094232",
-            "label": "Discover Classic",
-            "link": "/pages/the-classic"
+            "label": "Discover Pillow",
+            "link": "/pages/pillow",
+            "focal_x": 35,
+            "focal_y": 40,
+            "scale": 100
           }
         },
         "tile_3": {
