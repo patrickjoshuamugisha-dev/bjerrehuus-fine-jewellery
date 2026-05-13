@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bjerrehuus Fine Jewellery - Opsætningsguide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAF8F5;
+    --bg-alt: #F1ECE5;
+    --surface: #FFFFFF;
+    --text: #1A1A1A;
+    --muted: #6E6862;
+    --accent: #6B1F2A;
+    --border: #E8E4DD;
+    --font-display: "Cormorant Garamond", Georgia, serif;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 48px 24px;
+  }
+
+  .page {
+    max-width: 1040px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+
+  .hero {
+    padding: 48px 52px 34px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .eyebrow {
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1.12;
+  }
+
+  h1 {
+    max-width: 780px;
+    font-size: clamp(2.4rem, 5vw, 4.1rem);
+    letter-spacing: 0;
+  }
+
+  .subtitle {
+    max-width: 720px;
+    color: var(--muted);
+    font-size: 15px;
+    margin-top: 18px;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 18px;
+    padding: 34px 28px;
+    border-right: 1px solid var(--border);
+  }
+
+  .sidebar-title {
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .nav-list {
+    list-style: none;
+    display: grid;
+    gap: 9px;
+  }
+
+  .nav-list a {
+    color: var(--muted);
+    display: grid;
+    grid-template-columns: 24px minmax(0, 1fr);
+    gap: 9px;
+    align-items: center;
+    font-size: 13px;
+    text-decoration: none;
+  }
+
+  .nav-list a:hover { color: var(--accent); }
+
+  .nav-number {
+    width: 22px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1;
+    border-radius: 50%;
+  }
+
+  .main {
+    padding: 12px 52px 54px;
+  }
+
+  .section {
+    padding-top: 38px;
+  }
+
+  .section + .section {
+    border-top: 1px solid var(--border);
+    margin-top: 34px;
+  }
+
+  .section-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    margin-bottom: 10px;
+  }
+
+  .section-heading h2 {
+    margin-bottom: 0;
+  }
+
+  .section-intro {
+    max-width: 680px;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  .task {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    margin-bottom: 16px;
+  }
+
+  .task-header {
+    padding: 20px 22px 14px;
+  }
+
+  .number {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    border-radius: 50%;
+  }
+
+  h3 {
+    font-size: 23px;
+    margin-bottom: 6px;
+  }
+
+  .where {
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .task-body {
+    padding: 0 22px 22px;
+  }
+
+  .task-body p + p {
+    margin-top: 10px;
+  }
+
+  .prep {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    list-style: none;
+    margin-top: 14px;
+  }
+
+  .prep li {
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+
+  ol, ul.steps {
+    padding-left: 18px;
+  }
+
+  li {
+    margin-bottom: 8px;
+    padding-left: 3px;
+  }
+
+  strong { font-weight: 600; }
+
+  code {
+    background: var(--bg-alt);
+    color: var(--accent);
+    font-family: "SF Mono", "Fira Code", ui-monospace, monospace;
+    font-size: 12.5px;
+    padding: 1px 5px;
+  }
+
+  .quiet-note {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 12px;
+  }
+
+  .checklist {
+    display: grid;
+    gap: 10px;
+    list-style: none;
+  }
+
+  .checklist li {
+    border-bottom: 1px solid var(--border);
+    margin: 0;
+    padding: 11px 0 11px 30px;
+    position: relative;
+  }
+
+  .checklist li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 17px;
+    width: 13px;
+    height: 13px;
+    border: 1.5px solid var(--accent);
+  }
+
+  @media (max-width: 860px) {
+    body { padding: 24px 14px; }
+    .hero { padding: 34px 24px 28px; }
+    .content { display: block; }
+    .sidebar {
+      position: static;
+      border-right: 0;
+      border-bottom: 1px solid var(--border);
+      padding: 24px;
+    }
+    .nav-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 18px;
+    }
+    .main { padding: 0 24px 34px; }
+    .number {
+      width: 28px;
+      height: 28px;
+    }
+    .task-header { padding: 18px 16px 12px; }
+    .task-body { padding: 0 16px 18px; }
+    .prep { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    body { padding: 0; }
+    .page { border-left: 0; border-right: 0; }
+    .hero { padding: 30px 18px 24px; }
+    .sidebar { padding: 22px 18px; }
+    .main { padding: 0 18px 30px; }
+    .nav-list { grid-template-columns: 1fr; }
+    .task-body { padding: 0 16px 18px; }
+  }
+
+  @media print {
+    body {
+      background: #fff;
+      padding: 0;
+    }
+    .page {
+      border: 0;
+    }
+    .content {
+      display: block;
+    }
+    .sidebar {
+      display: none;
+    }
+    .main,
+    .hero {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .task {
+      break-inside: avoid;
+    }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="hero">
+    <p class="eyebrow">Bjerrehuus Fine Jewellery</p>
+    <h1>Opsætningsguide</h1>
+    <p class="subtitle">En samlet guide til de sidste Shopify-trin, der kræver din adgang, MitID, virksomhedsoplysninger og domæneadgang. Følg punkterne i rækkefølge, sig til hvis du møder udfordringer, og bekræft når du har færdiggjort punkterne.</p>
+  </header>
+
+  <div class="content">
+    <aside class="sidebar" aria-label="Indhold">
+      <p class="sidebar-title">Tjekliste</p>
+      <nav>
+        <ol class="nav-list">
+          <li><a href="#start"><span class="nav-number">1</span><span>Før start</span></a></li>
+          <li><a href="#email"><span class="nav-number">2</span><span>Email</span></a></li>
+          <li><a href="#details"><span class="nav-number">3</span><span>Butiksinfo</span></a></li>
+          <li><a href="#policies"><span class="nav-number">4</span><span>Politikker</span></a></li>
+          <li><a href="#payments"><span class="nav-number">5</span><span>Betalinger</span></a></li>
+          <li><a href="#mobilepay"><span class="nav-number">6</span><span>MobilePay</span></a></li>
+          <li><a href="#klarna"><span class="nav-number">7</span><span>Klarna</span></a></li>
+          <li><a href="#domain"><span class="nav-number">8</span><span>Domæne</span></a></li>
+          <li><a href="#optimize"><span class="nav-number">9</span><span>Optimize</span></a></li>
+          <li><a href="#notify"><span class="nav-number">10</span><span>Giv besked</span></a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <div class="main">
+      <section class="section" id="start">
+        <div class="section-heading">
+          <span class="number">1</span>
+          <h2>Før du starter</h2>
+        </div>
+        <p class="section-intro">Hav de her ting ved hånden, før du går i gang. Det gør resten af opsætningen roligere og hurtigere.</p>
+        <div class="task">
+          <div class="task-header">
+            <div>
+              <h3>Find det vigtigste frem</h3>
+              <p class="where">Inden du åbner Shopify</p>
+            </div>
+          </div>
+          <div class="task-body">
+            <ul class="prep">
+              <li>CVR-nummer og officielt firmanavn</li>
+              <li>Virksomhedsadresse</li>
+              <li>Telefonnummer til virksomheden</li>
+              <li>Bankkonto / IBAN til udbetalinger</li>
+              <li>MitID og eventuelt billed-ID</li>
+              <li>Adgang til ejer-emailen</li>
+              <li>Domæne-login, hvis domænet allerede er købt</li>
+            </ul>
+            <p class="quiet-note">Hvis noget mangler, så send bare en besked. Så finder vi den nemmeste vej.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="email">
+        <div class="section-heading">
+          <span class="number">2</span>
+          <h2>Bekræft email</h2>
+        </div>
+        <p class="section-intro">Shopify skal have bekræftet emailen, før alle de sidste dele kan sættes ordentligt op.</p>
+        <div class="task">
+          <div class="task-header">
+            <div>
+              <h3>Bekræft Shopify-emailen</h3>
+              <p class="where">Din indbakke</p>
+            </div>
+          </div>
+          <div class="task-body">
+            <ol>
+              <li>Find Shopify-emailen om at bekræfte din emailadresse.</li>
+              <li>Klik på bekræftelseslinket.</li>
+              <li>Hvis du ikke kan finde emailen, tjek spam eller søg efter “Shopify”.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="details">
+        <div class="section-heading">
+          <span class="number">3</span>
+          <h2>Butiksoplysninger</h2>
+        </div>
+        <p class="section-intro">Tjek bare, at det ser rigtigt ud. De her oplysninger bruges på kvitteringer, i emails og i Shopifys juridiske felter.</p>
+        <div class="task">
+          <div class="task-header">
+            <div>
+              <h3>Tjek navn, kontakt og afsender</h3>
+              <p class="where">Shopify Admin → Indstillinger → Butiksoplysninger</p>
+            </div>
+          </div>
+          <div class="task-body">
+            <ol>
+              <li>Bekræft butiksnavnet: <strong>Bjerrehuus Fine Jewellery</strong>.</li>
+              <li>Tjek at firmanavn, adresse, CVR og telefonnummer ser rigtigt ud.</li>
+              <li>Tjek kontakt-emailen, for eksempel <code>vibe@stylesnob.com</code> eller den nye Bjerrehuus-email.</li>
+              <li>Tjek afsender-emailen, hvis Shopify viser et felt eller en advarsel om det.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="policies">
+        <div class="section-heading">
+          <span class="number">4</span>
+          <h2>Politikker</h2>
+        </div>
+        <p class="section-intro">Jeg har lagt politikkerne op, men skim dem gerne igennem og sig til, hvis noget ikke føles rigtigt for dig.</p>
+        <div class="task">
+          <div class="task-header">
+            <div>
+              <h3>Skim politikkerne</h3>
+              <p class="where">Shopify Admin → Indstillinger → Politikker</p>
+            </div>
+          </div>
+          <div class="task-body">
+            <ol>
+              <li>Åbn <strong>Privacy Policy</strong>, <strong>Refund Policy</strong>, <strong>Shipping Policy</strong> og <strong>Terms of Service</strong>.</li>
+              <li>Åbn også <strong>Contact Information</strong> og <strong>Legal Notice</strong>.</li>
+              <li>Skim teksterne for retur, levering, kontakt, adresse, email, CVR og telefon.</li>
+              <li>Hvis noget føles forkert, for skarpt eller ikke som Bjerrehuus, så send det til mig.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="payments">
+        <div class="section-heading">
+          <span class="number">5</span>
+          <h2>Betalinger</h2>
+        </div>
+        <p class="section-intro">Butikken kan først tage imod rigtige ordrer, når Shopify Payments er godkendt.</p>
+        <div class="task">
+          <div class="task-header">
+            <div>
+              <h3>Opsæt Shopify Payments</h3>
+              <p class="where">Shopify Admin → Indstillinger → Betalinger</p>
+            </div>
+          </div>
+          <div class="task-body">
+            <ol>
+              <li>Klik på <strong>Aktivér Shopify Payments</strong> eller <strong>Fuldfør kontoopsætning</strong>.</li>
+              <li>Indtast virksomhedsoplysninger: CVR, adresse, ejeroplysninger og branche.</li>
+              <li>Indtast bankoplysninger til udbetalinger.</li>
+              <li>Gennemfør identitetskontrol med MitID eller dokumenter, hvis Shopify beder om det.</li>
+              <li>Når Shopify Payments er godkendt, klik <strong>Administrer</strong>.</li>
+              <li>Bekræft at kortbetalinger er aktive.</li>
+              <li>Aktivér <strong>Apple Pay</strong>, <strong>Google Pay</strong> og <strong>Shop Pay</strong>, hvis de ikke allerede er slået til.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="mobilepay">
+        <div class="section-heading">
+          <span class="number">6</span>
+          <h2>MobilePay</h2>
+        </div>
+        <p class="section-intro">MobilePay er vigtigt for danske kunder og skal aktiveres efter Shopify Payments.</p>
+        <div class="task">
+          <div class="task-header">
+            <div>
+              <h3>Aktivér MobilePay</h3>
+              <p class="where">Shopify Admin → Indstillinger → Betalinger → Shopify Payments → Administrer</p>
+            </div>
+          </div>
+          <div class="task-body">
+            <ol>
+              <li>Åbn <strong>Shopify Payments</strong> og klik <strong>Administrer</strong>.</li>
+              <li>Find <strong>Lokale betalingsmetoder</strong> eller <strong>MobilePay</strong>.</li>
+              <li>Slå <strong>MobilePay</strong> til.</li>
+              <li>Gennemfør bank- eller MitID-trinnene, hvis Shopify beder om det.</li>
+              <li>Gem ændringerne.</li>
+            </ol>
+            <p class="quiet-note">Shopify oplyser et MobilePay-gebyr på 49 DKK pr. måned. Der kan også være almindelige betalingsgebyrer.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="klarna">
+        <div class="section-heading">
+          <span class="number">7</span>
+          <h2>Aktivér Klarna, hvis du gerne vil tilbyde det</h2>
+        </div>
+        <p class="section-intro">Klarna er valgfrit. Slå det til, hvis du gerne vil tilbyde betal senere / faktura-lignende betaling.</p>
+        <div class="task">
+          <div class="task-header">
+            <div>
+              <h3>Slå Klarna til eller spring over</h3>
+              <p class="where">Shopify Admin → Indstillinger → Betalinger → Shopify Payments → Administrer</p>
+            </div>
+          </div>
+          <div class="task-body">
+            <ol>
+              <li>Åbn <strong>Shopify Payments</strong> og klik <strong>Administrer</strong>.</li>
+              <li>Find <strong>Klarna</strong> under betalingsmetoder.</li>
+              <li>Slå Klarna til, hvis den er tilgængelig for butikken.</li>
+              <li>Accepter eventuelle vilkår eller godkendelser fra Shopify/Klarna.</li>
+              <li>Gem ændringerne.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="domain">
+        <div class="section-heading">
+          <span class="number">8</span>
+          <h2>Domæne</h2>
+        </div>
+        <p class="section-intro">Butikken kører lige nu på <code>bjerrehuus-fine-jewelry.myshopify.com</code>. Hvis du allerede har domænet, skal jeg bare vide hvor det ligger, så jeg kan forbinde det.</p>
+        <div class="task">
+          <div class="task-header">
+            <div>
+              <h3>Find domænet</h3>
+              <p class="where">Shopify Admin → Indstillinger → Domæner</p>
+            </div>
+          </div>
+          <div class="task-body">
+            <ol>
+              <li>Bekræft om Bjerrehuus allerede ejer et domæne.</li>
+              <li>Hvis ja: send mig domænenavnet og hvor det er købt.</li>
+              <li>Hvis domænet ligger udenfor Shopify: giv mig adgang til registraren, eller vær klar til at indsætte DNS-records.</li>
+              <li>Hvis der ikke er købt domæne endnu: så aftaler vi, hvilket domæne der skal købes.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="optimize">
+        <div class="section-heading">
+          <span class="number">9</span>
+          <h2>Optimize your store</h2>
+        </div>
+        <p class="section-intro">Shopify viser nogle gange en lille opsætningsliste på startsiden. Den ændrer sig løbende, så følg bare de punkter, Shopify viser dig.</p>
+        <div class="task">
+          <div class="task-header">
+            <div>
+              <h3>Gå gennem Shopifys liste</h3>
+              <p class="where">Shopify Admin → Startside</p>
+            </div>
+          </div>
+          <div class="task-body">
+            <ol>
+              <li>Åbn Shopify Admins startside.</li>
+              <li>Find kortet <strong>Optimize your store</strong> eller <strong>Optimer din butik</strong>.</li>
+              <li>Følg de trin, Shopify viser, hvis de giver mening for dig.</li>
+              <li>Hvis noget føles uklart eller som en større ændring, så stop og send mig et screenshot.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="notify">
+        <div class="section-heading">
+          <span class="number">10</span>
+          <h2>Giv mig besked</h2>
+        </div>
+        <p class="section-intro">Når du har været punkterne igennem, så send mig en kort status. Skriv også hvis noget drillede, afventer godkendelse, eller hvis du sprang et punkt over.</p>
+        <div class="task">
+          <div class="task-header">
+            <div>
+              <h3>Skriv når du er færdig</h3>
+              <p class="where">Når punkt 1-9 er gennemgået</p>
+            </div>
+          </div>
+          <div class="task-body">
+            <p>Skriv for eksempel: “Jeg har gennemgået punkterne. Det eneste åbne er [kort forklaring].”</p>
+            <p class="quiet-note">Hvis alt gik fint, er “Alt er gjort” nok.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="patrick">
+        <h2>Det gør jeg bagefter</h2>
+        <p class="section-intro">Når du har sendt status, går jeg ind og tjekker det hele. Jeg færdiggør de sidste Shopify-, email-, domæne- og formulardetaljer, tester at checkout og forespørgsler virker, og fortsætter med den resterende launch-forberedelse.</p>
+        <ul class="checklist">
+          <li>Jeg tjekker alle indstillinger og retter det, der mangler.</li>
+          <li>Jeg færdiggør email-, domæne- og formularopsætning.</li>
+          <li>Jeg tester checkout, betalinger og produktforespørgsler.</li>
+          <li>Jeg fortsætter med den sidste launch-forberedelse og sender dig det, der kræver din godkendelse.</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</main>
+</body>
+</html>
