@@ -1,0 +1,616 @@
+{
+  "normalizedAt": "2026-05-14T09:56:53.625Z",
+  "sourceFile": "exports/store-transfer-2026-05-14/target-before/admin-export.json",
+  "counts": {
+    "products": 17,
+    "collections": 9,
+    "pages": 21,
+    "menus": 5,
+    "policies": 6,
+    "urlRedirects": 0
+  },
+  "productHandles": [
+    "bridal-diamond-band",
+    "bridal-pave-engagement-ring",
+    "bridal-solitaire-ring",
+    "classic-alliance-ring",
+    "classic-diamond-hoops",
+    "classic-diamond-pendant",
+    "classic-diamond-studs",
+    "classic-pave-alliance-ring",
+    "classic-pave-necklace",
+    "classic-pave-studs",
+    "classic-pave-tennis-bracelet",
+    "classic-solitaire-hoops",
+    "classic-solitaire-tennis-bracelet",
+    "pillow-13link-earring",
+    "pillow-boomrang-earring",
+    "pillow-bracelet-small",
+    "pillow-studs"
+  ],
+  "collectionHandles": [
+    "bridal",
+    "classic",
+    "classic-hoops",
+    "classic-necklaces",
+    "classic-studs",
+    "classic-tennis",
+    "classic-wedding-bands",
+    "frontpage",
+    "pillow"
+  ],
+  "pageHandles": [
+    "book-appointment",
+    "contact",
+    "customer-care",
+    "data-sharing-opt-out",
+    "diamonds",
+    "jewellery-care",
+    "meet-vibe",
+    "our-purpose",
+    "pillow",
+    "production-responsibility",
+    "returns-exchange",
+    "shipping-delivery",
+    "size-guides",
+    "terms-of-service",
+    "the-bridal",
+    "the-classic",
+    "universe",
+    "universe-story-1",
+    "universe-story-2023",
+    "universe-story-bugatti",
+    "universe-story-power"
+  ],
+  "menuHandles": [
+    "customer-account-main-menu",
+    "footer",
+    "footer-menu-brand",
+    "footer-menu-care",
+    "main-menu"
+  ],
+  "policyTypes": [
+    "CONTACT_INFORMATION",
+    "LEGAL_NOTICE",
+    "PRIVACY_POLICY",
+    "REFUND_POLICY",
+    "SHIPPING_POLICY",
+    "TERMS_OF_SERVICE"
+  ],
+  "products": [
+    {
+      "handle": "bridal-diamond-band",
+      "title": "Bridal diamond band",
+      "status": "ACTIVE",
+      "productType": "Fine Jewellery",
+      "vendor": "Bjerrehuus Fine Jewellery",
+      "templateSuffix": null,
+      "variantCount": 18,
+      "mediaCount": 2,
+      "metafields": [
+        {
+          "namespace": "custom",
+          "key": "purchase_type",
+          "type": "single_line_text_field",
+          "value": "inquire"
+        },
+        {
+          "namespace": "custom",
+          "key": "material",
+          "type": "single_line_text_field",
+          "value": "18K gold, brilliant-cut diamonds"
+        },
+        {
+          "namespace": "custom",
+          "key": "inspiration_collection",
+          "type": "single_line_text_field",
+          "value": "bridal"
+        }
+      ]
+    },
+    {
+      "handle": "bridal-pave-engagement-ring",
+      "title": "Bridal pavé engagement ring",
+      "status": "ACTIVE",
+      "productType": "Fine Jewellery",
+      "vendor": "Bjerrehuus Fine Jewellery",
+      "templateSuffix": null,
+      "variantCount": 18,
+      "mediaCount": 2,
+      "metafields": [
+        {
+          "namespace": "custom",
+          "key": "purchase_type",
+          "type": "single_line_text_field",
+          "value": "inquire"
+        },
+        {
+          "namespace": "custom",
+          "key": "material",
+          "type": "single_line_text_field",
+          "value": "18K gold, brilliant-cut diamonds"
+        },
+        {
+          "namespace": "custom",
+          "key": "inspiration_collection",
+          "type": "single_line_text_field",
+          "value": "bridal"
+        }
+      ]
+    },
+    {
+      "handle": "bridal-solitaire-ring",
+      "title": "Bridal solitaire ring",
+      "status": "ACTIVE",
+      "productType": "Fine Jewellery",
+      "vendor": "Bjerrehuus Fine Jewellery",
+      "templateSuffix": null,
+      "variantCount": 18,
+      "mediaCount": 1,
+      "metafields": [
+        {
+          "namespace": "custom",
+          "key": "purchase_type",
+          "type": "single_line_text_field",
+          "value": "inquire"
+        },
+        {
+          "namespace": "custom",
+          "key": "material",
+          "type": "single_line_text_field",
+          "value": "18K gold, GIA-certified brilliant-cut diamond"
+        },
+        {
+          "namespace": "custom",
+          "key": "inspiration_collection",
+          "type": "single_line_text_field",
+          "value": "bridal"
+        }
+      ]
+    },
+    {
+      "handle": "classic-alliance-ring",
+      "title": "Classic alliance ring",
+      "status": "ACTIVE",
+      "productType": "Fine Jewellery",
+      "vendor": "Bjerrehuus Fine Jewellery",
+      "templateSuffix": null,
+      "variantCount": 18,
+      "mediaCount": 2,
+      "metafields": [
+        {
+          "namespace": "custom",
+          "key": "purchase_type",
+          "type": "single_line_text_field",
+          "value": "shoppable"
+        },
+        {
+          "namespace": "custom",
+          "key": "material",
+          "type": "single_line_text_field",
+          "value": "18K gold, brilliant-cut diamonds"
+        },
+        {
+          "namespace": "custom",
+          "key": "inspiration_collection",
+          "type": "single_line_text_field",
+          "value": "classic"
+        }
+      ]
+    },
+    {
+      "handle": "classic-diamond-hoops",
+      "title": "Classic diamond hoops",
+      "status": "ACTIVE",
+      "productType": "Fine Jewellery",
+      "vendor": "Bjerrehuus Fine Jewellery",
+      "templateSuffix": null,
+      "variantCount": 18,
+      "mediaCount": 2,
+      "metafields": [
+        {
+          "namespace": "custom",
+          "key": "purchase_type",
+          "type": "single_line_text_field",
+          "value": "shoppable"
+        },
+        {
+          "namespace": "custom",
+          "key": "material",
+          "type": "single_line_text_field",
+          "value": "18K gold, brilliant-cut diamonds"
+        },
+        {
+          "namespace": "custom",
+          "key": "inspiration_collection",
+          "type": "single_line_text_field",
+          "value": "classic"
+        }
+      ]
+    },
+    {
+      "handle": "classic-diamond-pendant",
+      "title": "Classic diamond pendant",
+      "status": "ACTIVE",
+      "productType": "Fine Jewellery",
+      "vendor": "Bjerrehuus Fine Jewellery",
+      "templateSuffix": null,
+      "variantCount": 18,
+      "mediaCount": 1,
+      "metafields": [
+        {
+          "namespace": "custom",
+          "key": "purchase_type",
+          "type": "single_line_text_field",
+          "value": "shoppable"
+        },
+        {
+          "namespace": "custom",
+          "key": "material",
+          "type": "single_line_text_field",
+          "value": "18K gold, brilliant-cut diamond"
+        },
+        {
+          "namespace": "custom",
+          "key": "inspiration_collection",
+          "type": "single_line_text_field",
+          "value": "classic"
+        }
+      ]
+    },
+    {
+      "handle": "classic-diamond-studs",
+      "title": "Classic diamond studs",
+      "status": "ACTIVE",
+      "productType": "Fine Jewellery",
+      "vendor": "Bjerrehuus Fine Jewellery",
+      "templateSuffix": null,
+      "variantCount": 3,
+      "mediaCount": 1,
+      "metafields": [
+        {
+          "namespace": "custom",
+          "key": "purchase_type",
+          "type": "single_line_text_field",
+          "value": "shoppable"
+        },
+        {
+          "namespace": "custom",
+          "key": "material",
+          "type": "single_line_text_field",
+          "value": "18K gold, brilliant-cut diamond"
+        },
+        {
+          "namespace": "custom",
+          "key": "inspiration_collection",
+          "type": "single_line_text_field",
+          "value": "classic"
+        }
+      ]
+    },
+    {
+      "handle": "classic-pave-alliance-ring",
+      "title": "Classic pavé alliance ring",
+      "status": "ACTIVE",
+      "productType": "Fine Jewellery",
+      "vendor": "Bjerrehuus Fine Jewellery",
+      "templateSuffix": null,
+      "variantCount": 18,
+      "mediaCount": 2,
+      "metafields": [
+        {
+          "namespace": "custom",
+          "key": "purchase_type",
+          "type": "single_line_text_field",
+          "value": "shoppable"
+        },
+        {
+          "namespace": "custom",
+          "key": "material",
+          "type": "single_line_text_field",
+          "value": "18K gold, brilliant-cut diamonds"
+        },
+        {
+          "namespace": "custom",
+          "key": "inspiration_collection",
+          "type": "single_line_text_field",
+          "value": "classic"
+        }
+      ]
+    },
+    {
+      "handle": "classic-pave-necklace",
+      "title": "Classic pavé necklace",
+      "status": "ACTIVE",
+      "productType": "Fine Jewellery",
+      "vendor": "Bjerrehuus Fine Jewellery",
+      "templateSuffix": null,
+      "variantCount": 18,
+      "mediaCount": 1,
+      "metafields": [
+        {
+          "namespace": "custom",
+          "key": "purchase_type",
+          "type": "single_line_text_field",
+          "value": "shoppable"
+        },
+        {
+          "namespace": "custom",
+          "key": "material",
+          "type": "single_line_text_field",
+          "value": "18K gold, brilliant-cut diamonds"
+        },
+        {
+          "namespace": "custom",
+          "key": "inspiration_collection",
+          "type": "single_line_text_field",
+          "value": "classic"
+        }
+      ]
+    },
+    {
+      "handle": "classic-pave-studs",
+      "title": "Classic pavé studs",
+      "status": "ACTIVE",
+      "productType": "Fine Jewellery",
+      "vendor": "Bjerrehuus Fine Jewellery",
+      "templateSuffix": null,
+      "variantCount": 3,
+      "mediaCount": 2,
+      "metafields": [
+        {
+          "namespace": "custom",
+          "key": "purchase_type",
+          "type": "single_line_text_field",
+          "value": "shoppable"
+        },
+        {
+          "namespace": "custom",
+          "key": "material",
+          "type": "single_line_text_field",
+          "value": "18K gold, brilliant-cut diamonds"
+        },
+        {
+          "namespace": "custom",
+          "key": "inspiration_collection",
+          "type": "single_line_text_field",
+          "value": "classic"
+        }
+      ]
+    },
+    {
+      "handle": "classic-pave-tennis-bracelet",
+      "title": "Classic pavé tennis bracelet",
+      "status": "ACTIVE",
+      "productType": "Fine Jewellery",
+      "vendor": "Bjerrehuus Fine Jewellery",
+      "templateSuffix": null,
+      "variantCount": 18,
+      "mediaCount": 1,
+      "metafields": [
+        {
+          "namespace": "custom",
+          "key": "purchase_type",
+          "type": "single_line_text_field",
+          "value": "shoppable"
+        },
+        {
+          "namespace": "custom",
+          "key": "material",
+          "type": "single_line_text_field",
+          "value": "18K gold, brilliant-cut diamonds"
+        },
+        {
+          "namespace": "custom",
+          "key": "inspiration_collection",
+          "type": "single_line_text_field",
+          "value": "classic"
+        }
+      ]
+    },
+    {
+      "handle": "classic-solitaire-hoops",
+      "title": "Classic solitaire hoops",
+      "status": "ACTIVE",
+      "productType": "Fine Jewellery",
+      "vendor": "Bjerrehuus Fine Jewellery",
+      "templateSuffix": null,
+      "variantCount": 18,
+      "mediaCount": 2,
+      "metafields": [
+        {
+          "namespace": "custom",
+          "key": "purchase_type",
+          "type": "single_line_text_field",
+          "value": "shoppable"
+        },
+        {
+          "namespace": "custom",
+          "key": "material",
+          "type": "single_line_text_field",
+          "value": "18K gold, brilliant-cut diamond"
+        },
+        {
+          "namespace": "custom",
+          "key": "inspiration_collection",
+          "type": "single_line_text_field",
+          "value": "classic"
+        }
+      ]
+    },
+    {
+      "handle": "classic-solitaire-tennis-bracelet",
+      "title": "Classic solitaire tennis bracelet",
+      "status": "ACTIVE",
+      "productType": "Fine Jewellery",
+      "vendor": "Bjerrehuus Fine Jewellery",
+      "templateSuffix": null,
+      "variantCount": 18,
+      "mediaCount": 2,
+      "metafields": [
+        {
+          "namespace": "custom",
+          "key": "purchase_type",
+          "type": "single_line_text_field",
+          "value": "shoppable"
+        },
+        {
+          "namespace": "custom",
+          "key": "material",
+          "type": "single_line_text_field",
+          "value": "14K gold, brilliant-cut diamonds"
+        },
+        {
+          "namespace": "custom",
+          "key": "inspiration_collection",
+          "type": "single_line_text_field",
+          "value": "classic"
+        }
+      ]
+    },
+    {
+      "handle": "pillow-13link-earring",
+      "title": "Pillow 13-link Pavé Earring",
+      "status": "ACTIVE",
+      "productType": "Earrings",
+      "vendor": "Bjerrehuus Fine Jewelry",
+      "templateSuffix": null,
+      "variantCount": 3,
+      "mediaCount": 2,
+      "metafields": [
+        {
+          "namespace": "custom",
+          "key": "purchase_type",
+          "type": "single_line_text_field",
+          "value": "inquire"
+        },
+        {
+          "namespace": "custom",
+          "key": "material",
+          "type": "single_line_text_field",
+          "value": "18K White Gold"
+        },
+        {
+          "namespace": "custom",
+          "key": "diamond_spec",
+          "type": "single_line_text_field",
+          "value": "2.0 CT TW/VVS-VS"
+        },
+        {
+          "namespace": "custom",
+          "key": "inspiration_collection",
+          "type": "single_line_text_field",
+          "value": "pillow"
+        }
+      ]
+    },
+    {
+      "handle": "pillow-boomrang-earring",
+      "title": "Pillow Boomrang Earring",
+      "status": "ACTIVE",
+      "productType": "Earrings",
+      "vendor": "Bjerrehuus Fine Jewelry",
+      "templateSuffix": null,
+      "variantCount": 6,
+      "mediaCount": 1,
+      "metafields": [
+        {
+          "namespace": "custom",
+          "key": "purchase_type",
+          "type": "single_line_text_field",
+          "value": "inquire"
+        },
+        {
+          "namespace": "custom",
+          "key": "material",
+          "type": "single_line_text_field",
+          "value": "18K White Gold"
+        },
+        {
+          "namespace": "custom",
+          "key": "diamond_spec",
+          "type": "single_line_text_field",
+          "value": "0.80 TW/VVS-VS"
+        },
+        {
+          "namespace": "custom",
+          "key": "inspiration_collection",
+          "type": "single_line_text_field",
+          "value": "pillow"
+        }
+      ]
+    },
+    {
+      "handle": "pillow-bracelet-small",
+      "title": "Pillow bracelet small",
+      "status": "ACTIVE",
+      "productType": "Bracelets",
+      "vendor": "Bjerrehuus Fine Jewelry",
+      "templateSuffix": null,
+      "variantCount": 18,
+      "mediaCount": 2,
+      "metafields": [
+        {
+          "namespace": "custom",
+          "key": "purchase_type",
+          "type": "single_line_text_field",
+          "value": "shoppable"
+        },
+        {
+          "namespace": "custom",
+          "key": "material",
+          "type": "single_line_text_field",
+          "value": "18K White Gold"
+        },
+        {
+          "namespace": "custom",
+          "key": "diamond_spec",
+          "type": "single_line_text_field",
+          "value": "2.02 CT TW/VVS-VS"
+        },
+        {
+          "namespace": "custom",
+          "key": "inspiration_collection",
+          "type": "single_line_text_field",
+          "value": "pillow"
+        }
+      ]
+    },
+    {
+      "handle": "pillow-studs",
+      "title": "Pillow studs",
+      "status": "ACTIVE",
+      "productType": "Earrings",
+      "vendor": "Bjerrehuus Fine Jewelry",
+      "templateSuffix": null,
+      "variantCount": 3,
+      "mediaCount": 2,
+      "metafields": [
+        {
+          "namespace": "custom",
+          "key": "purchase_type",
+          "type": "single_line_text_field",
+          "value": "shoppable"
+        },
+        {
+          "namespace": "custom",
+          "key": "material",
+          "type": "single_line_text_field",
+          "value": "18K White Gold"
+        },
+        {
+          "namespace": "custom",
+          "key": "diamond_spec",
+          "type": "single_line_text_field",
+          "value": "0.68 TW/VVS-VS"
+        },
+        {
+          "namespace": "custom",
+          "key": "inspiration_collection",
+          "type": "single_line_text_field",
+          "value": "pillow"
+        }
+      ]
+    }
+  ]
+}

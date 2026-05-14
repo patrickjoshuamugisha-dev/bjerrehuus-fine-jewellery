@@ -11,8 +11,18 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto var(--bjfj-s-8);
-  padding: 0 var(--bjfj-container-pad);
+  padding: var(--bjfj-s-2) var(--bjfj-container-pad) 0;
   overflow: hidden;
+}
+
+.bjfj-campaign-tile__bg img,
+.bjfj-campaign-tile__bg svg {
+  transform-origin: center;
+  will-change: transform;
+}
+
+.bjfj-campaign-tile:hover .bjfj-campaign-tile__bg img {
+  transform: scale(calc(var(--tile-scale, 1) * 1.04)) rotate(0.3deg);
 }
 
 .bjfj-campaign-tile {
@@ -40,11 +50,13 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: var(--tile-focal-x, 50%) var(--tile-focal-y, 50%);
+  transform: scale(var(--tile-scale, 1));
   transition: transform var(--bjfj-dur-base) var(--bjfj-ease);
 }
 
 .bjfj-campaign-tile:hover .bjfj-campaign-tile__bg img {
-  transform: scale(1.04);
+  transform: scale(calc(var(--tile-scale, 1) * 1.04));
 }
 
 .bjfj-campaign-tile__bg::after {
@@ -53,8 +65,9 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    transparent 40%,
-    rgba(26, 26, 26, 0.55) 100%
+    transparent 30%,
+    rgba(26, 26, 26, 0.35) 65%,
+    rgba(26, 26, 26, 0.75) 100%
   );
 }
 
@@ -69,12 +82,13 @@
 .bjfj-campaign-tile__label span {
   display: inline-block;
   font-family: var(--bjfj-font-display);
-  font-size: clamp(1.1rem, 2vw, 1.75rem);
+  font-size: clamp(1.375rem, 2vw, 2rem);
   font-weight: 300;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #FAF8F5;
+  color: var(--bjfj-bg);
   line-height: 1.15;
+  text-shadow: 0 2px 12px rgba(26, 26, 26, 0.8);
 }
 
 .bjfj-campaign-tile__placeholder {
@@ -85,7 +99,7 @@
 
 @media screen and (max-width: 749px) {
   .bjfj-campaign-tiles {
-    grid-template-columns: repeat(3, 72vw);
+    grid-template-columns: repeat(3, 78vw);
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
@@ -99,7 +113,7 @@
 
   .bjfj-campaign-tile {
     scroll-snap-align: start;
-    aspect-ratio: 2 / 3;
+    aspect-ratio: 3 / 4;
   }
 }
 
@@ -196,7 +210,7 @@ a.bjfj-sidebar-group__title.is-active {
 }
 
 .bjfj-sidebar-link.is-active {
-  color: var(--bjfj-text);
+  color: var(--bjfj-accent);
   border-left-color: var(--bjfj-accent);
   font-weight: 500;
 }
@@ -235,7 +249,7 @@ a.bjfj-sidebar-group__title.is-active {
     border-bottom: none;
     padding-bottom: 0;
     margin-bottom: 0;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
   }
 
   .bjfj-sidebar-group__links {
@@ -247,7 +261,7 @@ a.bjfj-sidebar-group__title.is-active {
     padding: 2px 0;
     border-left: none;
     border-bottom: 1px solid transparent;
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
   }
 
   .bjfj-sidebar-link.is-active {
@@ -321,20 +335,22 @@ a.bjfj-sidebar-group__title.is-active {
   width: 100%;
   height: 44px;
   background: transparent;
-  color: var(--bjfj-text);
-  border: 1px solid var(--bjfj-text);
+  color: var(--bjfj-accent);
+  border: 1px solid var(--bjfj-accent);
   font-family: var(--bjfj-font-body);
   font-size: var(--bjfj-fs-small);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   cursor: pointer;
   transition: background var(--bjfj-dur-fast) var(--bjfj-ease),
-              color var(--bjfj-dur-fast) var(--bjfj-ease);
+              color var(--bjfj-dur-fast) var(--bjfj-ease),
+              border-color var(--bjfj-dur-fast) var(--bjfj-ease);
 }
 
 .bjfj-btn--inquire-outline:hover {
-  background: var(--bjfj-text);
+  background: var(--bjfj-accent);
   color: var(--bjfj-bg);
+  border-color: var(--bjfj-accent);
 }
 
 .bjfj-btn--inquire-outline:focus-visible {
@@ -413,4 +429,25 @@ a.bjfj-sidebar-group__title.is-active {
 
 .card:hover .card__media .media--hover-effect > img + img {
   opacity: 1;
+}
+
+/* ── Single-image card hover: subtle brightness lift so every card responds ── */
+@media (prefers-reduced-motion: no-preference) {
+  .card__media img:only-child,
+  .card__media .media--hover-effect > img:only-child {
+    transition: filter var(--bjfj-dur-base) var(--bjfj-ease),
+                transform var(--bjfj-dur-base) var(--bjfj-ease);
+  }
+  .card:hover .card__media img:only-child,
+  .card:hover .card__media .media--hover-effect > img:only-child {
+    filter: brightness(1.03);
+    transform: scale(1.02);
+  }
+}
+
+/* ── Reveal stagger on the product grid ── */
+@media (prefers-reduced-motion: no-preference) {
+  .bjfj-product-grid .bjfj-reveal:nth-child(3n+1) { transition-delay: 0ms; }
+  .bjfj-product-grid .bjfj-reveal:nth-child(3n+2) { transition-delay: 80ms; }
+  .bjfj-product-grid .bjfj-reveal:nth-child(3n+3) { transition-delay: 160ms; }
 }

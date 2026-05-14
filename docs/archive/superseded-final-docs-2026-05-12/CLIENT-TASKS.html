@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bjerrehuus — Tasks for Vibe</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #1A1A1A;
+    background: #FAF8F5;
+    padding: 48px 24px;
+  }
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #E8E4DD;
+    border-radius: 8px;
+    padding: 48px;
+  }
+  h1 {
+    font-family: Georgia, serif;
+    font-size: 26px;
+    font-weight: 400;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #E8E4DD;
+    padding-bottom: 24px;
+  }
+  .intro {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 40px;
+    padding: 20px 24px;
+    background: #FAF8F5;
+    border-left: 3px solid #6B1F2A;
+    border-radius: 0 4px 4px 0;
+  }
+  .task {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #E8E4DD;
+  }
+  .task:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .task-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .task-number {
+    background: #6B1F2A;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .task-title {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .task-where {
+    font-size: 12px;
+    color: #6B1F2A;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    margin-left: 44px;
+  }
+  .steps {
+    margin-left: 44px;
+    list-style: none;
+    counter-reset: steps;
+  }
+  .steps li {
+    counter-increment: steps;
+    margin-bottom: 10px;
+    padding-left: 28px;
+    position: relative;
+  }
+  .steps li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #6B1F2A;
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid #6B1F2A;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+  .note {
+    margin-left: 44px;
+    margin-top: 14px;
+    padding: 12px 16px;
+    background: #FAF8F5;
+    border-left: 3px solid #E8E4DD;
+    font-size: 13px;
+    color: #555;
+    border-radius: 0 4px 4px 0;
+  }
+  .note strong { color: #1A1A1A; }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { border: none; padding: 32px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <h1>Bjerrehuus Fine Jewellery</h1>
+  <p class="subtitle">Tasks for Vibe &nbsp;·&nbsp; May 2026 &nbsp;·&nbsp; These steps require your personal login or bank details — only you can complete them</p>
+
+  <div class="intro">
+    These are the only tasks that cannot be handled by Patrick. Each one requires either your personal MitID, your bank account details, or your verified Shopify owner email. They take around 20–30 minutes in total and can be done from any computer — just go to your Shopify Admin.
+  </div>
+
+  <!-- 1. Verify email -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-number">1</div>
+      <div class="task-title">Verify Your Store Email</div>
+    </div>
+    <div class="task-where">Check your inbox</div>
+    <ul class="steps">
+      <li>Shopify has sent a verification email to the store owner email address</li>
+      <li>Find this email (check spam if needed) and click the verification link</li>
+      <li>That's it — this unlocks the Notifications section so the branded email templates can be applied</li>
+    </ul>
+    <div class="note">
+      <strong>Why this is needed:</strong> Shopify locks email notification editing until the store owner verifies their email. The branded order/shipping confirmation templates are ready and waiting — Patrick will apply them as soon as you've verified.
+    </div>
+  </div>
+
+  <!-- 2. Shopify Payments -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-number">2</div>
+      <div class="task-title">Set Up Shopify Payments</div>
+    </div>
+    <div class="task-where">Shopify Admin → Settings → Payments</div>
+    <ul class="steps">
+      <li>Go to <strong>shopify.com</strong>, log in to your store, then go to <strong>Settings → Payments</strong></li>
+      <li>Click <strong>Complete account setup</strong> under Shopify Payments</li>
+      <li>Fill in your business details: CVR number, business address, and bank account (IBAN) for payouts</li>
+      <li>Complete identity verification — Shopify will ask for your personal ID (passport or national ID)</li>
+      <li>Once approved, click <strong>Manage</strong> next to Shopify Payments</li>
+      <li>Under <strong>Wallets</strong>, make sure these are all ticked: <strong>Apple Pay</strong>, <strong>Google Pay</strong>, <strong>Shop Pay</strong></li>
+      <li>Click <strong>Save</strong></li>
+    </ul>
+    <div class="note">
+      <strong>Payout timing:</strong> Once set up, Shopify Payments pays out to your bank account on a rolling 3-day schedule. You'll get an email confirmation when your first payout is scheduled.
+    </div>
+  </div>
+
+  <!-- 3. MobilePay -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-number">3</div>
+      <div class="task-title">Enable MobilePay</div>
+    </div>
+    <div class="task-where">Shopify Admin → Settings → Payments → Manage</div>
+    <ul class="steps">
+      <li>After completing Shopify Payments setup (step 2 above), stay on the Payments page</li>
+      <li>Click <strong>Manage</strong> next to Shopify Payments</li>
+      <li>Scroll to <strong>Wallets</strong> and find <strong>MobilePay</strong></li>
+      <li>Toggle MobilePay on — you will be asked to verify with your Danish business bank credentials (MitID)</li>
+      <li>Complete the MitID verification</li>
+      <li>Click <strong>Save</strong></li>
+    </ul>
+    <div class="note">
+      <strong>Why MobilePay matters:</strong> The majority of Danish customers prefer to pay with MobilePay. Without it, a large share of visitors will abandon checkout. This is one of the most important steps before going live.
+    </div>
+  </div>
+
+  <!-- 4. Domain -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-number">4</div>
+      <div class="task-title">Confirm Where the Domain Is Registered</div>
+    </div>
+    <div class="task-where">Your domain account or Shopify Admin → Settings → Domains</div>
+    <ul class="steps">
+      <li>Confirm whether you already own the Bjerrehuus domain</li>
+      <li>If yes, tell Patrick where it is registered, for example Shopify, GoDaddy, Namecheap, or another registrar</li>
+      <li>If it is outside Shopify, either share the registrar login with Patrick or be ready to add the DNS records Patrick sends you</li>
+      <li>If no domain exists yet, tell Patrick so he can buy one through Shopify</li>
+    </ul>
+  </div>
+
+  <!-- 5. Shipping -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-number">5</div>
+      <div class="task-title">Approve Shipping Rates</div>
+    </div>
+    <div class="task-where">Confirm with Patrick</div>
+    <ul class="steps">
+      <li>Current setup: Denmark is free shipping</li>
+      <li>Current setup: International shipping is 299 DKK</li>
+      <li>Tell Patrick if these should change before launch</li>
+    </ul>
+  </div>
+
+  <!-- 6. Final review -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-number">6</div>
+      <div class="task-title">Final Store Review and Launch Date</div>
+    </div>
+    <div class="task-where">Preview link from Patrick</div>
+    <ul class="steps">
+      <li>Walk through the preview link Patrick sends you</li>
+      <li>Approve product copy, images, pricing, and the English-only launch setup</li>
+      <li>Confirm the launch date before Patrick removes the storefront password</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>

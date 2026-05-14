@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bjerrehuus — Manual Setup Guide</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #1A1A1A;
+    background: #FAF8F5;
+    padding: 48px 24px;
+  }
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #E8E4DD;
+    border-radius: 8px;
+    padding: 48px;
+  }
+  .brand { color: #6B1F2A; }
+  h1 {
+    font-family: Georgia, serif;
+    font-size: 26px;
+    font-weight: 400;
+    margin-bottom: 6px;
+    color: #1A1A1A;
+  }
+  .subtitle {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #E8E4DD;
+    padding-bottom: 24px;
+  }
+  .task {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #E8E4DD;
+  }
+  .task:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .task-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .task-number {
+    background: #6B1F2A;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .task-title {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #1A1A1A;
+  }
+  .task-where {
+    font-size: 12px;
+    color: #6B1F2A;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    margin-left: 44px;
+  }
+  .steps {
+    margin-left: 44px;
+    list-style: none;
+    counter-reset: steps;
+  }
+  .steps li {
+    counter-increment: steps;
+    margin-bottom: 10px;
+    padding-left: 28px;
+    position: relative;
+  }
+  .steps li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #6B1F2A;
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid #6B1F2A;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+  .note {
+    margin-left: 44px;
+    margin-top: 14px;
+    padding: 12px 16px;
+    background: #FAF8F5;
+    border-left: 3px solid #E8E4DD;
+    font-size: 13px;
+    color: #555;
+    border-radius: 0 4px 4px 0;
+  }
+  .note strong { color: #1A1A1A; }
+  code {
+    font-family: "SF Mono", "Fira Code", monospace;
+    font-size: 12.5px;
+    background: #F0EDE8;
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: #6B1F2A;
+  }
+  .tokens {
+    margin-left: 44px;
+    margin-top: 14px;
+    background: #1A1A1A;
+    color: #FAF8F5;
+    padding: 16px;
+    border-radius: 6px;
+    font-family: "SF Mono", "Fira Code", monospace;
+    font-size: 12.5px;
+    line-height: 2;
+  }
+  .tokens span { color: #b5a99a; }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-left: 8px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .tag-urgent { background: #fdecea; color: #b91c1c; }
+  .tag-optional { background: #f0f9ee; color: #16a34a; }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { border: none; padding: 32px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <h1>Bjerrehuus Fine Jewellery</h1>
+  <p class="subtitle">Manual Setup Checklist &nbsp;·&nbsp; May 2026 &nbsp;·&nbsp; Patrick tasks — see <strong>CLIENT-TASKS.html</strong> for Vibe's tasks</p>
+
+  <!-- 1. Transactional Emails -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-number" style="background:#b45309;">⏸</div>
+      <div class="task-title">Transactional Emails <span class="tag" style="background:#fef3c7;color:#b45309;">On Hold</span></div>
+    </div>
+    <div class="task-where">Admin → Settings → Notifications</div>
+    <div class="note" style="border-left-color:#b45309;">
+      <strong>Blocked:</strong> Shopify has sent a verification email to the store owner. Vibe must verify her email address before the Notifications section becomes editable. Once she confirms, return here and continue with the steps below.
+    </div>
+    <ul class="steps" style="margin-top:16px;">
+      <li>Go to <strong>Shopify Admin → Settings → Notifications</strong></li>
+      <li>Click <strong>Order confirmation</strong> in the list</li>
+      <li>Click <strong>Edit code</strong> (look for a small text link or <code>&lt;/&gt;</code> icon — not the visual "Customize" button)</li>
+      <li>Select all existing HTML in the editor (<strong>Cmd+A</strong>), delete it, then paste the full contents of <code>bjerrehuus-theme/assets/email-order-confirmation.html</code></li>
+      <li>Click <strong>Save</strong></li>
+      <li>Go back to Notifications → click <strong>Shipping confirmation</strong></li>
+      <li>Repeat steps 3–5 using <code>bjerrehuus-theme/assets/email-shipping-confirmation.html</code></li>
+      <li>Use <strong>Send test email</strong> on each to confirm it renders correctly</li>
+    </ul>
+  </div>
+
+  <!-- 2. Shopify Forms -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-number" style="background:#b45309;">⏸</div>
+      <div class="task-title">Shopify Forms — Inquire Routing <span class="tag" style="background:#fef3c7;color:#b45309;">On Hold</span></div>
+    </div>
+    <div class="task-where">Admin → Apps → Forms</div>
+    <div class="note" style="border-left-color:#b45309;">
+      <strong>Blocked:</strong> keep this on hold until the client email/account verification is complete. The launch fallback is the current inquire modal posting to Shopify's <code>/contact</code> endpoint with product context.
+    </div>
+    <ul class="steps">
+      <li>Once unblocked, open <strong>Shopify Forms</strong></li>
+      <li>Create an inquiry form and set recipient email to <strong>vibe@stylesnob.com</strong></li>
+      <li>Wire the form into the existing inquire modal if Shopify Forms exposes the needed form/embed endpoint</li>
+      <li>Submit one real inquiry and confirm Vibe receives the product name, handle, URL, and customer message</li>
+    </ul>
+  </div>
+
+  <!-- 3. Shipping rates -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-number">3</div>
+      <div class="task-title">Shipping Rates <span class="tag tag-urgent">Confirm</span></div>
+    </div>
+    <div class="task-where">Admin → Settings → Shipping and delivery</div>
+    <ul class="steps">
+      <li>Confirm Denmark is set to <strong>free shipping</strong></li>
+      <li>Confirm International is set to <strong>299 DKK</strong></li>
+      <li>Run one checkout test for a Danish address and one international address</li>
+    </ul>
+    <div class="note">
+      Current launch scope is delivery-only: no local pickup, no DK/EU-only split.
+    </div>
+  </div>
+
+  <!-- 4. Markets -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-number">4</div>
+      <div class="task-title">Markets — Current Launch Scope <span class="tag tag-optional">Verify</span></div>
+    </div>
+    <div class="task-where">Admin → Settings → Markets</div>
+    <ul class="steps">
+      <li>Confirm the primary launch language is <strong>English</strong></li>
+      <li>Confirm Danish / Translate &amp; Adapt is not required for this launch</li>
+      <li>Confirm International market behavior matches the shipping setup above</li>
+    </ul>
+    <div class="note">
+      Danish translations are post-launch unless Patrick reopens scope.
+    </div>
+  </div>
+
+  <!-- 5. Removed scope -->
+  <div class="task">
+    <div class="task-header">
+      <div class="task-number">5</div>
+      <div class="task-title">Removed From Launch Scope <span class="tag tag-optional">Do Not Install</span></div>
+    </div>
+    <div class="task-where">Do not install unless Patrick reopens scope</div>
+    <ul class="steps">
+      <li>e-conomic</li>
+      <li>Klaviyo</li>
+      <li>Translate &amp; Adapt / Danish storefront translation</li>
+      <li>Local pickup</li>
+    </ul>
+    <div class="note">
+      These were part of older planning notes, but are no longer launch requirements.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,5 +1,87 @@
 /* ── Bjerrehuus Header Styles ── */
 
+.header__heading-logo-wrapper--fallback {
+  width: clamp(180px, 24vw, 260px);
+}
+
+.header__heading-logo--fallback {
+  display: block;
+  width: 100%;
+}
+
+.section-header {
+  z-index: 50;
+}
+
+.header-wrapper {
+  background: #fff !important;
+}
+
+.header-wrapper--border-bottom {
+  border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+}
+
+.header {
+  max-width: 100%;
+  min-height: 8.8rem;
+}
+
+@media screen and (min-width: 990px) {
+  .header.header--middle-center:not(.drawer-menu) {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    column-gap: clamp(2.4rem, 4vw, 7.2rem);
+    padding-left: clamp(3.2rem, 5vw, 7.2rem);
+    padding-right: clamp(3.2rem, 5vw, 7.2rem);
+  }
+
+  .header__inline-menu {
+    justify-self: start;
+    margin-left: 0;
+  }
+
+  .header__inline-menu > .list-menu--inline {
+    align-items: center;
+    gap: clamp(0.4rem, 1.1vw, 1.6rem);
+  }
+
+  .header__heading-link {
+    padding: 0;
+  }
+
+  .header__heading-logo-wrapper {
+    width: clamp(21rem, 20vw, 30rem);
+  }
+
+  .header__icons {
+    align-items: center;
+    gap: 0.4rem;
+    padding-right: 0;
+  }
+
+  .header__menu-item {
+    min-height: 4.4rem;
+    padding: 0.8rem 1rem;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    text-transform: none;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .header {
+    min-height: 7.2rem;
+  }
+
+  .header__heading-logo-wrapper,
+  .header__heading-logo-wrapper--fallback {
+    width: clamp(16rem, 42vw, 22rem);
+  }
+
+  .header__icons {
+    padding-right: 0;
+  }
+}
+
 /* Wishlist placeholder button */
 .header__icon--wishlist {
   background: none;
@@ -42,13 +124,24 @@
   width: 2.4rem;
   height: 2.4rem;
   stroke: currentColor;
-  stroke-width: 1.25;
+  stroke-width: 1.5;
   fill: none;
 }
 
 /* Even spacing on the cart — drop Dawn's negative right margin */
 .header__icon--cart {
   margin-right: 0;
+}
+
+.header__menu-item .icon-caret {
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-left: 0.45rem;
+}
+
+.header__submenu {
+  border: 1px solid rgba(26, 26, 26, 0.08);
+  box-shadow: 0 12px 32px rgba(26, 26, 26, 0.08);
 }
 
 /* ── Tooltip utility ── */
@@ -113,4 +206,29 @@
 .header__menu-item--disabled:hover::after,
 .header__menu-item--disabled:focus-visible::after {
   opacity: 1;
+}
+
+/* ── Nav letter-spacing + hover underline ── */
+.header__menu-item,
+.header__active-menu-item {
+  letter-spacing: 0.10em;
+}
+
+/* Recolor Dawn's hover underline to burgundy and push it down slightly */
+.header__menu-item:hover span,
+.header__active-menu-item,
+.header__menu-item:hover .header__active-menu-item {
+  text-decoration: underline #6B1F2A;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.5rem;
+}
+
+/* ── Sticky-header scroll state — hairline bottom border ── */
+.shopify-section-header-sticky.shopify-section-header-hidden,
+.shopify-section-header-sticky {
+  transition: box-shadow var(--bjfj-dur-fast) var(--bjfj-ease);
+}
+
+.shopify-section-header-sticky:not(.shopify-section-header-hidden) .header-wrapper {
+  box-shadow: 0 1px 0 var(--bjfj-border);
 }

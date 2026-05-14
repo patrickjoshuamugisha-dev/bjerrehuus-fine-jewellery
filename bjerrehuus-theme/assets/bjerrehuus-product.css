@@ -22,7 +22,7 @@
 /* ── Gallery ── */
 .bjfj-gallery {
   position: sticky;
-  top: var(--bjfj-s-4);
+  top: calc(var(--header-height, 80px) + var(--bjfj-s-4));
 }
 
 .bjfj-gallery__main {
@@ -60,9 +60,9 @@
 }
 
 .bjfj-gallery__thumb {
-  width: 64px;
-  height: 64px;
-  border: 1px solid transparent;
+  width: 72px;
+  height: 72px;
+  border: 2px solid transparent;
   background: var(--bjfj-bg-alt);
   cursor: pointer;
   overflow: hidden;
@@ -78,9 +78,12 @@
   display: block;
 }
 
-.bjfj-gallery__thumb.is-active,
 .bjfj-gallery__thumb:hover {
   border-color: var(--bjfj-text);
+}
+
+.bjfj-gallery__thumb.is-active {
+  border-color: var(--bjfj-accent);
 }
 
 .bjfj-gallery__thumb:focus-visible {
@@ -97,14 +100,29 @@
   font-family: var(--bjfj-font-body);
   font-size: var(--bjfj-fs-small);
   color: var(--bjfj-text-muted);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   margin: 0 0 var(--bjfj-s-1);
 }
 
+/* Short burgundy rule above section labels — repeating brand mark */
+.bjfj-rule-accent {
+  display: block;
+  width: 36px;
+  height: 1px;
+  background: var(--bjfj-accent);
+  margin: 0 0 var(--bjfj-s-2);
+  border: 0;
+}
+
+.bjfj-rule-accent--center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .bjfj-product-info__title {
   font-family: var(--bjfj-font-display);
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-size: clamp(2rem, 3vw, 3rem);
   font-weight: 400;
   line-height: 1.1;
   color: var(--bjfj-text);
@@ -120,14 +138,14 @@
 
 .bjfj-product-info__price {
   font-family: var(--bjfj-font-body);
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   color: var(--bjfj-text);
   margin-bottom: var(--bjfj-s-4);
 }
 
 .bjfj-product-info__price .price__regular,
 .bjfj-product-info__price .price-item {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
 }
 
 /* ── Option selectors ── */
@@ -139,7 +157,7 @@
   display: block;
   font-family: var(--bjfj-font-body);
   font-size: var(--bjfj-fs-small);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--bjfj-text-muted);
   margin-bottom: var(--bjfj-s-1);
@@ -171,9 +189,10 @@
 }
 
 .bjfj-option__btn.is-selected {
-  background: var(--bjfj-text);
-  border-color: var(--bjfj-text);
-  color: var(--bjfj-bg);
+  background: transparent;
+  border: 2px solid var(--bjfj-accent);
+  color: var(--bjfj-accent);
+  padding: 0 calc(var(--bjfj-s-2) - 1px);
 }
 
 .bjfj-option__btn:focus-visible {
@@ -212,7 +231,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.125rem;
+  font-size: 1.375rem;
   color: var(--bjfj-text);
   display: flex;
   align-items: center;
@@ -249,9 +268,9 @@
   display: block;
   width: 100%;
   height: 52px;
-  background: var(--bjfj-text);
+  background: var(--bjfj-accent);
   color: var(--bjfj-bg);
-  border: 1px solid var(--bjfj-text);
+  border: 1px solid var(--bjfj-accent);
   font-family: var(--bjfj-font-body);
   font-size: var(--bjfj-fs-small);
   letter-spacing: 0.12em;
@@ -263,8 +282,8 @@
 }
 
 .bjfj-btn--primary:hover:not(:disabled) {
-  background: var(--bjfj-accent);
-  border-color: var(--bjfj-accent);
+  background: #4e1620;
+  border-color: #4e1620;
 }
 
 .bjfj-btn--primary:disabled {
@@ -332,10 +351,15 @@
   cursor: pointer;
   font-family: var(--bjfj-font-body);
   font-size: var(--bjfj-fs-small);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--bjfj-text);
   text-align: left;
+  transition: color var(--bjfj-dur-fast) var(--bjfj-ease);
+}
+
+.bjfj-accordion__item.is-open .bjfj-accordion__trigger {
+  color: var(--bjfj-accent);
 }
 
 .bjfj-accordion__icon {
@@ -382,14 +406,14 @@
 }
 
 .bjfj-accordion__item.is-open .bjfj-accordion__body {
-  max-height: 400px;
+  max-height: 800px;
 }
 
 .bjfj-accordion__body-inner {
   padding-bottom: var(--bjfj-s-3);
   font-family: var(--bjfj-font-body);
-  font-size: var(--bjfj-fs-small);
-  color: var(--bjfj-text-muted);
+  font-size: var(--bjfj-fs-body);
+  color: var(--bjfj-text);
   line-height: var(--bjfj-lh-body);
 }
 
@@ -408,12 +432,22 @@
 
 .bjfj-related__heading {
   font-family: var(--bjfj-font-display);
-  font-size: var(--bjfj-fs-h3);
+  font-size: var(--bjfj-fs-h2);
   font-weight: 400;
   color: var(--bjfj-text);
   margin: 0 0 var(--bjfj-s-6);
-  padding-top: var(--bjfj-s-6);
-  border-top: 1px solid var(--bjfj-border);
+  padding-top: var(--bjfj-s-8);
+  position: relative;
+}
+
+.bjfj-related__heading::before {
+  content: '';
+  position: absolute;
+  top: var(--bjfj-s-6);
+  left: 0;
+  width: 36px;
+  height: 1px;
+  background: var(--bjfj-accent);
 }
 
 .bjfj-related__grid {

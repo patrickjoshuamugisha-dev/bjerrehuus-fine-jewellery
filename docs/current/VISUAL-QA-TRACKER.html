@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bjerrehuus - Visual QA Tracker</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #1A1A1A;
+    background: #FAF8F5;
+    padding: 40px 24px;
+  }
+  .page {
+    max-width: 1180px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #E8E4DD;
+    border-radius: 8px;
+    padding: 40px;
+  }
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: start;
+    border-bottom: 1px solid #E8E4DD;
+    padding-bottom: 24px;
+    margin-bottom: 28px;
+  }
+  h1, h2, h3 {
+    font-family: Georgia, serif;
+    font-weight: 400;
+  }
+  h1 {
+    font-size: 30px;
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 34px 0 14px;
+    padding-top: 24px;
+    border-top: 1px solid #E8E4DD;
+  }
+  h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  p { color: #555; }
+  .meta {
+    color: #777;
+    font-size: 12px;
+    text-align: right;
+    white-space: nowrap;
+  }
+  .summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .card {
+    border: 1px solid #E8E4DD;
+    border-radius: 6px;
+    padding: 16px;
+    background: #FFFEFC;
+  }
+  .card strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #6B1F2A;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .step {
+    border-left: 3px solid #6B1F2A;
+    background: #FAF8F5;
+    padding: 12px;
+    border-radius: 0 5px 5px 0;
+    min-height: 92px;
+  }
+  .step b {
+    display: block;
+    margin-bottom: 4px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 18px;
+  }
+  th {
+    background: #FAF8F5;
+    color: #6B1F2A;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-align: left;
+    border: 1px solid #E8E4DD;
+    padding: 9px 10px;
+  }
+  td {
+    border: 1px solid #E8E4DD;
+    padding: 10px;
+    vertical-align: top;
+    min-height: 42px;
+  }
+  .issue-table td {
+    height: 58px;
+  }
+  .id { width: 82px; color: #6B1F2A; font-weight: 700; }
+  .url { width: 145px; }
+  .viewport { width: 88px; }
+  .owner, .status, .priority { width: 112px; }
+  .batch { width: 80px; }
+  .muted { color: #777; }
+  .pill {
+    display: inline-block;
+    border-radius: 999px;
+    padding: 2px 8px;
+    background: #F4EFE8;
+    color: #6B1F2A;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .capture {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  pre {
+    background: #1A1A1A;
+    color: #fff;
+    border-radius: 6px;
+    padding: 16px;
+    white-space: pre-wrap;
+    font-size: 13px;
+  }
+  ul {
+    margin-left: 18px;
+    color: #555;
+  }
+  li { margin-bottom: 6px; }
+  code {
+    background: #FAF8F5;
+    border-radius: 3px;
+    padding: 1px 4px;
+    font-size: 13px;
+  }
+  @media (max-width: 900px) {
+    body { padding: 20px 12px; }
+    .page { padding: 24px; }
+    header, .summary, .steps, .capture { grid-template-columns: 1fr; }
+    .meta { text-align: left; }
+    table { display: block; overflow-x: auto; white-space: nowrap; }
+  }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { border: none; border-radius: 0; padding: 24px; max-width: none; }
+    .card, .step, th { background: #fff; }
+    pre { border: 1px solid #E8E4DD; color: #1A1A1A; background: #fff; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div>
+      <h1>Bjerrehuus Visual QA Tracker</h1>
+      <p>Use this for small visual, spacing, image, and copy polish before launch. Capture issues fast, classify ownership, then fix theme-code issues in batches.</p>
+    </div>
+    <div class="meta">
+      Last updated: 2026-05-14<br>
+      Audience: Patrick + Codex
+    </div>
+  </header>
+
+  <section class="summary">
+    <div class="card">
+      <strong>Shopify admin</strong>
+      <p>Copy, page text, product descriptions, product image order, and product media choices.</p>
+    </div>
+    <div class="card">
+      <strong>Theme editor</strong>
+      <p>Only section-level settings already exposed in Shopify customizer.</p>
+    </div>
+    <div class="card">
+      <strong>Theme code</strong>
+      <p>Repeated spacing, crop, typography, product cards, grids, modals, header, footer, and responsive polish.</p>
+    </div>
+  </section>
+
+  <section class="steps">
+    <div class="step"><b>1. Capture</b><p>One row per issue. Use a screenshot for layout/image notes.</p></div>
+    <div class="step"><b>2. Classify</b><p>Choose Shopify admin, theme editor, or theme code.</p></div>
+    <div class="step"><b>3. Batch</b><p>Group 5-12 related theme-code issues.</p></div>
+    <div class="step"><b>4. Fix</b><p>Patch the dev Dawn theme only.</p></div>
+    <div class="step"><b>5. Verify</b><p>Check desktop/mobile and run Theme Check.</p></div>
+  </section>
+
+  <h2>Issues</h2>
+  <table class="issue-table">
+    <thead>
+      <tr>
+        <th class="id">ID</th>
+        <th class="url">URL</th>
+        <th class="viewport">Viewport</th>
+        <th>Screenshot / ref</th>
+        <th>Issue</th>
+        <th>Desired result</th>
+        <th class="owner">Owner</th>
+        <th class="status">Status</th>
+        <th class="batch">Batch</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="id">VQA-001</td>
+        <td><code>/?preview_theme_id=196345627011</code></td>
+        <td>Desktop + mobile</td>
+        <td>Collaboration QA plan header/footer target</td>
+        <td>Header/footer needed closer parity with the old preview: white header, centered logo, balanced nav/icons, beige 3-column footer.</td>
+        <td>Header/footer match the target structure and are ready for visual review on the draft theme.</td>
+        <td>Theme code</td>
+        <td><span class="pill">Needs review</span></td>
+        <td>2026-05-14-A</td>
+        <td>Pushed to <code>Bjerrehuus Draft</code> only. Password <code>rteipe</code> unlocked local draft QA; desktop/mobile screenshots captured under <code>/tmp/bjerrehuus-qa</code>. Admin menus/content on <code>dvzxta-0m</code> still need rebuild.</td>
+      </tr>
+      <tr>
+        <td class="id">VQA-002</td>
+        <td><code>/</code></td>
+        <td>Homepage</td>
+        <td>Frozen CDN URL audit</td>
+        <td>Homepage JSON still referenced frozen-store CDN images.</td>
+        <td>Homepage uses local theme assets for hero and discover tiles.</td>
+        <td>Theme code</td>
+        <td><span class="pill">Needs review</span></td>
+        <td>2026-05-14-A</td>
+        <td><code>templates/index.json</code> no longer contains the frozen CDN prefix.</td>
+      </tr>
+      <tr>
+        <td class="id">VQA-003</td>
+        <td>Admin data</td>
+        <td>Products</td>
+        <td>Admin GraphQL audit</td>
+        <td>Boolean product metafields existed but were missing from product records.</td>
+        <td>Re-check against <code>dvzxta-0m.myshopify.com</code> before launch.</td>
+        <td>Shopify admin</td>
+        <td><span class="pill">Blocked</span></td>
+        <td>2026-05-14-A</td>
+        <td>The available Admin token points to <code>bjerrehuus-fine-jewelry.myshopify.com</code>. CLI-authenticated target query against <code>dvzxta-0m</code> returned zero products, so product metafield QA cannot be accepted for the active target store yet.</td>
+      </tr>
+      <tr>
+        <td class="id">VQA-004</td>
+        <td><code>/?preview_theme_id=196345627011</code></td>
+        <td>Desktop + mobile</td>
+        <td>Storefront preview</td>
+        <td>Current storefront password was needed to run local draft visual QA.</td>
+        <td>Local draft preview starts with <code>theme dev</code> using password <code>rteipe</code>.</td>
+        <td>QA</td>
+        <td><span class="pill">Done</span></td>
+        <td>2026-05-14-A</td>
+        <td><code>http://127.0.0.1:9292</code> rendered the draft theme; screenshots captured for homepage, collection, product guesses, and inspiration page.</td>
+      </tr>
+      <tr>
+        <td class="id">VQA-005</td>
+        <td><code>dvzxta-0m.myshopify.com</code></td>
+        <td>Admin data</td>
+        <td>Target store content audit</td>
+        <td>The active draft theme renders, but the target store Admin query returns zero products; storefront product URLs and content pages 404, and <code>/collections/all</code> shows “No products found.” Header menu is still default <code>Home / Catalog / Contact</code>.</td>
+        <td>Rebuild or import target products, pages, collections, menus, and metafield values into <code>dvzxta-0m</code>, then rerun collection/product/content QA.</td>
+        <td>Shopify admin</td>
+        <td><span class="pill">Blocked</span></td>
+        <td>2026-05-14-A</td>
+        <td>Confirmed with <code>shopify store execute --store dvzxta-0m.myshopify.com</code> after re-authing required scopes. Screenshots: <code>/tmp/bjerrehuus-qa/collection-all.png</code>, <code>/tmp/bjerrehuus-qa/product-bridal.png</code>, <code>/tmp/bjerrehuus-qa/page-inspiration.png</code>.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Review Pages</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Area</th>
+        <th>URLs / templates to check</th>
+        <th class="priority">Priority</th>
+        <th class="status">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Homepage</td><td><code>/</code></td><td>P0</td><td><span class="pill">Needs review</span></td></tr>
+      <tr><td>Collection</td><td><code>/collections/all</code>, <code>/collections/pillow</code>, <code>/collections/bridal</code>, <code>/collections/classic</code></td><td>P0</td><td><span class="pill">Blocked</span></td></tr>
+      <tr><td>Product pages</td><td>One shoppable product and one inquire product</td><td>P0</td><td><span class="pill">Blocked</span></td></tr>
+      <tr><td>Cart</td><td><code>/cart</code> with empty cart and populated cart</td><td>P0</td><td><span class="pill">New</span></td></tr>
+      <tr><td>Inquiry flow</td><td>Product page inquire modal and submitted inquiry email</td><td>P0</td><td><span class="pill">New</span></td></tr>
+      <tr><td>Universe</td><td><code>/pages/universe</code>, story pages</td><td>P1</td><td><span class="pill">Blocked</span></td></tr>
+      <tr><td>Meet Vibe</td><td><code>/pages/meet-vibe</code></td><td>P1</td><td><span class="pill">Blocked</span></td></tr>
+      <tr><td>Content pages</td><td>Purpose, production, diamonds, care, shipping, returns, size guides</td><td>P1</td><td><span class="pill">Blocked</span></td></tr>
+      <tr><td>Utility pages</td><td>Search, 404, account/login, password page</td><td>P2</td><td><span class="pill">New</span></td></tr>
+    </tbody>
+  </table>
+
+  <h2>Capture Format</h2>
+  <div class="capture">
+    <div>
+      <h3>Send issues to Codex like this</h3>
+      <pre>URL:
+Viewport: desktop or mobile
+Screenshot:
+Issue:
+Desired result:
+Owner guess:</pre>
+    </div>
+    <div>
+      <h3>Example</h3>
+      <pre>URL: /products/pillow-studs
+Viewport: mobile
+Screenshot: attached
+Issue: Product image feels too zoomed and the title starts too low.
+Desired result: More breathing room around product image; reduce top gap before title.
+Owner guess: Theme code</pre>
+    </div>
+  </div>
+
+  <h2>Status Key</h2>
+  <table>
+    <thead>
+      <tr><th>Status</th><th>Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="pill">New</span></td><td>Captured, not reviewed yet.</td></tr>
+      <tr><td><span class="pill">Ready</span></td><td>Clear enough to fix.</td></tr>
+      <tr><td><span class="pill">In progress</span></td><td>Being fixed now.</td></tr>
+      <tr><td><span class="pill">Needs review</span></td><td>Fixed and waiting for Patrick/Vibe review.</td></tr>
+      <tr><td><span class="pill">Blocked</span></td><td>Cannot complete until external access or data is available.</td></tr>
+      <tr><td><span class="pill">Done</span></td><td>Approved.</td></tr>
+      <tr><td><span class="pill">Defer</span></td><td>Valid issue, not launch-blocking.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Theme Code Batch Log</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Batch</th>
+        <th>Included IDs</th>
+        <th>Theme files touched</th>
+        <th>Verification</th>
+        <th class="status">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2026-05-14-A</td>
+        <td>VQA-001, VQA-002, VQA-003, VQA-004, VQA-005</td>
+        <td><code>assets/bjerrehuus-header.css</code>, <code>assets/bjerrehuus-footer.css</code>, <code>sections/header/footer/home sections</code>, <code>templates/index.json</code>, Shopify product metafields</td>
+        <td>Shopify theme validation passed; <code>shopify theme check --path .</code> returned 0 errors; pushed to draft theme <code>196345627011</code>; password <code>rteipe</code> unlocked local QA. CLI-authenticated Admin query against <code>dvzxta-0m</code> found no products, so product/collection/content QA is blocked by missing target Admin content.</td>
+        <td><span class="pill">Blocked</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Verification Checklist</h2>
+  <ul>
+    <li>Desktop and mobile screenshots match the issue notes.</li>
+    <li>No new overlap, crop, or spacing regressions on the same template family.</li>
+    <li>Product, collection, cart, home, Universe, Meet Vibe, search, 404, account, and password pages are spot-checked before launch.</li>
+    <li><code>shopify theme check --path bjerrehuus-theme</code> still exits with 0 errors.</li>
+    <li>Dev theme only: push to <code>Bjerrehuus Dawn (Dev)</code> before any launch review.</li>
+  </ul>
+</div>
+</body>
+</html>

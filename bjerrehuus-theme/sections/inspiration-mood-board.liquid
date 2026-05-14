@@ -22,7 +22,13 @@
                     alt: block.settings.caption
                 }}
               {%- elsif block.settings.image_url != blank -%}
-                <img src="{{ block.settings.image_url }}" loading="lazy" alt="{{ block.settings.caption | escape }}" width="1200" height="900">
+                {%- liquid
+                  assign mood_image_src = block.settings.image_url
+                  unless mood_image_src contains '://'
+                    assign mood_image_src = mood_image_src | asset_url
+                  endunless
+                -%}
+                <img src="{{ mood_image_src }}" loading="lazy" alt="{{ block.settings.caption | escape }}" width="1200" height="900">
               {%- else -%}
                 {{ 'image' | placeholder_svg_tag }}
               {%- endif -%}
@@ -42,7 +48,13 @@
                     alt: block.settings.caption
                 }}
               {%- elsif block.settings.image_url != blank -%}
-                <img src="{{ block.settings.image_url }}" loading="lazy" alt="{{ block.settings.caption | escape }}" width="1200" height="900">
+                {%- liquid
+                  assign bleeder_image_src = block.settings.image_url
+                  unless bleeder_image_src contains '://'
+                    assign bleeder_image_src = bleeder_image_src | asset_url
+                  endunless
+                -%}
+                <img src="{{ bleeder_image_src }}" loading="lazy" alt="{{ block.settings.caption | escape }}" width="1200" height="900">
               {%- else -%}
                 {{ 'lifestyle' | placeholder_svg_tag }}
               {%- endif -%}

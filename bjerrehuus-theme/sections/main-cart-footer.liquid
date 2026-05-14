@@ -24,40 +24,16 @@
   data-id="{{ section.id }}"
 >
   <div class="page-width">
-    <div class="cart__footer isolate section-{{ section.id }}-padding">
-      <div class="bjfj-cart-delivery">
-        <span class="bjfj-cart-delivery__label">Delivery method</span>
-        <div class="bjfj-cart-delivery__options">
-          <label class="bjfj-cart-delivery__option">
-            <input
-              type="radio"
-              name="attributes[Delivery method]"
-              value="Ship"
-              form="cart"
-              {% if cart.attributes["Delivery method"] != 'Pickup' %}checked{% endif %}
-            >
-            <span class="bjfj-cart-delivery__option-text">
-              Delivery
-              <span class="bjfj-cart-delivery__option-detail">Free shipping to Denmark and EU</span>
-            </span>
-          </label>
-          <label class="bjfj-cart-delivery__option">
-            <input
-              type="radio"
-              name="attributes[Delivery method]"
-              value="Pickup"
-              form="cart"
-              {% if cart.attributes["Delivery method"] == 'Pickup' %}checked{% endif %}
-            >
-            <span class="bjfj-cart-delivery__option-text">
-              Pick up in store
-              <span class="bjfj-cart-delivery__option-detail">Bredgade 32, 1260 Copenhagen K</span>
-            </span>
-          </label>
+      <div class="cart__footer isolate section-{{ section.id }}-padding">
+        <div class="bjfj-cart-delivery">
+          <span class="bjfj-cart-delivery__label">Delivery method</span>
+          <input type="hidden" name="attributes[Delivery method]" value="Delivery" form="cart">
+          <p class="bjfj-cart-delivery__option-detail">
+            Free shipping in Denmark. International shipping is 299 DKK.
+          </p>
         </div>
-      </div>
 
-      <div class="bjfj-cart-note">
+        <div class="bjfj-cart-note">
         <label for="Cart-note">Order notes</label>
         <textarea
           name="note"

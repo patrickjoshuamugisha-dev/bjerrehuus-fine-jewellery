@@ -198,7 +198,7 @@
                                 {% elsif form.posted_successfully? %}
                                   aria-describedby="ContactBlock-{{ block.id }}-success"
                                 {% endif %}
-                                placeholder="Sign up to the newsletter"
+                                placeholder="sign up"
                                 required
                               >
                               <label class="field__label" for="NewsletterBlock--{{ block.id }}">
@@ -293,7 +293,7 @@
                       {% elsif form.posted_successfully? %}
                         aria-describedby="ContactFooter-success"
                       {% endif %}
-                      placeholder="{{ 'newsletter.label' | t }}"
+                      placeholder="sign up"
                       required
                     >
                     <label class="field__label" for="NewsletterForm--{{ section.id }}">
@@ -401,9 +401,7 @@
     </div>
     <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
       <div class="footer__copyright caption">
-        <small class="copyright__content"
-          >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
-        </small>
+        <small class="copyright__content">&copy; {{ 'now' | date: '%Y' }}, Bjerrehuus Fine jewelry</small>
         <small class="copyright__content">{{ powered_by_link }}</small>
         {%- if section.settings.show_policy -%}
           <ul class="policies list-unstyled">

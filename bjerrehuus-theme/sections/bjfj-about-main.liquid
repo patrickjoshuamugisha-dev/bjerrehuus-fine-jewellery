@@ -15,7 +15,14 @@
               alt: section.settings.name
           }}
         {%- elsif section.settings.portrait_url != blank -%}
-          <img src="{{ section.settings.portrait_url }}" class="bjfj-about__portrait" loading="eager" alt="{{ section.settings.name | escape }}" width="960" height="1280">
+          {%- liquid
+            assign portrait_url = section.settings.portrait_url
+            assign portrait_src = portrait_url
+            unless portrait_url contains '://'
+              assign portrait_src = portrait_url | asset_url
+            endunless
+          -%}
+          <img src="{{ portrait_src }}" class="bjfj-about__portrait" loading="eager" alt="{{ section.settings.name | escape }}" width="960" height="1280">
         {%- else -%}
           {{ 'image' | placeholder_svg_tag: 'bjfj-about__portrait' }}
         {%- endif -%}
@@ -26,6 +33,7 @@
 
       <div class="bjfj-about__text bjfj-reveal">
         {%- if section.settings.eyebrow != blank -%}
+          <span class="bjfj-rule-accent" aria-hidden="true"></span>
           <p class="bjfj-about__eyebrow">{{ section.settings.eyebrow }}</p>
         {%- endif -%}
         {%- if section.settings.name != blank -%}

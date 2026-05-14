@@ -16,16 +16,36 @@
             alt: section.settings.heading | escape
         }}
       {%- elsif section.settings[url_key] != blank -%}
+        {%- liquid
+          assign pair_image_src = section.settings[url_key]
+          unless pair_image_src contains '://'
+            assign pair_image_src = pair_image_src | asset_url
+          endunless
+        -%}
         <img
-          src="{{ section.settings[url_key] | escape }}"
+          src="{{ pair_image_src }}"
           class="bjfj-pair__img"
+          width="1200"
+          height="1600"
           loading="lazy"
           alt="{{ section.settings.heading | escape }}"
-          width="1200"
-          height="1500"
         >
       {%- else -%}
-        {{ 'product-apparel-1' | placeholder_svg_tag: 'bjfj-pair__img' }}
+        {%- liquid
+          if i == 1
+            assign fallback_asset = 'lifestyle-5794.jpg'
+          else
+            assign fallback_asset = 'lifestyle-love.jpg'
+          endif
+        -%}
+        <img
+          src="{{ fallback_asset | asset_url }}"
+          class="bjfj-pair__img"
+          width="1200"
+          height="1600"
+          loading="lazy"
+          alt="{{ section.settings.heading | escape }}"
+        >
       {%- endif -%}
     {%- endfor -%}
   </div>

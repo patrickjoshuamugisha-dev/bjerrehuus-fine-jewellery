@@ -40,7 +40,7 @@
   padding: var(--bjfj-s-8) var(--bjfj-s-6);
   position: relative;
   box-shadow: 0 20px 60px rgba(26, 26, 26, 0.18);
-  transform: scale(0.96) translateY(8px);
+  transform: scale(0.96) translateY(20px);
   transition: transform var(--bjfj-dur-base) var(--bjfj-ease);
 }
 
@@ -61,7 +61,7 @@
   align-items: center;
   justify-content: center;
   color: var(--bjfj-text-muted);
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   line-height: 1;
   padding: 0;
   transition: color var(--bjfj-dur-fast);
@@ -80,7 +80,7 @@
 
 .bjfj-modal__title {
   font-family: var(--bjfj-font-display);
-  font-size: 1.625rem;
+  font-size: 1.875rem;
   font-weight: 400;
   text-align: center;
   color: var(--bjfj-text);
@@ -114,7 +114,7 @@
 
 .bjfj-modal__product-name {
   font-family: var(--bjfj-font-display);
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 400;
   color: var(--bjfj-text);
   margin: 0 0 4px;

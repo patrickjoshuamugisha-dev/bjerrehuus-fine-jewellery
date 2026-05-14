@@ -1,0 +1,109 @@
+{
+  "created": "2026-05-14",
+  "project": "Bjerrehuus Fine Jewelry",
+  "strategy": "Use the restored client-transfer store as read-only source and import into Vibe's May 2 collaboration store.",
+  "sourceOfTruthOrder": [
+    "Restored source-store export for admin content",
+    "Local bjerrehuus-theme code for theme fixes",
+    "This Phase 1 manifest as fallback and diff target"
+  ],
+  "productMetafieldDefinitions": [
+    {
+      "namespace": "custom",
+      "key": "purchase_type",
+      "name": "Purchase type",
+      "type": "single_line_text_field",
+      "ownerType": "PRODUCT"
+    },
+    {
+      "namespace": "custom",
+      "key": "material",
+      "name": "Material",
+      "type": "single_line_text_field",
+      "ownerType": "PRODUCT"
+    },
+    {
+      "namespace": "custom",
+      "key": "diamond_spec",
+      "name": "Diamond specification",
+      "type": "multi_line_text_field",
+      "ownerType": "PRODUCT"
+    },
+    {
+      "namespace": "custom",
+      "key": "inspiration_collection",
+      "name": "Inspiration collection",
+      "type": "single_line_text_field",
+      "ownerType": "PRODUCT"
+    },
+    {
+      "namespace": "custom",
+      "key": "is_bridal",
+      "name": "Is bridal",
+      "type": "boolean",
+      "ownerType": "PRODUCT"
+    },
+    {
+      "namespace": "custom",
+      "key": "wedding_inquire_eligible",
+      "name": "Wedding inquire eligible",
+      "type": "boolean",
+      "ownerType": "PRODUCT"
+    }
+  ],
+  "collections": [
+    "pillow",
+    "bridal",
+    "classic",
+    "classic-tennis",
+    "classic-necklaces",
+    "classic-hoops",
+    "classic-alliancering",
+    "classic-wedding-bands",
+    "classic-studs"
+  ],
+  "pages": [
+    "our-purpose",
+    "production-responsibility",
+    "diamonds",
+    "customer-care",
+    "shipping-delivery",
+    "returns-exchange",
+    "jewellery-care",
+    "size-guides",
+    "meet-vibe",
+    "universe",
+    "book-appointment",
+    "pillow"
+  ],
+  "menus": [
+    "main-menu",
+    "footer-menu-brand",
+    "footer-menu-care"
+  ],
+  "productBaseline": {
+    "activeProductCountFromFrozenAdmin": 17,
+    "repoFullyDocuments": [
+      "4 Pillow products"
+    ],
+    "repoPartiallyDocuments": [
+      "Classic seed products"
+    ],
+    "phase1Decision": "Do not manually recreate all 17 products from memory; wait for restored source export for exact product descriptions, SEO, images, variants, tax and inventory data."
+  },
+  "targetStorePreserve": [
+    "Subscription/plan",
+    "Store owner account",
+    "Email verification state",
+    "Domain connection",
+    "Shopify Payments/KYC progress",
+    "Bank/payment setup"
+  ],
+  "assetUrlPolicy": {
+    "frozenStoreCdnPrefix": "https://cdn.shopify.com/s/files/1/1032/3004/6542/",
+    "replaceFrozenStoreCdnBeforePublish": true,
+    "squarespaceUrlsTemporaryAllowed": false,
+    "squarespaceStatus": "Unavailable as of 2026-05-14; do not rely on Squarespace URLs for source pulls, previews, or launch.",
+    "preferredLaunchState": "Use local theme assets or upload launch assets to target-store Files and replace external URLs."
+  }
+}

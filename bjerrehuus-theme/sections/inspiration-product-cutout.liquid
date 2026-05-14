@@ -30,7 +30,13 @@
               alt: section.settings.label
           }}
         {%- elsif section.settings.fallback_image_url != blank -%}
-          <img src="{{ section.settings.fallback_image_url }}" class="bjfj-insp-cutout__image" loading="lazy" alt="{{ section.settings.label | escape }}" width="900" height="900">
+          {%- liquid
+            assign cutout_image_src = section.settings.fallback_image_url
+            unless cutout_image_src contains '://'
+              assign cutout_image_src = cutout_image_src | asset_url
+            endunless
+          -%}
+          <img src="{{ cutout_image_src }}" class="bjfj-insp-cutout__image" loading="lazy" alt="{{ section.settings.label | escape }}" width="900" height="900">
         {%- else -%}
           {{ 'product-4' | placeholder_svg_tag: 'bjfj-insp-cutout__image' }}
         {%- endif -%}

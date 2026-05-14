@@ -71,22 +71,35 @@
             </details>
           </header-menu>
         {%- else -%}
-          <a
-            id="HeaderMenu-{{ link.handle }}"
-            href="{{ link.url }}"
-            class="header__menu-item list-menu__item link link--text focus-inset"
-            {% if link.current %}
-              aria-current="page"
-            {% endif %}
-          >
+          {%- if link.url contains 'book-appointment' -%}
             <span
-              {%- if link.current %}
-                class="header__active-menu-item"
-              {% endif %}
+              id="HeaderMenu-{{ link.handle }}"
+              class="header__menu-item list-menu__item link link--text header__menu-item--disabled bjfj-tooltip"
+              aria-disabled="true"
+              data-tooltip="Coming soon"
+              tabindex="0"
+              role="link"
             >
               {{- link.title | escape -}}
             </span>
-          </a>
+          {%- else -%}
+            <a
+              id="HeaderMenu-{{ link.handle }}"
+              href="{{ link.url }}"
+              class="header__menu-item list-menu__item link link--text focus-inset"
+              {% if link.current %}
+                aria-current="page"
+              {% endif %}
+            >
+              <span
+                {%- if link.current %}
+                  class="header__active-menu-item"
+                {% endif %}
+              >
+                {{- link.title | escape -}}
+              </span>
+            </a>
+          {%- endif -%}
         {%- endif -%}
       </li>
     {%- endfor -%}

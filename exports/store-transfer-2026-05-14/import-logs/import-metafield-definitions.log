@@ -1,0 +1,16 @@
+[2026-05-14T09:54:22.812Z]
+DRY RUN create/update PRODUCT custom.purchase_type (single_line_text_field)
+DRY RUN create/update PRODUCT custom.material (single_line_text_field)
+DRY RUN create/update PRODUCT custom.diamond_spec (multi_line_text_field)
+DRY RUN create/update PRODUCT custom.inspiration_collection (single_line_text_field)
+DRY RUN create/update PRODUCT custom.is_bridal (boolean)
+DRY RUN create/update PRODUCT custom.wedding_inquire_eligible (boolean)
+
+[2026-05-14T12:51:58.086Z]
+CREATED custom.purchase_type: gid://shopify/MetafieldDefinition/411607073155
+CREATED custom.material: gid://shopify/MetafieldDefinition/411607105923
+CREATED custom.diamond_spec: gid://shopify/MetafieldDefinition/411607138691
+CREATED custom.inspiration_collection: gid://shopify/MetafieldDefinition/411607171459
+CREATED custom.is_bridal: gid://shopify/MetafieldDefinition/411607204227
+CREATED custom.wedding_inquire_eligible: gid://shopify/MetafieldDefinition/411607236995
+

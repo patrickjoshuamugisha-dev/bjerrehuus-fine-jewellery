@@ -8,9 +8,8 @@
 }
 
 .bjfj-hero--full {
-  height: 78svh;
-  min-height: 540px;
-  max-height: 760px;
+  height: calc(100svh - var(--header-height, 112px) - 16px);
+  min-height: 650px;
 }
 
 .bjfj-hero--inset {
@@ -27,20 +26,26 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 95%;
+  object-position: center 76%;
 }
 
 @media (max-width: 749px) {
+  .bjfj-hero--full {
+    min-height: 560px;
+  }
+
   .bjfj-hero__video,
   .bjfj-hero__fallback {
-    object-position: center 100%;
+    object-position: center 86%;
   }
 }
 
 .bjfj-hero__scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(26, 26, 26, 0.35) 0%, rgba(26, 26, 26, 0.15) 45%, rgba(26, 26, 26, 0.55) 100%);
+  background:
+    radial-gradient(ellipse at 20% 68%, rgba(26, 26, 26, 0.52) 0%, rgba(26, 26, 26, 0.34) 30%, rgba(26, 26, 26, 0.14) 55%, rgba(26, 26, 26, 0) 78%),
+    linear-gradient(180deg, rgba(26, 26, 26, 0.22) 0%, rgba(26, 26, 26, 0.08) 45%, rgba(26, 26, 26, 0.48) 100%);
 }
 
 .bjfj-hero__content {
@@ -63,12 +68,12 @@
 
 .bjfj-hero__eyebrow {
   font-family: var(--bjfj-font-body);
-  font-size: 1rem;
+  font-size: 1.125rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: var(--bjfj-s-2);
   color: var(--bjfj-bg);
-  text-shadow: 0 1px 2px rgba(26, 26, 26, 0.4);
+  text-shadow: 0 1px 4px rgba(26, 26, 26, 0.65);
 }
 
 .bjfj-hero__headline {
@@ -79,19 +84,20 @@
   letter-spacing: -0.01em;
   margin: 0 0 var(--bjfj-s-2);
   color: var(--bjfj-bg);
-  text-shadow: 0 2px 12px rgba(26, 26, 26, 0.35);
+  text-shadow: 0 2px 16px rgba(26, 26, 26, 0.62);
 }
 
 .bjfj-hero__cta {
   display: inline-block;
   font-family: var(--bjfj-font-body);
-  font-size: 1rem;
+  font-size: 1.125rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--bjfj-bg);
   text-decoration: none;
   border-bottom: 1px solid var(--bjfj-bg);
   padding-bottom: 2px;
+  text-shadow: 0 1px 4px rgba(26, 26, 26, 0.62);
   transition: border-color var(--bjfj-dur-fast) var(--bjfj-ease);
 }
 
@@ -124,16 +130,17 @@
 .bjfj-pair__images {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--bjfj-s-2);
+  gap: var(--bjfj-s-6);
+  align-items: center;
   margin-bottom: var(--bjfj-s-6);
-  max-width: 720px;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .bjfj-pair__img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   object-position: center;
   display: block;
@@ -151,7 +158,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--bjfj-text-muted);
-  margin-top: var(--bjfj-s-6);
+  margin-top: calc(var(--bjfj-s-6) * 1.1);
   margin-bottom: var(--bjfj-s-2);
 }
 
@@ -217,7 +224,7 @@
 
 .bjfj-divider__headline {
   font-family: var(--bjfj-font-display);
-  font-size: clamp(2.25rem, 4.5vw, 4rem);
+  font-size: clamp(2.75rem, 4.5vw, 4.5rem);
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.01em;
@@ -236,7 +243,7 @@
 .bjfj-tiles__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--bjfj-s-3);
+  gap: var(--bjfj-s-2);
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -254,19 +261,21 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: var(--tile-focal-x, 50%) var(--tile-focal-y, 50%);
+  transform: scale(var(--tile-scale, 1));
   transition: transform var(--bjfj-dur-base) var(--bjfj-ease);
   will-change: transform;
   display: block;
 }
 
 .bjfj-tile:hover .bjfj-tile__img {
-  transform: scale(1.04);
+  transform: scale(calc(var(--tile-scale, 1) * 1.04)) rotate(0.3deg);
 }
 
 .bjfj-tile__scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 45%, rgba(26, 26, 26, 0.55) 100%);
+  background: linear-gradient(180deg, rgba(26, 26, 26, 0) 30%, rgba(26, 26, 26, 0.35) 65%, rgba(26, 26, 26, 0.75) 100%);
   opacity: 1;
   transition: opacity var(--bjfj-dur-fast) var(--bjfj-ease);
 }
@@ -277,11 +286,12 @@
   left: var(--bjfj-s-3);
   right: var(--bjfj-s-3);
   font-family: var(--bjfj-font-display);
-  font-size: var(--bjfj-fs-h3);
-  font-weight: 400;
+  font-size: clamp(1.375rem, 2vw, 2rem);
+  font-weight: 300;
   color: var(--bjfj-bg);
   opacity: 1;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.12em;
+  text-shadow: 0 2px 12px rgba(26, 26, 26, 0.8);
   transition: transform var(--bjfj-dur-fast) var(--bjfj-ease);
 }
 
@@ -293,10 +303,6 @@
   .bjfj-tiles__grid {
     grid-template-columns: 1fr;
     gap: var(--bjfj-s-2);
-  }
-
-  .bjfj-tile {
-    aspect-ratio: 3 / 2;
   }
 }
 

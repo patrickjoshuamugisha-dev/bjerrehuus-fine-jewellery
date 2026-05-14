@@ -1,75 +1,100 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
-{%- if section.settings.heading != blank -%}
+{%- liquid
+  assign max_products = section.settings.products_to_show
+  assign rendered_count = 0
+  assign rendered_handles = '|'
+  assign inspiration_collection = product.metafields.custom.inspiration_collection.value
+  assign related_collection = nil
+
+  if inspiration_collection != blank
+    if inspiration_collection.handle != blank
+      assign related_collection = inspiration_collection
+    else
+      assign related_collection = collections[inspiration_collection]
+    endif
+  endif
+
+  if related_collection == blank
+    assign related_collection = product.collections.first
+  endif
+-%}
+
+{%- capture related_cards -%}
+  {%- if related_collection != blank -%}
+    {%- for rel in related_collection.products -%}
+      {%- liquid
+        assign handle_token = '|' | append: rel.handle | append: '|'
+        assign should_render = false
+
+        if rel.id != product.id and rendered_count < max_products
+          unless rendered_handles contains handle_token
+            assign should_render = true
+          endunless
+        endif
+      -%}
+
+      {%- if should_render -%}
+        <div class="grid__item">
+          {%- render 'card-product',
+            card_product: rel,
+            media_aspect_ratio: 'square',
+            show_secondary_image: true,
+            show_vendor: false,
+            lazy_load: true,
+            section_id: section.id
+          -%}
+        </div>
+        {%- liquid
+          assign rendered_count = rendered_count | plus: 1
+          assign rendered_handles = rendered_handles | append: rel.handle | append: '|'
+        -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+
+  {%- if rendered_count < max_products and collections.all.products_count > 1 -%}
+    {%- for rel in collections.all.products -%}
+      {%- liquid
+        assign handle_token = '|' | append: rel.handle | append: '|'
+        assign should_render = false
+
+        if rel.id != product.id and rendered_count < max_products
+          unless rendered_handles contains handle_token
+            assign should_render = true
+          endunless
+        endif
+      -%}
+
+      {%- if should_render -%}
+        <div class="grid__item">
+          {%- render 'card-product',
+            card_product: rel,
+            media_aspect_ratio: 'square',
+            show_secondary_image: true,
+            show_vendor: false,
+            lazy_load: true,
+            section_id: section.id
+          -%}
+        </div>
+        {%- liquid
+          assign rendered_count = rendered_count | plus: 1
+          assign rendered_handles = rendered_handles | append: rel.handle | append: '|'
+        -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- if section.settings.heading != blank and rendered_count > 0 -%}
   <div class="bjfj-related">
     <h2 class="bjfj-related__heading">{{ section.settings.heading }}</h2>
-
-    {%- assign insp_col = product.metafields.custom.inspiration_collection.value -%}
-    {%- assign related_collection = nil -%}
-
-    {%- if insp_col != blank -%}
-      {%- assign related_collection = collections[insp_col] -%}
-    {%- endif -%}
-
-    {%- if related_collection != nil and related_collection.products_count > 1 -%}
-      {%- liquid
-        assign related_products = related_collection.products | where: 'id', '!=', product.id
-        assign max = section.settings.products_to_show
-      -%}
-      <div class="grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--2-col-tablet-down">
-        {%- for rel in related_products limit: max -%}
-          <div class="grid__item">
-            {%- render 'card-product',
-              card_product: rel,
-              media_aspect_ratio: 'square',
-              show_secondary_image: true,
-              show_vendor: false,
-              lazy_load: true
-            -%}
-          </div>
-        {%- endfor -%}
-      </div>
-    {%- else -%}
-      {%- comment %} Fallback: Shopify product recommendations API {%- endcomment %}
-      <div
-        class="product-recommendations"
-        data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}"
-      >
-        {%- if recommendations.performed? and recommendations.products_count > 0 -%}
-          <div class="grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--2-col-tablet-down">
-            {%- for rec in recommendations.products -%}
-              <div class="grid__item">
-                {%- render 'card-product',
-                  card_product: rec,
-                  media_aspect_ratio: 'square',
-                  show_secondary_image: true,
-                  show_vendor: false,
-                  lazy_load: true
-                -%}
-              </div>
-            {%- endfor -%}
-          </div>
-        {%- endif -%}
-      </div>
-    {%- endif -%}
-
+    <div class="grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--2-col-tablet-down">
+      {{ related_cards }}
+    </div>
   </div>
 {%- endif -%}
-
-<script>
-  var productRecommendationsSection = document.querySelector('[data-url]');
-  if (productRecommendationsSection) {
-    fetch(productRecommendationsSection.dataset.url)
-      .then(function(response) { return response.text(); })
-      .then(function(html) {
-        var parser = new DOMParser();
-        var doc = parser.parseFromString(html, 'text/html');
-        var inner = doc.querySelector('.product-recommendations');
-        if (inner) productRecommendationsSection.innerHTML = inner.innerHTML;
-      });
-  }
-</script>
 
 {% schema %}
 {

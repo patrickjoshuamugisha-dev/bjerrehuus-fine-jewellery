@@ -14,7 +14,7 @@
 -%}
 
 {%- if has_bridal or section.settings.force_show -%}
-<section class="bjfj-wedding-cta bjfj-reveal">
+<section class="bjfj-wedding-cta bjfj-wedding-cta--{{ section.settings.style | default: 'dark' }} bjfj-reveal">
 
   {%- if section.settings.label != blank -%}
     <p class="bjfj-wedding-cta__label">{{ section.settings.label }}</p>
@@ -30,7 +30,7 @@
 
   <button
     type="button"
-    class="bjfj-btn--inquire-light"
+    class="{% if section.settings.style == 'light' %}bjfj-btn--inquire-dark{% else %}bjfj-btn--inquire-light{% endif %}"
     data-inquire-trigger
     data-product-name="{{ section.settings.inquiry_subject | default: 'Bridal Inquiry' | escape }}"
     data-product-material=""
@@ -50,6 +50,16 @@
   "name": "Wedding Inquire CTA",
   "tag": "section",
   "settings": [
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Visual style",
+      "options": [
+        { "value": "light", "label": "Light (linen)" },
+        { "value": "dark", "label": "Dark (burgundy)" }
+      ],
+      "default": "dark"
+    },
     {
       "type": "collection",
       "id": "collection",

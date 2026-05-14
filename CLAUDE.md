@@ -13,22 +13,36 @@
 
 | | |
 |---|---|
-| myshopify domain | `bjerrehuus-fine-jewelry.myshopify.com` |
-| Theme in use (dev) | `Bjerrehuus Dawn (Dev)` — ID `196302537038` |
-| Live theme (untouched) | `Horizon` — ID `196177133902` |
-| Admin API token | in `.env` → `SHOPIFY_ACCESS_TOKEN` |
+| **Active build target** | `dvzxta-0m.myshopify.com` (client collaboration store) |
+| Dev theme | `Bjerrehuus Draft` — ID `196345627011` |
+| Live theme (untouched) | `Horizon` — ID `195850142083` |
+| Admin API token | in `.env` → `SHOPIFY_ACCESS_TOKEN` (short-lived CLI session token) |
 | CLI theme token | in `.env` → `SHOPIFY_CLI_THEME_TOKEN` |
+| Storefront preview password | `rteipe` |
+| **Frozen source store** | `bjerrehuus-fine-jewelry.myshopify.com` — API still readable via `SOURCE_SHOPIFY_ACCESS_TOKEN` in `.env` |
 
 **Theme push command:**
 ```
-cd bjerrehuus-theme && shopify theme push --store bjerrehuus-fine-jewelry.myshopify.com --theme 196302537038
+cd bjerrehuus-theme && shopify theme push --store dvzxta-0m.myshopify.com --theme 196345627011
 ```
+
+**Note on token**: `SHOPIFY_ACCESS_TOKEN` in `.env` is a short-lived CLI session token (expires ~24h). When expired, re-run `shopify theme push --store dvzxta-0m.myshopify.com` to trigger re-auth, then read the fresh token from `~/Library/Preferences/shopify-cli-store-nodejs/config.json` → `sessionsByUserId.<id>.accessToken`.
 
 ---
 
-## Build status — Days 1–4 complete
+## Current launch state
 
-### What's live in theme code (`bjerrehuus-theme/`)
+### Canonical folders
+| Path | Purpose |
+|---|---|
+| `bjerrehuus-theme/` | Shopify Dawn fork. This is the deployable theme. |
+| `docs/current/` | Two active final launch docs: internal checklist + client-dependent tasks. |
+| `reference/` | Source/reference material only. Not the active task list. |
+| `client-docs/` | Client onboarding PDFs and packshot notes. Preserve. |
+| `client-assets/` | Brand/logo source files. Preserve. |
+| `tools/maintenance/` | One-off/admin scripts kept for audit history. |
+
+### What's live in theme code
 | Section / file | What it does |
 |---|---|
 | `sections/header.liquid` | Nav, logo, wishlist placeholder, language toggle |
@@ -58,34 +72,17 @@ cd bjerrehuus-theme && shopify theme push --store bjerrehuus-fine-jewelry.myshop
 
 ---
 
-## Remaining build (Days 5–7)
+## Remaining launch work
 
-### Day 5 — Inspiration pages + Universe + About
-- `page.inspiration.json` template with sections: `inspiration-hero-collage`, `inspiration-product-cutout`, `inspiration-mood-board`, `inspiration-product-grid`, `wedding-inquire-cta`
-- Instantiate 3 pages: `/pages/pillow` (full), `/pages/inspiration-2`, `/pages/inspiration-3` (scaffolds)
-- `page.universe-story.json` template + sections
-- `page.about.json` for Meet Vibe
-- `page.universe-index.json` — lists stories
-- 1 placeholder Universe story
+Source of truth: `docs/current/INTERNAL-FINAL-CHECKLIST.md`.
 
-### Day 6 — Homepage + cart + payments + integrations
-- `index.json` homepage: hero-video, feature-images-pair, text-divider, discover-tiles
-- Cart drawer + `cart.json` (pickup/ship toggle, order notes)
-- Payment methods: Shopify Payments, MobilePay
-- Shipping zones: DK + EU
-- e-conomic sync app
-- Branded transactional emails (templates built; upload blocked pending client account verification)
-- Shopify Forms for Inquire submissions
-
-### Day 7 — QA + handoff
-- Cross-browser + mobile audit
-- Accessibility (WCAG AA)
-- End-to-end order + inquire test
-- Loom walkthrough for Vibe
-- Admin handoff
-
-### Last Day Additional Steps (manual, Patrick does these)
-See `LAST-DAY-ADDITIONAL-STEPS.md` — Markets, Translate & Adapt. (Klaviyo removed — not needed.)
+Only the final manual/client-dependent steps remain:
+- Shopify Payments / KYC / MobilePay / wallets.
+- Branded transactional emails after client account/email verification.
+- Shopify Forms for inquire routing after client account/email verification.
+- Domain connection.
+- Final QA, one real order/refund test, and one real inquire test.
+- Loom/admin handoff after QA.
 
 ---
 
@@ -95,18 +92,20 @@ See `LAST-DAY-ADDITIONAL-STEPS.md` — Markets, Translate & Adapt. (Klaviyo remo
 - Inquire = pop-up letter modal. Pre-fills product context, submits to vibe@stylesnob.com.
 - Wishlist = phase 2. Heart icon placeholder only at launch.
 - Universe content = Shopify Pages with custom templates.
-- Languages: EN now, DK before public launch (Markets + Translate & Adapt).
+- Languages: English-only at launch. Danish/Translate & Adapt is post-launch unless Patrick reopens scope.
 - Payments at launch: Cards + MobilePay + Apple Pay + Google Pay + Shop Pay. Klarna = phase 2.
+- Not in launch scope: e-conomic, Klaviyo.
 
 ---
 
 ## Key reference files
 | File | When to use |
 |---|---|
-| `reference/bjerrehuus-fine-jewellery-build-plan.md` | Full 14-section build spec. Check before building anything new. |
+| `docs/current/INTERNAL-FINAL-CHECKLIST.md` | Active internal handoff and final checklist for Patrick + Codex. |
+| `docs/current/CLIENT-DEPENDENT-TASKS.html` | Client-facing/client-dependent task sheet. |
+| `reference/bjerrehuus-fine-jewellery-build-plan.md` | Full build spec; historical detail, not the active task list. |
 | `reference/VIBE_EMAIL_AND_TRANSCRIPT.md` | Vibe's vision, tone, priorities. Source of truth for brand decisions. |
 | `reference/style-tile.html` | Approved design tokens (colors, fonts, spacing). Match this. |
 | `reference/shopify-knowledge-base.md` | Shopify platform reference. |
-| `LAST-DAY-ADDITIONAL-STEPS.md` | 3 manual tasks for last day: Markets, Translate & Adapt, Klaviyo. |
 | `client-docs/onboarding/` | Vibe's onboarding PDFs. Not build files. |
 | `client-docs/packshots/` | Packshot photography assets from India. |

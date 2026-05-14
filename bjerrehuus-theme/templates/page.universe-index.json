@@ -15,41 +15,11 @@
             "story_date": "May 2025",
             "story_handle": "universe-story-1",
             "story_url": "/pages/universe-story-1",
-            "story_image_url": "https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/033919a5-fa5e-411e-a9ca-b65bb7d26d87/signet.jpg"
-          }
-        },
-        "story-power": {
-          "type": "story_link",
-          "settings": {
-            "story_title": "The Launch of Power",
-            "story_date": "Spring 2024",
-            "story_handle": "universe-story-power",
-            "story_url": "/pages/universe-story-power",
-            "story_image_url": "https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/74bd8508-433d-4417-9624-c4a988a42d65/vibe+med+mere.jpg?format=1500w"
-          }
-        },
-        "story-2023": {
-          "type": "story_link",
-          "settings": {
-            "story_title": "The Launch of 2023",
-            "story_date": "Autumn 2023",
-            "story_handle": "universe-story-2023",
-            "story_url": "/pages/universe-story-2023",
-            "story_image_url": "https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/e60a3f74-d135-4103-bbe6-03096181b73c/love.jpg?format=1500w"
-          }
-        },
-        "story-bugatti": {
-          "type": "story_link",
-          "settings": {
-            "story_title": "The Bugatti Race",
-            "story_date": "Summer 2024",
-            "story_handle": "universe-story-bugatti",
-            "story_url": "/pages/universe-story-bugatti",
-            "story_image_url": "https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/74ca42e0-aa86-4bcb-9e59-42ec2c5be26e/5691.jpg?format=1500w"
+            "story_image_url": ""
           }
         }
       },
-      "block_order": ["story-placeholder", "story-power", "story-2023", "story-bugatti"]
+      "block_order": ["story-placeholder"]
     }
   },
   "order": ["universe-index"]

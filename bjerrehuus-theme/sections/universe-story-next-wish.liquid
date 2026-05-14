@@ -16,7 +16,9 @@
     <div class="bjfj-universe-next-wish__grid">
 
       <div class="bjfj-universe-next-wish__image-wrap bjfj-reveal">
-        {%- if wish_product.featured_image != blank -%}
+        {%- if section.settings.image_url != blank -%}
+          <img src="{{ section.settings.image_url }}" class="bjfj-universe-next-wish__image" width="800" height="1000" loading="lazy" alt="{{ wish_product.title | escape }}">
+        {%- elsif wish_product.featured_image != blank -%}
           {{
             wish_product.featured_image
             | image_url: width: 800
@@ -26,12 +28,13 @@
               alt: wish_product.title
           }}
         {%- else -%}
-          {{ 'product-4' | placeholder_svg_tag: 'bjfj-universe-next-wish__image' }}
+          <img src="{{ 'lifestyle-signet.jpg' | asset_url }}" class="bjfj-universe-next-wish__image" width="800" height="1000" loading="lazy" alt="{{ wish_product.title | escape }}">
         {%- endif -%}
       </div>
 
       <div class="bjfj-universe-next-wish__content bjfj-reveal">
 
+        <span class="bjfj-rule-accent" aria-hidden="true"></span>
         <p class="bjfj-universe-next-wish__label">{{ section.settings.label | default: 'My Next Wish' }}</p>
         <h2 class="bjfj-universe-next-wish__heading">{{ wish_product.title }}</h2>
 
@@ -82,6 +85,12 @@
       "id": "label",
       "label": "Section label",
       "default": "My Next Wish"
+    },
+    {
+      "type": "text",
+      "id": "image_url",
+      "label": "Image URL (editorial override)",
+      "info": "Use an external lifestyle image instead of the product packshot"
     },
     {
       "type": "richtext",

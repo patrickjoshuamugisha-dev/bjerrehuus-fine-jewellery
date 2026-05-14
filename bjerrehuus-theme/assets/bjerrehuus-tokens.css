@@ -17,8 +17,8 @@
   --bjfj-fs-h1:    clamp(2.5rem, 5vw, 4.5rem);
   --bjfj-fs-h2:    clamp(2rem, 4vw, 3rem);
   --bjfj-fs-h3:    1.5rem;
-  --bjfj-fs-body:  1.0625rem;
-  --bjfj-fs-small: 0.875rem;
+  --bjfj-fs-body:  1.1875rem;
+  --bjfj-fs-small: 1rem;
   --bjfj-lh-body:  1.7;
 
   /* Spacing — 8pt scale */
@@ -88,7 +88,7 @@ p {
 @media (prefers-reduced-motion: no-preference) {
   .bjfj-reveal {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(18px);
     transition:
       opacity var(--bjfj-dur-base) var(--bjfj-ease),
       transform var(--bjfj-dur-base) var(--bjfj-ease);
@@ -97,6 +97,32 @@ p {
   .bjfj-reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* Stagger: when reveal elements share a parent, cascade them in sequence */
+  .bjfj-reveal-stagger > .bjfj-reveal:nth-child(1) { transition-delay: 0ms; }
+  .bjfj-reveal-stagger > .bjfj-reveal:nth-child(2) { transition-delay: 80ms; }
+  .bjfj-reveal-stagger > .bjfj-reveal:nth-child(3) { transition-delay: 160ms; }
+  .bjfj-reveal-stagger > .bjfj-reveal:nth-child(4) { transition-delay: 240ms; }
+  .bjfj-reveal-stagger > .bjfj-reveal:nth-child(5) { transition-delay: 320ms; }
+  .bjfj-reveal-stagger > .bjfj-reveal:nth-child(6) { transition-delay: 400ms; }
+}
+
+/* ── Hero text cascade — fires on page load, no IntersectionObserver ── */
+@media (prefers-reduced-motion: no-preference) {
+  .bjfj-hero-cascade > * {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: bjfj-hero-cascade-in var(--bjfj-dur-base) var(--bjfj-ease) forwards;
+  }
+  .bjfj-hero-cascade > *:nth-child(1) { animation-delay: 120ms; }
+  .bjfj-hero-cascade > *:nth-child(2) { animation-delay: 220ms; }
+  .bjfj-hero-cascade > *:nth-child(3) { animation-delay: 320ms; }
+  .bjfj-hero-cascade > *:nth-child(4) { animation-delay: 420ms; }
+  .bjfj-hero-cascade > *:nth-child(5) { animation-delay: 520ms; }
+
+  @keyframes bjfj-hero-cascade-in {
+    to { opacity: 1; transform: translateY(0); }
   }
 }
 

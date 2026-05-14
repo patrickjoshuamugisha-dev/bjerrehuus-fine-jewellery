@@ -3,12 +3,25 @@
     "campaign-tiles": {
       "type": "shop-campaign-tiles",
       "blocks": {
+        "tile-classic": {
+          "type": "tile",
+          "settings": {
+            "label": "THE CLASSIC",
+            "link": "/pages/the-classic",
+            "image_url": "lifestyle-5691.jpg",
+            "focal_x": 70,
+            "focal_y": 50
+          }
+        },
         "tile-pillow": {
           "type": "tile",
           "settings": {
             "label": "THE PILLOW",
             "link": "/pages/pillow",
-            "image_url": "https://cdn.shopify.com/s/files/1/1032/3004/6542/files/love.webp?v=1778094232"
+            "image_url": "lifestyle-love.jpg",
+            "focal_x": 35,
+            "focal_y": 40,
+            "scale": 100
           }
         },
         "tile-bridal": {
@@ -16,19 +29,11 @@
           "settings": {
             "label": "THE BRIDAL",
             "link": "/pages/the-bridal",
-            "image_url": "https://images.squarespace-cdn.com/content/v1/659566aa46154a29b6c7b387/74bd8508-433d-4417-9624-c4a988a42d65/vibe+med+mere.jpg?format=1500w"
-          }
-        },
-        "tile-classic": {
-          "type": "tile",
-          "settings": {
-            "label": "THE CLASSIC",
-            "link": "/pages/the-classic",
-            "image_url": "https://cdn.shopify.com/s/files/1/1032/3004/6542/files/5691.webp?v=1778094230"
+            "image_url": "lifestyle-signet.jpg"
           }
         }
       },
-      "block_order": ["tile-pillow", "tile-bridal", "tile-classic"]
+      "block_order": ["tile-classic", "tile-pillow", "tile-bridal"]
     },
     "shop-layout": {
       "type": "shop-layout",
