@@ -3,9 +3,9 @@
     "story-hero": {
       "type": "universe-story-hero",
       "settings": {
-        "headline": "A story from Vibe",
-        "date_label": "May 2025",
-        "body": "<p>Every piece begins as a feeling — a stone, a shape, a moment worth keeping.</p>",
+        "headline": "En historie fra Vibe",
+        "date_label": "Maj 2025",
+        "body": "<p>Hvert stykke begynder som en følelse — en sten, en form, et øjeblik værd at holde fast i.</p>",
         "image_url": ""
       }
     },
@@ -18,8 +18,8 @@
     "story-favorites": {
       "type": "universe-story-favorites",
       "settings": {
-        "label": "Vibe's picks",
-        "heading": "My Favorites",
+        "label": "Vibes udvalg",
+        "heading": "Mine favoritter",
         "product_1": "pillow-boomrang-earring",
         "product_2": "pillow-studs",
         "product_3": "pillow-bracelet-small"
@@ -28,7 +28,7 @@
     "story-next-wish": {
       "type": "universe-story-next-wish",
       "settings": {
-        "label": "My Next Wish",
+        "label": "Mit næste ønske",
         "product": "pillow-13link-earring",
         "image_url": ""
       }

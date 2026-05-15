@@ -44,7 +44,7 @@
           {%- endif -%}
         </div>
         <div class="bjfj-campaign-tile__label">
-          <span>{{ block.settings.label | default: 'THE COLLECTION' }}</span>
+          <span>{%- if block.settings.label != blank -%}{{ block.settings.label }}{%- else -%}{{ 'bjerrehuus.campaign_tiles.default_label' | t }}{%- endif -%}</span>
         </div>
       </a>
     {%- endfor -%}

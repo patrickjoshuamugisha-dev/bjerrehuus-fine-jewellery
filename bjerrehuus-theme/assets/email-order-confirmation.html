@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Order Confirmation — Bjerrehuus Fine Jewellery</title>
+  <title>Ordrebekræftelse — Bjerrehuus Fine Jewellery</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -211,25 +211,25 @@
 
     <!-- Body -->
     <div class="email-body">
-      <h1>Thank you for your order.</h1>
+      <h1>Tak for din ordre.</h1>
       <p>
-        Hi {{ billing_address.first_name }},<br>
-        We've received your order and are preparing it carefully. You'll receive a shipping confirmation once it's on its way.
+        Hej {{ billing_address.first_name }},<br>
+        Vi har modtaget din ordre og forbereder den med omhu. Du modtager en forsendelsesbekræftelse, så snart den er på vej.
       </p>
 
       <!-- Order reference -->
       <div class="order-meta">
         <table>
           <tr>
-            <td>Order number</td>
+            <td>Ordrenummer</td>
             <td>{{ order_name }}</td>
           </tr>
           <tr>
-            <td>Order date</td>
-            <td>{{ created_at | date: "%B %d, %Y" }}</td>
+            <td>Ordredato</td>
+            <td>{{ created_at | date: "%d. %B %Y" }}</td>
           </tr>
           <tr>
-            <td>Payment</td>
+            <td>Betaling</td>
             <td>{{ financial_status | capitalize }}</td>
           </tr>
         </table>
@@ -249,7 +249,7 @@
             {% if line.variant.title != 'Default Title' %}
             <div class="meta">{{ line.variant.title }}</div>
             {% endif %}
-            <div class="meta">Qty: {{ line.quantity }}</div>
+            <div class="meta">Antal: {{ line.quantity }}</div>
           </div>
           <div class="item-price">{{ line.final_line_price | money_with_currency }}</div>
         </div>
@@ -265,18 +265,18 @@
           </tr>
           {% if shipping_price %}
           <tr>
-            <td>Shipping</td>
-            <td>{% if shipping_price == 0 %}Free{% else %}{{ shipping_price | money_with_currency }}{% endif %}</td>
+            <td>Fragt</td>
+            <td>{% if shipping_price == 0 %}Gratis{% else %}{{ shipping_price | money_with_currency }}{% endif %}</td>
           </tr>
           {% endif %}
           {% if tax_price > 0 %}
           <tr>
-            <td>Tax (25% DK VAT)</td>
+            <td>Moms (25% DK)</td>
             <td>{{ tax_price | money_with_currency }}</td>
           </tr>
           {% endif %}
           <tr class="total-row">
-            <td>Total</td>
+            <td>I alt</td>
             <td>{{ total_price | money_with_currency }}</td>
           </tr>
         </table>
@@ -287,7 +287,7 @@
       <!-- Shipping address -->
       {% if shipping_address %}
       <div class="shipping-address">
-        <h3>Shipping to</h3>
+        <h3>Leveres til</h3>
         <p>
           {{ shipping_address.first_name }} {{ shipping_address.last_name }}<br>
           {{ shipping_address.address1 }}<br>
@@ -298,16 +298,16 @@
       </div>
       {% endif %}
 
-      <a href="{{ order_status_url }}" class="cta-button">View your order</a>
+      <a href="{{ order_status_url }}" class="cta-button">Se din ordre</a>
 
       <p class="muted">
-        Questions? Reply to this email or write to us at <a href="mailto:vibe@stylesnob.com">vibe@stylesnob.com</a> or WhatsApp <a href="https://wa.me/4522773684">+45 22 77 36 84</a>.
+        Spørgsmål? Svar på denne mail, eller skriv til os på <a href="mailto:vibe@stylesnob.com">vibe@stylesnob.com</a> eller på WhatsApp <a href="https://wa.me/4522773684">+45 22 77 36 84</a>.
       </p>
     </div>
 
     <!-- Footer -->
     <div class="email-footer">
-      <p>Bjerrehuus Fine Jewellery · Bredgade 32, 1260 Copenhagen K</p>
+      <p>Bjerrehuus Fine Jewellery · Bredgade 32, 1260 København K</p>
       <p><a href="mailto:vibe@stylesnob.com">vibe@stylesnob.com</a> · <a href="https://wa.me/4522773684">+45 22 77 36 84</a></p>
       <p><a href="{{ shop.url }}">bjerrehuusfinejewellery.com</a></p>
       <p class="footer-logo">Bjerrehuus Fine Jewellery</p>

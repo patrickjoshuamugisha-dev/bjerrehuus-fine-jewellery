@@ -27,9 +27,9 @@ The brand's core sales motion today is private appointments + word-of-mouth thro
 | Constraint | Decision |
 |---|---|
 | Timeline (build) | 1 week to functional Shopify store |
-| Timeline (launch-ready) | 2–3 weeks total (content + photography + DK translation) |
-| Build language | English first, Danish before public launch |
-| Geographic scope at launch | DK + EU shipping. NO and CH = phase 2 |
+| Timeline (launch-ready) | 2–3 weeks total (content + photography + final QA) |
+| Build language | English-only at launch. Danish/Translate & Adapt is post-launch unless Patrick reopens scope. |
+| Geographic scope at launch | Denmark free shipping; International shipping 299 DKK |
 | Catalog at launch | 80–100 SKUs (the Classic shop), partly seedable from IG inventory |
 | Long-term catalog | 300 styles × 2 variants × up to 6 sizes |
 | Vibe's involvement | Build proceeds without blocking on her — pull from existing site, IG, and the call recording |
@@ -43,9 +43,9 @@ The brand's core sales motion today is private appointments + word-of-mouth thro
 
 2. **Data model:** All pieces are **Shopify Products**. A product metafield `purchase_type` (`shoppable | inquire`) drives whether the product page shows Add-to-Cart (Classic) or the Inquire letter modal (Inspiration, Bridal). One unified system for photography, SEO, search, related products, and inventory. The "no direct sale" requirement is presentation, not a different data type.
 
-3. **Geography:** DK primary market + EU shipping at launch. NO and CH require separate VAT/customs setup (Norway = VOEC scheme, Switzerland = own VAT + customs). Defer to phase 2.
+3. **Geography:** Denmark is the primary market with free shipping. International shipping is enabled at 299 DKK for launch.
 
-4. **Languages:** EN at the week-1 milestone. DK before public launch. Use Shopify's native **Markets** + the free **Translate & Adapt** app.
+4. **Languages:** English-only at launch. Danish/Translate & Adapt is post-launch unless Patrick reopens scope.
 
 5. **Shopify account:** Fresh account, Patrick has access. No legacy data to migrate.
 
@@ -61,7 +61,7 @@ The brand's core sales motion today is private appointments + word-of-mouth thro
 
 11. **Pay-by-invoice:** Phase 2. Klarna requires merchant approval (3–10 business days), don't block week 1 on it. Cards + MobilePay + Apple Pay + Google Pay + Shop Pay at launch.
 
-12. **e-conomic accounting sync:** Auto-sync via app at launch. ~1–2 hours of setup. Saves Vibe ongoing manual work.
+12. **Accounting sync:** e-conomic is removed from launch scope.
 
 13. **Style tile (Path 2):** Single static HTML deliverable on Day 1 before any template work. Vibe reviews. Lock tokens before scaling to the rest of the site.
 
@@ -334,8 +334,8 @@ Vibe's IG description of the series: *"Linket små pavé puder fuld besat af dia
 - [ ] Vectorize logo or save high-res transparent PNG
 - [ ] **Generate the style tile** (single static HTML page) — see §8
 - [ ] Apply locked tokens to Dawn's `config/settings_data.json` and CSS variable layer
-- [ ] Set up Markets app, create EN as default + DK as secondary (DK content empty for now)
-- [ ] Install Translate & Adapt (free)
+- [ ] Set up Markets for the current launch scope
+- [ ] Danish/Translate & Adapt is post-launch unless Patrick reopens scope
 
 **End of Day 1:** Style tile ready for Vibe; foundations laid.
 
@@ -347,7 +347,7 @@ Vibe's IG description of the series: *"Linket små pavé puder fuld besat af dia
 - [ ] `footer.liquid` section with 3-column structure from §4
 - [ ] `theme.liquid` layout: typography, container, base resets
 - [ ] Create all policy + customer-care pages with placeholder copy (see §4)
-- [ ] Newsletter signup form in footer (Klaviyo embed, install Klaviyo app)
+- [ ] Newsletter signup form in footer (Shopify-native; Klaviyo removed from launch scope)
 - [ ] Social icon row: Instagram, Facebook, LinkedIn (LinkedIn → confirm with Vibe; placeholder for now)
 
 ### Day 3 — Product page + product data model
@@ -406,18 +406,17 @@ Vibe's IG description of the series: *"Linket små pavé puder fuld besat af dia
     - `text-divider.liquid` — text break section
     - `discover-tiles.liquid` — 3 "Discover" tiles linking to inspiration pages
 - [ ] Cart drawer + `cart.json` page:
-    - Pickup-or-ship radio toggle (using Shopify's local pickup feature on Bredgade 32, 1260 København K location)
+    - Delivery-only cart flow
     - Order notes field
 - [ ] Payment methods enabled in Shopify Payments admin:
     - Visa, Mastercard, Apple Pay, Google Pay, Shop Pay (all included with Shopify Payments)
     - **MobilePay** — install via Shopify (Denmark gateway, one-time setup)
 - [ ] Shipping zones:
-    - Zone 1: Denmark — flat rate (or free over X DKK), pickup option at Bredgade 32
-    - Zone 2: EU (24 countries) — flat rate or weight-based
-    - Tax / OSS configuration for EU VAT
-- [ ] Install **e-conomic sync app** (research best-rated at install: candidates "Sync e-conomic" by Storeconnect, or "e-conomic Connector"). Configure: orders → invoices in e-conomic, customer sync, product sync.
+    - Denmark — free shipping
+    - International — 299 DKK
+- [ ] e-conomic removed from launch scope
 - [ ] Branded transactional email templates (order confirmation, shipping confirmation) — apply Bjerrehuus typography + logo + footer
-- [ ] Install **Shopify Forms** for the Inquire form submissions, route to vibe@stylesnob.com
+- [ ] Install **Shopify Forms** for the Inquire form submissions once client email/account verification allows it; until then the `/contact` modal is the launch fallback
 
 ### Day 7 — QA, polish, handoff
 
@@ -539,15 +538,11 @@ Visual only. No backend.
 
 ## 11. Phase 2 Scope (Post-Launch)
 
-Tracked but not built in week 1:
+Active source of truth: `docs/current/POST-LAUNCH-ACTION-STEPS.md`.
 
-1. **Functional wishlist** with localStorage persistence + Paperless-Post-style "send list to recipient" email using the inherited letter component
-2. **NO + CH shipping**: register Norwegian VOEC, configure Swiss VAT/customs, add shipping zones
-3. **Pay-by-invoice via Klarna** (after merchant approval lands)
-4. **Active Book Appointment**: integrate booking tool with day/time-window logic (Calendly or Tidycal — TBD), constrained to 2 days/week at the Bredgade office
-5. **Real photography**: replace IG-sourced placeholders with Mumbai packshots (3 angles white + colored bg + 360° video per piece)
-6. **Real Universe stories** (The Launch of Power, Bezel, The Bugatti Race, etc.) as Vibe writes them
-7. **AI-generated model + hand shots** (per packshot brief)
+Current phase-two themes: functional wishlist, active Book Appointment, international markets, Klarna/pay-by-invoice, Universe story expansion, and e-conomic sync via Storebuddy.
+
+Note: replacing placeholder/current product images with client-delivered real assets is part of launch/client asset readiness, not a phase-two feature.
 
 ---
 
@@ -555,12 +550,8 @@ Tracked but not built in week 1:
 
 | App | Purpose | Cost |
 |---|---|---|
-| Shopify Markets | EN/DK markets, EU VAT (OSS) | Free / built-in |
-| Translate & Adapt | DK translation layer | Free (Shopify) |
-| Klaviyo | Newsletter, transactional email | Free up to 250 contacts |
-| Shopify Forms | Inquire form routing | Free |
-| e-conomic sync | Orders → e-conomic invoices | ~$15–30/month, evaluate at install |
-| Shopify Local Pickup | Bredgade 32 pickup option | Free / built-in |
+| Shopify Markets | Current market/currency setup | Free / built-in |
+| Shopify Forms | Inquire form routing once email/account verification is complete | Free |
 
 ---
 

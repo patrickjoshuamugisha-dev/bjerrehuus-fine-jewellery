@@ -3,9 +3,9 @@
     "hero": {
       "type": "inspiration-hero-collage",
       "settings": {
-        "hero_label": "THE CLASSIC",
-        "hero_headline": "Timeless shapes. Set in gold, worn every day.",
-        "hero_body": "<p>The Classic collection is built for the everyday: Clean lines, considered proportions, materials that only get better with time. Each piece hand-finished in 18K gold at Vibe's workshop in Mumbai.</p>",
+        "hero_label": "CLASSIC",
+        "hero_headline": "Tidløse former. Sat i guld, båret hver dag.",
+        "hero_body": "<p>Classic-kollektionen er skabt til hverdagen: rene linjer, gennemtænkte proportioner og materialer, der kun bliver smukkere med tiden. Hvert stykke er håndfinishet i 18K guld på Vibes værksted i Mumbai.</p>",
         "hero_image_position": "center 72%",
         "hero_image_url": "lifestyle-5691.jpg"
       }
@@ -14,9 +14,9 @@
       "type": "inspiration-product-cutout",
       "settings": {
         "product": "classic-solitaire-hoops",
-        "label": "THE HOOPS",
-        "subtext": "<p>Classic Solitaire Hoops: a single brilliant-cut diamond, set in 18K gold. The kind of earring you put on in the morning and forget you're wearing.</p><p>Soft proportions, clean shapes, and 18K gold that ages well. Made to be worn together, day after day.</p>",
-        "button_label": "Inquire about this piece",
+        "label": "CREOLERNE",
+        "subtext": "<p>Classic Solitaire Creoler: en enkelt brillantslebet diamant, sat i 18K guld. Den slags ørering, du tager på om morgenen og glemmer, at du har på.</p><p>Bløde proportioner, rene former og 18K guld, der ældes smukt. Skabt til at bæres sammen, dag efter dag.</p>",
+        "button_label": "Forespørg om dette stykke",
         "fallback_image_url": "lifestyle-signet.jpg"
       }
     },
@@ -30,7 +30,7 @@
           "type": "bleeder_image",
           "settings": {
             "image_url": "classic-bleeder-bracelet.png",
-            "caption": "The Classic bracelet."
+            "caption": "Classic-armbåndet."
           }
         }
       },
@@ -40,7 +40,7 @@
       "type": "inspiration-product-grid",
       "settings": {
         "collection": "classic",
-        "heading": "The Classic Collection",
+        "heading": "Classic-kollektionen",
         "products_to_show": 6
       }
     }

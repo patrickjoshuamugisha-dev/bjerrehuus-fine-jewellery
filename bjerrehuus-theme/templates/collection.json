@@ -6,7 +6,7 @@
         "tile-classic": {
           "type": "tile",
           "settings": {
-            "label": "THE CLASSIC",
+            "label": "CLASSIC",
             "link": "/pages/the-classic",
             "image_url": "lifestyle-5691.jpg",
             "focal_x": 70,
@@ -16,7 +16,7 @@
         "tile-pillow": {
           "type": "tile",
           "settings": {
-            "label": "THE PILLOW",
+            "label": "PILLOW",
             "link": "/pages/pillow",
             "image_url": "lifestyle-love.jpg",
             "focal_x": 35,
@@ -27,7 +27,7 @@
         "tile-bridal": {
           "type": "tile",
           "settings": {
-            "label": "THE BRIDAL",
+            "label": "BRIDAL",
             "link": "/pages/the-bridal",
             "image_url": "lifestyle-signet.jpg"
           }

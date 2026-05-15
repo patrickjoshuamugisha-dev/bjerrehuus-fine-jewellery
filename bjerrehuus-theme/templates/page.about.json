@@ -3,11 +3,11 @@
     "about-main": {
       "type": "bjfj-about-main",
       "settings": {
-        "eyebrow": "Meet the founder",
+        "eyebrow": "Mød grundlæggeren",
         "name": "Vibe Bjerrehuus",
-        "portrait_caption": "Vibe at The Jewelry Room, Bredgade, Copenhagen",
+        "portrait_caption": "Vibe i The Jewelry Room, Bredgade, København",
         "portrait_url": "meet-vibe.webp",
-        "bio": "<p>Vibe Bjerrehuus has spent over two decades in fashion and design production, working with her own brand and helping others bring their visions to life across Europe, Asia, and beyond.</p><p>In 2010, she co-founded a small jewellery workshop in Mumbai, India, with her Indian business partner. It has since become her second home.</p><p>After years of collaborating with high-end jewellery brands across the world, Vibe has turned her full attention to what has always mattered most to her: the pieces themselves. The gold, the diamonds, the gemstones. Materials that have carried meaning for centuries, and that she believes should carry meaning for generations to come.</p><p>Every Bjerrehuus piece is made with care for the people who wear it, the people who made it, and the world it comes from.</p><p>Her goal is not to produce jewellery at volume, but to create pieces that find the right person and stay with them.</p>"
+        "bio": "<p>Vibe Bjerrehuus har gennem mere end to årtier arbejdet med mode- og designproduktion — både med sit eget brand og som rådgiver for andre, der har ønsket at føre deres visioner ud i livet på tværs af Europa, Asien og resten af verden.</p><p>I 2010 var hun med til at grundlægge et lille smykkeværksted i Mumbai, Indien, sammen med sin indiske forretningspartner. Det er siden blevet hendes andet hjem.</p><p>Efter mange år som samarbejdspartner for førende smykkebrands verden over har Vibe nu rettet sin fulde opmærksomhed mod det, der altid har betydet mest for hende: selve smykkerne. Guldet, diamanterne, ædelstenene. Materialer, der har båret betydning i århundreder, og som hun mener fortsat skal bære betydning i generationer fremover.</p><p>Hvert Bjerrehuus-smykke er skabt med omtanke for den, der bærer det, for dem, der har skabt det, og for den verden, det kommer fra.</p><p>Hendes mål er ikke at producere smykker i stort antal, men at skabe stykker, der finder det rette menneske og bliver hos det.</p>"
       }
     }
   },

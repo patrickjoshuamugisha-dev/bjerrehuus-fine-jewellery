@@ -7,8 +7,8 @@
         "video_url": "",
         "fallback_image_url": "lifestyle-5691.jpg",
         "eyebrow": "Bjerrehuus Fine Jewellery",
-        "headline": "Timeless pieces, cherished and passed down.",
-        "cta_label": "Discover the collection",
+        "headline": "Tidløse smykker, båret og givet videre.",
+        "cta_label": "Opdag kollektionen",
         "cta_url": "/pages/pillow"
       }
     },
@@ -17,9 +17,9 @@
       "settings": {
         "image_1_url": "",
         "image_2_url": "",
-        "eyebrow": "The Pillow Collection",
-        "heading": "Linked pavé pillows, fully set with diamonds.",
-        "body": "<p>Each pillow is hand-set in 18K gold at Vibe's own workshop in Mumbai — crafted to be worn every day.</p>",
+        "eyebrow": "Pillow-kollektionen",
+        "heading": "Sammenkædede pavé-puder, fuldt sat med diamanter.",
+        "body": "<p>Hver pude er håndsat i 18K guld på Vibes eget værksted i Mumbai — skabt til at bæres hver dag.</p>",
         "cta_label": "Shop Pillow",
         "cta_url": "/pages/pillow",
         "bg_color": "alt"
@@ -28,8 +28,8 @@
     "divider": {
       "type": "text-divider",
       "settings": {
-        "eyebrow": "Fine Jewellery, Copenhagen",
-        "headline": "Crafted in 18K gold. Set by hand in Mumbai.",
+        "eyebrow": "Fine Jewellery, København",
+        "headline": "Skabt i 18K guld. Håndsat i Mumbai.",
         "padding_top": 96,
         "padding_bottom": 48
       }
@@ -41,7 +41,7 @@
           "type": "tile",
           "settings": {
             "image_url": "lifestyle-5691.jpg",
-            "label": "Discover Classic",
+            "label": "Opdag Classic",
             "link": "/pages/the-classic",
             "focal_x": 75,
             "focal_y": 50
@@ -51,7 +51,7 @@
           "type": "tile",
           "settings": {
             "image_url": "lifestyle-love.jpg",
-            "label": "Discover Pillow",
+            "label": "Opdag Pillow",
             "link": "/pages/pillow",
             "focal_x": 35,
             "focal_y": 40,
@@ -62,7 +62,7 @@
           "type": "tile",
           "settings": {
             "image_url": "lifestyle-signet.jpg",
-            "label": "Discover Bridal",
+            "label": "Opdag Bridal",
             "link": "/pages/the-bridal"
           }
         }

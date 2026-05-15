@@ -240,7 +240,18 @@ const snapshot = {
   collections: await collectConnection(config, COLLECTIONS_QUERY, 'collections'),
   pages: await collectConnection(config, PAGES_QUERY, 'pages'),
   menus: (await shopifyGraphql(config, MENUS_QUERY, { first: 100 })).menus.nodes,
-  policies: (await shopifyGraphql(config, POLICIES_QUERY)).shop.shopPolicies,
+  policies: await (async () => {
+    try {
+      return (await shopifyGraphql(config, POLICIES_QUERY)).shop.shopPolicies;
+    } catch (err) {
+      const msg = String(err.message || err);
+      if (msg.includes('read_legal_policies') || msg.includes('ACCESS_DENIED')) {
+        console.warn('Warning: shopPolicies skipped (missing read_legal_policies scope)');
+        return [];
+      }
+      throw err;
+    }
+  })(),
   urlRedirects: await collectConnection(config, URL_REDIRECTS_QUERY, 'urlRedirects'),
 };
 

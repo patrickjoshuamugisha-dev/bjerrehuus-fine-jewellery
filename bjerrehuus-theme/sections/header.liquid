@@ -294,12 +294,12 @@
       <button
         type="button"
         class="header__icon header__icon--wishlist link focus-inset bjfj-tooltip"
-        aria-label="Wishlist"
-        data-tooltip="Coming soon"
+        aria-label="{{ 'bjerrehuus.header.wishlist' | t }}"
+        data-tooltip="{{ 'bjerrehuus.header.coming_soon' | t }}"
         tabindex="0"
       >
         <span class="svg-wrapper">{{ 'icon-heart.svg' | inline_asset_content }}</span>
-        <span class="visually-hidden">Wishlist</span>
+        <span class="visually-hidden">{{ 'bjerrehuus.header.wishlist' | t }}</span>
       </button>
 
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">

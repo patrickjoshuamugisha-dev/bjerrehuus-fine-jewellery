@@ -3,9 +3,9 @@
     "hero": {
       "type": "inspiration-hero-collage",
       "settings": {
-        "hero_label": "THE BRIDAL",
-        "hero_headline": "For the day that changes everything.",
-        "hero_body": "<p>Bridal jewellery should be as personal as the person wearing it. Each piece is made to order, set in 18K gold, and crafted to be passed down.</p>",
+        "hero_label": "BRIDAL",
+        "hero_headline": "Til dagen, der forandrer alt.",
+        "hero_body": "<p>Brudesmykker skal være lige så personlige som den, der bærer dem. Hvert stykke fremstilles på bestilling, sat i 18K guld og skabt til at gives videre.</p>",
         "hero_image_url": "lifestyle-love.jpg"
       }
     },
@@ -13,9 +13,9 @@
       "type": "inspiration-product-cutout",
       "settings": {
         "product": "bridal-solitaire-ring",
-        "label": "THE SOLITAIRE",
-        "subtext": "<p>A brilliant-cut solitaire in 18K gold, the ring you'll wear every day for the rest of your life. We'll find the right stone together.</p><p>Each setting is made to order. We work with you on the cut, the carat, and the gold, so the ring feels like yours from the first wearing.</p>",
-        "button_label": "Inquire about this piece",
+        "label": "SOLITAIREN",
+        "subtext": "<p>En brillantslebet solitaire i 18K guld — ringen, du bærer hver dag resten af livet. Vi finder den rette sten sammen.</p><p>Hver fatning fremstilles på bestilling. Vi taler med dig om slibning, carat og guld, så ringen føles som din fra første gang, du tager den på.</p>",
+        "button_label": "Forespørg om dette stykke",
         "fallback_image_url": "lifestyle-signet.jpg"
       }
     },
@@ -29,7 +29,7 @@
           "type": "bleeder_image",
           "settings": {
             "image_url": "classic-bleeder-bracelet.png",
-            "caption": "The Classic bracelet."
+            "caption": "Classic-armbåndet."
           }
         }
       },
@@ -41,17 +41,17 @@
         "style": "light",
         "force_show": true,
         "label": "",
-        "heading": "The right ring starts with a conversation.",
-        "body": "<p>We work with you on the stone, the setting, and the gold — made to order, in 18K.</p>",
-        "button_label": "Begin the conversation",
-        "inquiry_subject": "Bridal Inquiry"
+        "heading": "Den rette ring begynder med en samtale.",
+        "body": "<p>Vi arbejder sammen med dig om stenen, fatningen og guldet — fremstillet på bestilling i 18K.</p>",
+        "button_label": "Start samtalen",
+        "inquiry_subject": "Bridal-forespørgsel"
       }
     },
     "product-grid": {
       "type": "inspiration-product-grid",
       "settings": {
         "collection": "bridal",
-        "heading": "The Bridal Collection",
+        "heading": "Bridal-kollektionen",
         "products_to_show": 6
       }
     }

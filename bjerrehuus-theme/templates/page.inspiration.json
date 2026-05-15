@@ -3,9 +3,9 @@
     "hero": {
       "type": "inspiration-hero-collage",
       "settings": {
-        "hero_label": "THE PILLOW",
-        "hero_headline": "Linked pavé pillows, fully set with diamonds.",
-        "hero_body": "<p>Linked pavé cushion links, fully set with diamonds. Necklace, bracelet, earrings, and studs, available in white gold, gold, and rose gold.</p>",
+        "hero_label": "PILLOW",
+        "hero_headline": "Sammenkædede pavé-puder, fuldt sat med diamanter.",
+        "hero_body": "<p>Sammenkædede pavé-pude-led, fuldt sat med diamanter. Halskæde, armbånd, øreringe og studs — fås i hvidguld, guld og rosaguld.</p>",
         "hero_image_url": "",
         "hero_treatment": "pillow"
       }
@@ -14,9 +14,9 @@
       "type": "inspiration-product-cutout",
       "settings": {
         "product": "pillow-boomrang-earring",
-        "label": "THE EARRING",
-        "subtext": "<p>A single Pillow Boomrang earring, hand-set with 0.80 TW VVS-VS diamonds in 18K white gold. Worn left, worn right, worn both.</p><p>Sketched in Copenhagen, hand-set link by link in 18K gold at Vibe's workshop in Mumbai. A pavé surface so dense it catches light from every angle, meant to live with you.</p>",
-        "button_label": "Inquire about this piece",
+        "label": "ØRERINGEN",
+        "subtext": "<p>En enkelt Pillow Boomrang-ørering, håndsat med 0,80 TW VVS-VS diamanter i 18K hvidguld. Båret venstre, båret højre, båret som par.</p><p>Skitseret i København, håndsat led for led i 18K guld på Vibes værksted i Mumbai. En pavé-overflade så tæt, at den fanger lyset fra alle vinkler — skabt til at leve med dig.</p>",
+        "button_label": "Forespørg om dette stykke",
         "fallback_image_url": "lifestyle-5794.jpg"
       }
     },
@@ -30,7 +30,7 @@
           "type": "bleeder_image",
           "settings": {
             "image_url": "classic-bleeder-bracelet.png",
-            "caption": "The Pillow bracelet."
+            "caption": "Pillow-armbåndet."
           }
         }
       },
@@ -40,7 +40,7 @@
       "type": "inspiration-product-grid",
       "settings": {
         "collection": "pillow",
-        "heading": "The Pillow Collection",
+        "heading": "Pillow-kollektionen",
         "products_to_show": 3
       }
     }

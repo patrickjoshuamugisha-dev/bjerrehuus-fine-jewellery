@@ -526,5 +526,14 @@
       "expanded": "Formularen til modtager af gavekort er vist",
       "collapsed": "Formularen til modtager af gavekort er skjult"
     }
+  },
+  "bjerrehuus": {
+    "header": {
+      "wishlist": "Ønskeliste",
+      "coming_soon": "Kommer snart"
+    },
+    "campaign_tiles": {
+      "default_label": "KOLLEKTIONEN"
+    }
   }
 }

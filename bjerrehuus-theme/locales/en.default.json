@@ -532,5 +532,14 @@
       "send_on": "YYYY-MM-DD",
       "send_on_label": "Send on (optional)"
     }
+  },
+  "bjerrehuus": {
+    "header": {
+      "wishlist": "Wishlist",
+      "coming_soon": "Coming soon"
+    },
+    "campaign_tiles": {
+      "default_label": "THE COLLECTION"
+    }
   }
 }

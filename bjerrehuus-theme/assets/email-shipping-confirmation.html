@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your order is on its way — Bjerrehuus Fine Jewellery</title>
+  <title>Din ordre er på vej — Bjerrehuus Fine Jewellery</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -170,19 +170,19 @@
 
     <!-- Body -->
     <div class="email-body">
-      <h1>Your order is on its way.</h1>
+      <h1>Din ordre er på vej.</h1>
       <p>
-        Hi {{ billing_address.first_name }},<br>
-        Your piece has been carefully packaged and dispatched. It will arrive within the estimated delivery window for your region.
+        Hej {{ billing_address.first_name }},<br>
+        Dit smykke er omhyggeligt pakket og afsendt. Det ankommer inden for det forventede leveringsvindue for din region.
       </p>
 
       <!-- Tracking -->
       {% if fulfillment.tracking_number %}
       <div class="tracking-block">
-        <div class="tracking-label">Tracking number</div>
+        <div class="tracking-label">Sporingsnummer</div>
         <div class="tracking-number">{{ fulfillment.tracking_number }}</div>
         {% if fulfillment.tracking_url %}
-        <a href="{{ fulfillment.tracking_url }}">Track your shipment</a>
+        <a href="{{ fulfillment.tracking_url }}">Spor din forsendelse</a>
         {% endif %}
       </div>
       {% endif %}
@@ -201,27 +201,27 @@
             {% if line.line_item.variant.title != 'Default Title' %}
             <div class="meta">{{ line.line_item.variant.title }}</div>
             {% endif %}
-            <div class="meta">Qty: {{ line.quantity }}</div>
+            <div class="meta">Antal: {{ line.quantity }}</div>
           </div>
         </div>
         {% endfor %}
       </div>
 
-      <a href="{{ order_status_url }}" class="cta-button">View your order</a>
+      <a href="{{ order_status_url }}" class="cta-button">Se din ordre</a>
 
       <div class="divider"></div>
 
       <p class="muted">
-        Questions about your delivery? Write to us at <a href="mailto:vibe@stylesnob.com">vibe@stylesnob.com</a> or WhatsApp <a href="https://wa.me/4522773684">+45 22 77 36 84</a>.
+        Spørgsmål til leveringen? Skriv til os på <a href="mailto:vibe@stylesnob.com">vibe@stylesnob.com</a> eller på WhatsApp <a href="https://wa.me/4522773684">+45 22 77 36 84</a>.
       </p>
       <p class="muted">
-        Returns are accepted within 14 days of receipt. See our <a href="{{ shop.url }}/pages/returns-exchange">returns policy</a>.
+        Du har 14 dages fortrydelsesret fra modtagelsen. Se vores <a href="{{ shop.url }}/pages/returns-exchange">returpolitik</a>.
       </p>
     </div>
 
     <!-- Footer -->
     <div class="email-footer">
-      <p>Bjerrehuus Fine Jewellery · Bredgade 32, 1260 Copenhagen K</p>
+      <p>Bjerrehuus Fine Jewellery · Bredgade 32, 1260 København K</p>
       <p><a href="mailto:vibe@stylesnob.com">vibe@stylesnob.com</a> · <a href="https://wa.me/4522773684">+45 22 77 36 84</a></p>
       <p><a href="{{ shop.url }}">bjerrehuusfinejewellery.com</a></p>
       <p class="footer-logo">Bjerrehuus Fine Jewellery</p>

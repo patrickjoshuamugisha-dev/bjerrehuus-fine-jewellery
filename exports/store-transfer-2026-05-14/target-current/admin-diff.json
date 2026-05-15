@@ -1,0 +1,45 @@
+{
+  "diffedAt": "2026-05-14T14:17:39.032Z",
+  "source": "exports/store-transfer-2026-05-14/target-before/admin-normalized.json",
+  "target": "exports/store-transfer-2026-05-14/target-current/admin-normalized.json",
+  "counts": {
+    "source": {
+      "products": 17,
+      "collections": 9,
+      "pages": 21,
+      "menus": 5,
+      "policies": 6,
+      "urlRedirects": 0
+    },
+    "target": {
+      "products": 17,
+      "collections": 9,
+      "pages": 21,
+      "menus": 5,
+      "policies": 0,
+      "urlRedirects": 0
+    }
+  },
+  "lists": [
+    {
+      "name": "products",
+      "missingInTarget": [],
+      "extraInTarget": []
+    },
+    {
+      "name": "collections",
+      "missingInTarget": [],
+      "extraInTarget": []
+    },
+    {
+      "name": "pages",
+      "missingInTarget": [],
+      "extraInTarget": []
+    },
+    {
+      "name": "menus",
+      "missingInTarget": [],
+      "extraInTarget": []
+    }
+  ]
+}
