@@ -1,57 +1,77 @@
 # Juridiske oplysninger
 
-*Senest opdateret: [DATO]*
+*Senest opdateret: 18. maj 2026*
 
-## Selskabsoplysninger
+Denne side indeholder de lovpligtige oplysninger om den virksomhed, der driver webshoppen bjerrehuus.com, og beskriver de juridiske rammer for brugen af webshoppen.
 
-Webshoppen Bjerrehuus Fine Jewellery drives af:
+## 1. Virksomhedsoplysninger
 
-**Bungalow Production ApS**
-CVR-nr.: 39641763
-E-mail: [vibe@stylesnob.com](mailto:vibe@stylesnob.com)
+Webshoppen drives af:
 
-Bungalow Production ApS er et anpartsselskab registreret i Det Centrale Virksomhedsregister (CVR) i Danmark. Aktuelle selskabsoplysninger, herunder registreret adresse og tegningsregler, kan til enhver tid slås op på [www.cvr.dk](https://www.cvr.dk) under CVR-nr. 39641763.
+**Bungalow Production ApS**  
+CVR-nr.: 39641763  
+C/O Bjerrehuus Fine Jewellery  
+Sandbjergvej 60 C  
+2950 Vedbæk  
+E-mail: [vibe@stylesnob.com](mailto:vibe@stylesnob.com)  
+Telefon: [+45 22 77 36 84](tel:+4522773684)
 
-## Varemærke og handelsnavn
+Bungalow Production ApS er registreret i Det Centrale Virksomhedsregister i Danmark. Aktuelle registreringsoplysninger kan efterses på [www.cvr.dk](https://www.cvr.dk).
 
-"Bjerrehuus Fine Jewellery" anvendes som varemærke og handelsnavn for smykkesortimentet, der markedsføres og sælges af Bungalow Production ApS.
+Webshoppen markedsføres og drives under handelsnavnet **Bjerrehuus Fine Jewellery**. I disse oplysninger samt på webshoppen i øvrigt refereres til virksomheden som "Bjerrehuus Fine Jewellery", "vi", "os" eller "vores".
 
-## Moms
+## 2. Moms og priser
 
-Bungalow Production ApS er momsregistreret i Danmark. Alle priser på webshoppen er angivet inklusive **25 % dansk moms**, jf. momsloven. Momsen specificeres på din ordrebekræftelse og faktura.
+Bungalow Production ApS er momsregistreret i Danmark. Alle priser på webshoppen er angivet i danske kroner (DKK) og inklusive 25 % dansk moms, medmindre andet udtrykkeligt fremgår af den pågældende produktside eller i forbindelse med eksport. Eventuelle forsendelsesomkostninger oplyses særskilt ved kassen, inden ordren gennemføres.
 
-## Gældende ret
+## 3. Immaterielle rettigheder
 
-Alle køb og enhver tvist mellem dig som kunde og Bungalow Production ApS er underlagt **dansk ret**. Værneting er de almindelige danske domstole, medmindre ufravigelige forbrugerbeskyttende værnetingsregler i din bopælsstat tilsiger andet.
+Alt indhold på webshoppen, herunder tekst, produktbeskrivelser, fotografier, illustrationer, grafiske elementer, logoer, varemærker, design og det samlede visuelle udtryk, tilhører Bungalow Production ApS eller virksomhedens licensgivere og er beskyttet af gældende ophavsretlig og immaterialretlig lovgivning.
 
-## Klageadgang
+Handelsnavnet "Bjerrehuus Fine Jewellery" samt tilhørende logo og visuel identitet er kendetegn for Bungalow Production ApS.
 
-Hvis du som forbruger ikke er tilfreds med din handel, og vi ikke har kunnet finde en mindelig løsning, kan du indgive en klage til:
+Det er ikke tilladt at kopiere, reproducere, publicere, distribuere, ændre eller på anden måde anvende indholdet på webshoppen til kommercielle formål uden forudgående skriftligt samtykke fra Bungalow Production ApS. Privat, ikke-kommerciel deling af indhold er tilladt, forudsat at kilden tydeligt fremgår.
 
-**Center for Klageløsning, Nævnenes Hus**
-Toldboden 2, 8800 Viborg
+## 4. Ansvar for indhold på webshoppen
+
+Vi bestræber os på, at alle oplysninger på webshoppen til enhver tid er korrekte, fyldestgørende og opdaterede. Vi kan dog ikke garantere, at indholdet til enhver tid er fejlfrit eller fuldstændigt, og vi forbeholder os ret til at opdatere, ændre eller fjerne indhold uden forudgående varsel.
+
+Produktfotografier er vejledende. Farvegengivelse kan variere afhængigt af skærmindstillinger, lysforhold og enhedstype. Smykker fremstilles og efterbehandles individuelt, og mindre variationer i sten, overflade og udførelse er et naturligt kendetegn ved håndlavet arbejde og anses ikke som fejl eller mangler.
+
+Vi er ikke ansvarlige for tab eller skader, der opstår som følge af fejl eller unøjagtigheder i webshoppen, med forbehold for ufravigelige forbrugerbeskyttende regler.
+
+## 5. Links til tredjepart
+
+Webshoppen kan indeholde links til eksterne hjemmesider, der drives af tredjeparter. Sådanne links stilles til rådighed som en service og udgør hverken en anbefaling eller en godkendelse af indholdet på de pågældende sider. Vi har ingen kontrol over og påtager os intet ansvar for indhold, produkter, tjenester eller oplysninger på tredjepartswebsteder. Besøg på eksterne sider sker på eget ansvar.
+
+## 6. Teknisk drift og tilgængelighed
+
+Webshoppen drives på Shopify-platformen (Shopify International Limited, Victoria Buildings, 2nd Floor, 1-2 Haddington Road, Dublin 4, D04 XN32, Irland). Vi tilstræber, at webshoppen er tilgængelig til enhver tid, men kan ikke garantere uafbrudt drift. Vedligeholdelse, tekniske fejl og omstændigheder uden for vores kontrol kan medføre midlertidig utilgængelighed. Vi er ikke ansvarlige for tab som følge af nedetid, medmindre dette følger af ufravigelige regler.
+
+## 7. Markedsføring og kommunikation
+
+Elektronisk markedsføring, herunder nyhedsbreve og kampagnemails, udsendes udelukkende på grundlag af et forudgående, gyldigt samtykke. Samtykke kan til enhver tid trækkes tilbage ved at anvende afmeldingslinket i enhver e-mail eller ved at kontakte os på [vibe@stylesnob.com](mailto:vibe@stylesnob.com). Behandling af personoplysninger i forbindelse med markedsføring er nærmere beskrevet i vores [privatlivspolitik](privatlivspolitik.md).
+
+## 8. Lovvalg og værneting
+
+Webshoppen og disse juridiske oplysninger er underlagt dansk ret. Eventuelle tvister afgøres ved de almindelige danske domstole, medmindre ufravigelige forbrugerbeskyttende regler bestemmer andet.
+
+## 9. Klageadgang
+
+Opstår der en tvist, der ikke kan løses i mindelighed, kan forbrugere indgive klage via Nævnenes Hus:
+
+**Mæglingsteamet for Forbrugerklager**  
+Nævnenes Hus  
+Toldboden 2  
+8800 Viborg  
 [www.naevneneshus.dk](https://www.naevneneshus.dk)
 
-Forbrugere bosat i et andet EU-land kan desuden anvende EU-Kommissionens online klageportal — Online Dispute Resolution (ODR): [ec.europa.eu/odr](https://ec.europa.eu/consumers/odr). Ved klage skal vores e-mailadresse, [vibe@stylesnob.com](mailto:vibe@stylesnob.com), angives.
+Vi opfordrer altid til, at eventuelle uenigheder søges løst direkte med os, inden en formel klage indgives. Kontakt os på [vibe@stylesnob.com](mailto:vibe@stylesnob.com) eller [+45 22 77 36 84](tel:+4522773684).
 
-## Tilsyn og lovgivning
+## 10. Ændringer
 
-Vores virksomhed drives i overensstemmelse med dansk og europæisk forbrugerbeskyttende lovgivning, herunder:
+Vi kan løbende opdatere disse juridiske oplysninger som følge af ændringer i lovgivningen, vores forretningsmæssige forhold eller webshoppen. Den gældende version er altid tilgængelig på denne side. Fortsat brug af webshoppen efter offentliggørelse af opdaterede oplysninger betragtes som accept af de ændrede vilkår.
 
-- **Forbrugeraftaleloven** — om fortrydelsesret og oplysningspligt ved fjernsalg
-- **Købeloven** — om forbrugerkøb og reklamationsret
-- **Markedsføringsloven** — om god markedsføringsskik og elektronisk markedsføring
-- **Momsloven** — om opkrævning af dansk moms
-- **Bogføringsloven** — om opbevaring af regnskabsmateriale
-- **Databeskyttelsesforordningen (GDPR) og databeskyttelsesloven** — om behandling af personoplysninger
-- **Hvidvaskloven** — i det omfang den finder anvendelse på vores aktivitet
-
-Tilsyn med vores efterlevelse af forbrugerbeskyttende lovgivning føres af bl.a. **Forbrugerombudsmanden** og **Konkurrence- og Forbrugerstyrelsen**. Tilsyn med vores behandling af personoplysninger føres af **Datatilsynet**, [www.datatilsynet.dk](https://www.datatilsynet.dk).
-
-## Immaterielle rettigheder
-
-Alle rettigheder til indhold på webshoppen — herunder tekst, fotografier, grafik, logoer, varemærker og designs — tilhører Bungalow Production ApS eller vores licensgivere og er beskyttet af bl.a. ophavsretsloven og varemærkeloven. Indholdet må ikke kopieres, distribueres eller anvendes kommercielt uden vores forudgående skriftlige samtykke.
-
-## Yderligere oplysninger
+---
 
 Se også vores [handelsbetingelser](handelsbetingelser.md), [privatlivspolitik](privatlivspolitik.md), [leveringspolitik](leveringspolitik.md), [retur- og fortrydelsespolitik](returpolitik.md) og [kontaktoplysninger](kontaktoplysninger.md).
